@@ -1,0 +1,118 @@
+<odoo>
+
+    <record id="program_view_form" model="ir.ui.view">
+        <field name="name">program.form</field>
+        <field name="model">syllabus_minister.program</field>
+        <field name="arch" type="xml">
+            <form string="Program Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="objectives"/>
+                        <field name="curricular_structure"/>
+                        <field name="features"/>
+                        <field name="semester_system"/>
+                        <field name="eligibility"/>
+                        <field name="document_required"/>
+                        <field name="admission_procedures"/>
+                        <field name="academic_schedule"/>
+                        <field name="course_registration"/>
+                        <field name="additional_withdrawal_course"/>
+                        <field name="attendance_requirement"/>
+                        <field name="normal_study_duration"/>
+                        <field name="max_study_duration"/>
+                        <field name="min_credit_fulltime_student"/>
+                        <field name="evaluation_system"/>
+                        <field name="curricular_structure"/>
+                        <field name="evaluation_elective_concentration_courses"/>
+                        <field name="grading_system"/>
+                        <field name="repeating_course"/>
+                        <field name="credit_transfer_withdrawal"/>
+                        <field name="project_work"/>
+                        <field name="internship"/>
+                        <field name="unfair_means"/>
+                        <field name="provision_retotaling_rechecking"/>
+                        <field name="dismissal_from_program"/>
+                        <field name="degree_requirement"/>
+                        <field name="deanslist"/>
+                        <field name="total_credit"/>
+                        <field name="faculty_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Course">
+                            <field name="course_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="program_view_search" model="ir.ui.view">
+        <field name="name">program.search</field>
+        <field name="model">syllabus_minister.program</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="program_view_tree" model="ir.ui.view">
+        <field name="name">program.tree</field>
+        <field name="model">syllabus_minister.program</field>
+        <field name="arch" type="xml">
+            <tree string="Program">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="program_view_kanban" model="ir.ui.view">
+        <field name="name">program.kanban</field>
+        <field name="model">syllabus_minister.program</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class="oe_kanban_global_click_edit oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                 <!--dropdown menu-->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <!-- title -->
+                                <b>Program:</b>
+                                <field name="name"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="program_list_action" model="ir.actions.act_window">
+        <field name="name">Program</field>
+        <field name="res_model">syllabus_minister.program</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Program
+            </p>
+        </field>
+    </record>
+    <menuitem id="program_menu" name="Program" parent="syllabus_minister_menu"
+              action="program_list_action"/>
+</odoo>

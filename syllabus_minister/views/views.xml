@@ -1,60 +1,6 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="syllabus_minister.list">
-      <field name="name">syllabus_minister list</field>
-      <field name="model">syllabus_minister.syllabus_minister</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
-
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="syllabus_minister.action_window">
-      <field name="name">syllabus_minister window</field>
-      <field name="res_model">syllabus_minister.syllabus_minister</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="syllabus_minister.action_server">
-      <field name="name">syllabus_minister server</field>
-      <field name="model_id" ref="model_syllabus_minister_syllabus_minister"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="syllabus_minister" id="syllabus_minister.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="syllabus_minister.menu_1" parent="syllabus_minister.menu_root"/>
-    <menuitem name="Menu 2" id="syllabus_minister.menu_2" parent="syllabus_minister.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="syllabus_minister.menu_1_list" parent="syllabus_minister.menu_1"
-              action="syllabus_minister.action_window"/>
-    <menuitem name="Server to list" id="syllabus_minister" parent="syllabus_minister.menu_2"
-              action="syllabus_minister.action_server"/>
-    -->
+    <!-- top level menu: no parent -->
+    <menuitem id="syllabus_minister_menu" name="Syllabus Minisiter"/>
   </data>
 </odoo>
