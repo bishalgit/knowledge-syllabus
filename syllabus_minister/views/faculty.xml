@@ -1,0 +1,106 @@
+<odoo>
+
+    <record id="faculty_view_form" model="ir.ui.view">
+        <field name="name">faculty.form</field>
+        <field name="model">syllabus_minister.faculty</field>
+        <field name="arch" type="xml">
+            <form string="Faculty Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="introduction"/>
+                        <field name="vision"/>
+                        <field name="mission"/>
+                        <field name="goals"/>
+                        <field name="characterstics"/>
+                        <field name="university_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Program">
+                            <field name="program_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="faculty_view_search" model="ir.ui.view">
+        <field name="name">faculty.search</field>
+        <field name="model">syllabus_minister.faculty</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="faculty_view_tree" model="ir.ui.view">
+        <field name="name">faculty.tree</field>
+        <field name="model">syllabus_minister.faculty</field>
+        <field name="arch" type="xml">
+            <tree string="Faculty">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="faculty_view_kanban" model="ir.ui.view">
+        <field name="name">faculty.kanban</field>
+        <field name="model">syllabus_minister.faculty</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class="oe_kanban_global_click_edit oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                 <!--dropdown menu-->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <!-- title -->
+                                <b>Faculty:</b>
+                                <field name="name"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- window action -->
+     <!--**
+         The following tag is an action definition for a "window action",
+         that is an action opening a view or a set of views
+     -->
+    <record id="faculty_list_action" model="ir.actions.act_window">
+        <field name="name">Faculty</field>
+        <field name="res_model">syllabus_minister.faculty</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Faculty
+            </p>
+        </field>
+    </record>
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="faculty_menu" name="Faculty" parent="syllabus_minister_menu"
+              action="faculty_list_action"/>
+</odoo>

@@ -1,0 +1,99 @@
+<odoo>
+
+    <record id="unit_view_form" model="ir.ui.view">
+        <field name="name">unit.form</field>
+        <field name="model">syllabus_minister.unit</field>
+        <field name="arch" type="xml">
+            <form string="Unit Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="study_hours"/>
+                        <field name="description"/>
+                        <field name="course_id"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="unit_view_search" model="ir.ui.view">
+        <field name="name">unit.search</field>
+        <field name="model">syllabus_minister.unit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!--override the automatically generated list view for courses-->
+    <record id="unit_view_tree" model="ir.ui.view">
+        <field name="name">unit.tree</field>
+        <field name="model">syllabus_minister.unit</field>
+        <field name="arch" type="xml">
+            <tree string="Unit">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="unit_view_kanban" model="ir.ui.view">
+        <field name="name">unit.kanban</field>
+        <field name="model">syllabus_minister.unit</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class= "oe_kanban_global_click_edit oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                 <!--dropdown menu-->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <!-- title -->
+                                <b>Unit:</b>
+                                <field name="name"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- window action -->
+     <!--**
+         The following tag is an action definition for a "window action",
+         that is an action opening a view or a set of views
+     -->
+    <record id="unit_list_action" model="ir.actions.act_window">
+        <field name="name">Unit</field>
+        <field name="res_model">syllabus_minister.unit</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Unit
+            </p>
+        </field>
+    </record>
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="unit_menu" name="Unit" parent="syllabus_minister_menu"
+              action="unit_list_action"/>
+</odoo>

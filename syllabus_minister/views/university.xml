@@ -1,0 +1,102 @@
+<odoo>
+
+    <record id="university_view_form" model="ir.ui.view">
+        <field name="name">university.form</field>
+        <field name="model">syllabus_minister.university</field>
+        <field name="arch" type="xml">
+            <form string="University Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Faculty">
+                            <field name="faculty_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="university_view_search" model="ir.ui.view">
+        <field name="name">university.search</field>
+        <field name="model">syllabus_minister.university</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="faculty_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="unversity_view_tree" model="ir.ui.view">
+        <field name="name">university.tree</field>
+        <field name="model">syllabus_minister.university</field>
+        <field name="arch" type="xml">
+            <tree string="University">
+                <field name="name"/>
+                <field name="faculty_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="university_view_kanban" model="ir.ui.view">
+        <field name="name">university.kanban</field>
+        <field name="model">syllabus_minister.university</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class="oe_kanban_global_click_edit oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                 <!--dropdown menu-->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <!-- title -->
+                                <b>University:</b>
+                                <field name="name"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- window action -->
+     <!--**
+         The following tag is an action definition for a "window action",
+         that is an action opening a view or a set of views
+     -->
+    <record id="university_list_action" model="ir.actions.act_window">
+        <field name="name">University</field>
+        <field name="res_model">syllabus_minister.university</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create University
+            </p>
+        </field>
+    </record>
+
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="university_menu" name="University" parent="syllabus_minister_menu"
+              action="university_list_action"/>
+</odoo>
