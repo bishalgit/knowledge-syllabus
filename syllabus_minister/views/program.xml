@@ -7,7 +7,13 @@
             <form string="Program Form">
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name" required="1" placeholder="Program Name"/>
+                            </h2>
+                        </div>
+                    </group>
+                    <group>
                         <field name="objectives"/>
                         <field name="curricular_structure"/>
                         <field name="features"/>
@@ -22,23 +28,33 @@
                         <field name="normal_study_duration"/>
                         <field name="max_study_duration"/>
                         <field name="min_credit_fulltime_student"/>
-                        <field name="evaluation_system"/>
                         <field name="curricular_structure"/>
                         <field name="evaluation_elective_concentration_courses"/>
-                        <field name="grading_system"/>
                         <field name="repeating_course"/>
                         <field name="credit_transfer_withdrawal"/>
                         <field name="project_work"/>
                         <field name="internship"/>
-                        <field name="unfair_means"/>
                         <field name="provision_retotaling_rechecking"/>
-                        <field name="dismissal_from_program"/>
-                        <field name="degree_requirement"/>
                         <field name="deanslist"/>
                         <field name="total_credit"/>
                         <field name="faculty_id"/>
                     </group>
                     <notebook>
+                        <page string="Evaluation System">
+                            <field name="evaluation_system"/>
+                        </page>
+                        <page string="Grading System">
+                            <field name="grading_system"/>
+                        </page>
+                        <page string="Unfair Means">
+                            <field name="unfair_means"/>
+                        </page>
+                        <page string="Dismissal from the group">
+                            <field name="dismissal_from_program"/>
+                        </page>
+                        <page string="Degree Requirement">
+                            <field name="degree_requirement"/>
+                        </page>
                         <page string="Course">
                             <field name="course_ids"/>
                         </page>

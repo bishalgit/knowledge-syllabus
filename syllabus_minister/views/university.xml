@@ -7,7 +7,11 @@
             <form string="University Form">
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" required="1" placeholder="University Name"/>
+                            </h1>
+                        </div>
                     </group>
                     <notebook>
                         <page string="Faculty">
@@ -36,7 +40,6 @@
         <field name="arch" type="xml">
             <tree string="University">
                 <field name="name"/>
-                <field name="faculty_ids"/>
             </tree>
         </field>
     </record>
