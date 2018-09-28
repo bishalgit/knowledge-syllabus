@@ -19,12 +19,12 @@
                         <field name="features"/>
                         <field name="semester_system"/>
                         <field name="eligibility"/>
-                        <field name="document_required"/>
+                        <field name="documents_required"/>
                         <field name="admission_procedures"/>
                         <field name="academic_schedule"/>
                         <field name="course_registration"/>
                         <field name="additional_withdrawal_course"/>
-                        <field name="attendance_requirement"/>
+                        <field name="attendance_requirements"/>
                         <field name="normal_study_duration"/>
                         <field name="max_study_duration"/>
                         <field name="min_credit_fulltime_student"/>
@@ -53,7 +53,7 @@
                             <field name="dismissal_from_program"/>
                         </page>
                         <page string="Degree Requirement">
-                            <field name="degree_requirement"/>
+                            <field name="degree_requirements"/>
                         </page>
                         <page string="Course">
                             <field name="course_ids"/>
