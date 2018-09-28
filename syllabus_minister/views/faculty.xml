@@ -16,7 +16,7 @@
                     <group>
                         <field name="introduction"/>
                         <field name="vision"/>
-                        <field name="characterstics"/>
+                        <field name="characteristics"/>
                         <field name="university_id"/>
                     </group>
                     <notebook>
