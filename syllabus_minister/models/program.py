@@ -30,7 +30,7 @@ class Program(models.Model):
     internship = fields.Text(string='Internship')
     unfair_means = fields.Html(string='Unfair Means')
     provision_retotaling_rechecking = fields.Text(string='Provision for retotaling and rechecking')
-    dismissal_from_program = fields.Html(string='Dismissal from the program')
+    dismissal_from_program = fields.Text(string='Dismissal from the program')
     degree_requirements = fields.Html(string='Degree Requirement')
     deanslist = fields.Text(string='Distinction and deans list')
     course_ids = fields.One2many('syllabus_minister.course','program_id',string='Course')
