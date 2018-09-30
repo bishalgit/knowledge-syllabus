@@ -31,11 +31,16 @@
     'version': '11.0.0.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'base_user_role'],
 
     # always loaded
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
+        'views/change_password_wizard_views.xml',
+        'views/change_password_user_views.xml',
+        'views/res_users_views.xml',
+        'views/base_user_role_views.xml',
         'views/views.xml',
         'views/university.xml',
         'views/faculty.xml',
@@ -44,6 +49,7 @@
         'views/course.xml',
         'views/unit.xml',
         'views/templates.xml',
+        'data/base_user_role.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
