@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base_user_role_university_group" model="res.users.role">
+        <field name="name">University</field>
+    </record>
+    <record id="base_user_role_syllabus_manager_group" model="res.users.role">
+        <field name="name">Manager</field>
+    </record>
+    <record id="base_user_role_syllabus_approver_group" model="res.users.role">
+        <field name="name">Approver</field>
+    </record>
+    <record id="base_user_role_syllabus_editor_group" model="res.users.role">
+        <field name="name">Editor</field>
+    </record>
+    <record id="base_user_role_syllabus_portal_user_group" model="res.users.role">
+        <field name="name">Portal User</field>
+    </record>
+</odoo>
