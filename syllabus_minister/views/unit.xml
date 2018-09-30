@@ -107,6 +107,6 @@
      <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
              action course_list_action -->
-    <menuitem id="unit_menu" name="Unit" parent="syllabus_minister_menu"
+    <menuitem id="unit_menu" name="Unit" parent="syllabus_minister_configuration_menu"
               action="unit_list_action"/>
 </odoo>
