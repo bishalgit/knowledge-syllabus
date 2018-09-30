@@ -13,11 +13,17 @@
                             </h2>
                         </div>
                     </group>
-                    <group>
-                        <field name="introduction"/>
-                        <field name="vision"/>
-                        <field name="characteristics"/>
-                        <field name="university_id"/>
+                    <group colspan="2">
+                        <group>
+                            <field name="introduction"/>
+                            <field name="vision"/>
+                        </group>
+                        <group>
+                            <field name="characteristics"/>
+                        </group>
+                        <group>
+                            <field name="university_id"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Mission">
