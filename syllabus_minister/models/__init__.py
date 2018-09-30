@@ -7,3 +7,5 @@ from . import course
 from . import unit
 from . import change_password_user
 from . import change_password_wizard
+from . import res_users_role
+from . import res_users
