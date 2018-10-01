@@ -4,7 +4,8 @@
     <menuitem id="syllabus_minister_menu" name="Syllabus Minisiter" sequence="1" web_icon="syllabus_minister,logo.png"/>
 
     <!-- Configuration Menuitem -->
-    <menuitem name="Configuration" id="syllabus_minister_configuration_menu" parent="syllabus_minister.syllabus_minister_menu" groups="syllabus_minister.syllabus_minister_group_university"/>
+    <menuitem name="Configuration" id="syllabus_minister_configuration_menu" parent="syllabus_minister.syllabus_minister_menu" groups="syllabus_minister.syllabus_minister_group_university"
+    sequence="100"/>
 
     <!-- Other Roles Users -->
     <menuitem name="Users" id="syllabus_minister_users" parent="syllabus_minister_configuration_menu" action="syllabus_minister.actions_syllabus_minister_res_users_role_tree"/>
