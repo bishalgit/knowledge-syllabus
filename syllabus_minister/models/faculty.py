@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class Faculty(models.Model):
     _name = 'syllabus_minister.faculty'
+    _inherit = 'mail.thread'
 
     name = fields.Char(string='Name')
     introduction = fields.Text(string='Introduction')
