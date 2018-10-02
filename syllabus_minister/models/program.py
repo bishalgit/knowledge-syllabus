@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class Program(models.Model):
     _name = 'syllabus_minister.program'
+    _inherit = 'mail.thread'
 
     name = fields.Char(string='Name')
     objectives = fields.Text(string='Objectives')
