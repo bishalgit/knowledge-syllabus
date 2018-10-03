@@ -21,9 +21,9 @@
                         <group>
                             <field name="characteristics"/>
                         </group>
-                        <group>
+                        <!-- <group>
                             <field name="university_id"/>
-                        </group>
+                        </group> -->
                     </group>
                     <notebook>
                         <page string="Mission">
@@ -121,6 +121,6 @@
      <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
              action course_list_action -->
-    <menuitem id="faculty_menu" name="Faculty" parent="syllabus_minister_menu"
+    <menuitem id="faculty_menu" name="Faculty" parent="syllabus_minister_submenu"
               action="faculty_list_action"/>
 </odoo>
