@@ -153,6 +153,6 @@
             </p>
         </field>
     </record>
-    <menuitem id="program_menu" name="Program" parent="syllabus_minister_menu"
+    <menuitem id="program_menu" name="Program" parent="syllabus_minister_submenu"
               action="program_list_action"/>
 </odoo>

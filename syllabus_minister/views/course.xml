@@ -136,6 +136,6 @@
         </field>
     </record>
 
-    <menuitem id="course_menu" name="Course" parent="syllabus_minister_menu"
+    <menuitem id="course_menu" name="Course" parent="syllabus_minister_submenu"
               action="course_list_action"/>
 </odoo>

@@ -2,6 +2,7 @@
   <data>
     <!-- top level menu: no parent -->
     <menuitem id="syllabus_minister_menu" name="Syllabus Minisiter" sequence="1" web_icon="syllabus_minister,logo.png"/>
+    <menuitem id="syllabus_minister_submenu" name="University" parent="syllabus_minister_menu"/>
 
     <!-- Configuration Menuitem -->
     <menuitem name="Configuration" id="syllabus_minister_configuration_menu" parent="syllabus_minister.syllabus_minister_menu" groups="syllabus_minister.syllabus_minister_group_university"

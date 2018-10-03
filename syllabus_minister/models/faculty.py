@@ -14,7 +14,7 @@ class Faculty(models.Model):
     goals = fields.Html(string='Goals and Objectives')
     characteristics = fields.Text(string='Characterstics')
     program_ids = fields.One2many('syllabus_minister.program','faculty_id',string='Program')
-    university_id = fields.Many2one('syllabus_minister.university',string='University')
+    # university_id = fields.Many2one('syllabus_minister.university',string='University')
     # school_ids = fields.One2many('syllabus_minister.school','faculty_id',string='School')
     # college_ids = fields.One2many('syllabus_minister.college','faculty_id',string='College')
 
