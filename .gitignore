@@ -11,3 +11,7 @@ syllabus_minister/models/__pycache__/change_password_user.cpython-36.pyc
 syllabus_minister/models/__pycache__/change_password_wizard.cpython-36.pyc
 syllabus_minister/models/__pycache__/res_users.cpython-36.pyc
 syllabus_minister/models/__pycache__/res_users_role.cpython-36.pyc
+syllabus_expert_group/models/__pycache__/models.cpython-36.pyc
+syllabus_expert_group/controllers/__pycache__/__init__.cpython-36.pyc
+syllabus_expert_group/controllers/__pycache__/controllers.cpython-36.pyc
+syllabus_expert_group/models/__pycache__/__init__.cpython-36.pyc
