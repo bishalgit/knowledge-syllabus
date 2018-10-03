@@ -48,6 +48,7 @@
         'views/faculty.xml',
         'views/course.xml',
         'views/unit.xml',
+        'views/syllabus.xml',
         'views/templates.xml',
         'data/base_user_role.xml',
     ],

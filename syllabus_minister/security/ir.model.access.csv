@@ -3,3 +3,4 @@ access_syllabus_minister_faculty,syllabus_minister.faculty,model_syllabus_minist
 access_syllabus_minister_program,syllabus_minister.program,model_syllabus_minister_program,,1,1,1,1
 access_syllabus_minister_course,syllabus_minister.course,model_syllabus_minister_course,,1,1,1,1
 access_syllabus_minister_unit,syllabus_minister.unit,model_syllabus_minister_unit,,1,1,1,1
+access_syllabus_minister_syllabus,syllabus_minister.syllabus,model_syllabus_minister_syllabus,,1,1,1,1
