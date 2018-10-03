@@ -1,0 +1,113 @@
+<odoo>
+
+    <record id="syllabus_view_form" model="ir.ui.view">
+        <field name="name">syllabus.form</field>
+        <field name="model">syllabus_minister.syllabus</field>
+        <field name="arch" type="xml">
+            <form string="Syllabus Form">
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name" required="1" placeholder="Syllabus Name"/>
+                            </h2>
+                        </div>
+                    </group>
+                    <group colspan="2">
+                        <group>
+                            <field name="course_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Content">
+                            <field name="content"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="syllabus_view_search" model="ir.ui.view">
+        <field name="name">syllabus.search</field>
+        <field name="model">syllabus_minister.syllabus</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!--override the automatically generated list view for courses-->
+    <record id="syllabus_view_tree" model="ir.ui.view">
+        <field name="name">syllabus.tree</field>
+        <field name="model">syllabus_minister.syllabus</field>
+        <field name="arch" type="xml">
+            <tree string="Syllabus">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="syllabus_view_kanban" model="ir.ui.view">
+        <field name="name">syllabus.kanban</field>
+        <field name="model">syllabus_minister.syllabus</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class= "oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <!--<div class="oe_dropdown_kanban">-->
+                                 <!--&lt;!&ndash;dropdown menu&ndash;&gt;-->
+                                <!--<div class="oe_dropdown_toggle">-->
+                                    <!--<i class="fa fa-bars fa-lg"/>-->
+                                    <!--<ul class="oe_dropdown_menu">-->
+                                        <!--<li>-->
+                                            <!--<a type="delete">Delete</a>-->
+                                        <!--</li>-->
+                                    <!--</ul>-->
+                                <!--</div>-->
+                                <!--<div class="oe_clear"></div>-->
+                            <!--</div>-->
+                            <div t-attf-class="oe_kanban_content">
+                                <!-- title -->
+                                <h2>Syllabus:</h2>
+                                <field name="name"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- window action -->
+     <!--**
+         The following tag is an action definition for a "window action",
+         that is an action opening a view or a set of views
+     -->
+    <record id="syllabus_list_action" model="ir.actions.act_window">
+        <field name="name">Syllabus</field>
+        <field name="res_model">syllabus_minister.syllabus</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Syllabus
+            </p>
+        </field>
+    </record>
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="syllabus_menu" name="Syllabus" parent="syllabus_minister_menu"
+              action="syllabus_list_action"/>
+</odoo>
