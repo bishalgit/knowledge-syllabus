@@ -19,7 +19,7 @@
     'version': '11.0.0.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'syllabus_minister'],
 
     # always loaded
     'data': [
