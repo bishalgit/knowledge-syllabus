@@ -17,10 +17,27 @@
                         <group>
                             <field name="course_id"/>
                         </group>
+                        <group>
+                            <field name="content_uid"/>
+                            <field name="content_date"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Content">
-                            <field name="content"/>
+                            <label for="summary" class="oe_edit_only"/>
+                            <field name="summary" placeholder="eg: Changed ... for ..." class="oe_edit_only"/>
+                            <label for="content" class="oe_edit_only"/>
+                            <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="1" options="{'safe': True}"/>
+                        </page>
+                        <page name="history" string="History">
+                            <field name="history_ids">
+                                <tree>
+                                    <field name="id"/>
+                                    <field name="create_date"/>
+                                    <field name="summary"/>
+                                    <field name="create_uid"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
@@ -36,8 +53,15 @@
         <field name="name">syllabus.search</field>
         <field name="model">syllabus_minister.syllabus</field>
         <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
+            <search string="Search Syllabus">
+                <field name="name" string="Content" filter_domain="['|', ('name','ilike',self), ('content','ilike',self)]"/>
+                <field name="create_uid"/>
+                <field name="content_uid"/>
+                <group expand="0" string="Group By...">
+                    <filter string="Category" context="{'group_by':'parent_id'}"/>
+                    <filter string="Author" context="{'group_by':'create_uid'}"/>
+                    <filter string="Last Contributor" context="{'group_by':'content_uid'}"/>
+                </group>
             </search>
         </field>
     </record>
@@ -49,6 +73,8 @@
         <field name="arch" type="xml">
             <tree string="Syllabus">
                 <field name="name"/>
+                <field name="content_uid"/>
+                <field name="content_date"/>
             </tree>
         </field>
     </record>
@@ -93,21 +119,41 @@
          The following tag is an action definition for a "window action",
          that is an action opening a view or a set of views
      -->
-    <record id="syllabus_list_action" model="ir.actions.act_window">
+
+    <!-- syllabus action -->
+    <record id="syllabus_action" model="ir.actions.act_window">
         <field name="name">Syllabus</field>
         <field name="res_model">syllabus_minister.syllabus</field>
+        <field name="domain">[]</field>
+        <field name="context">{'default_type': 'content'}</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,kanban,search</field>
-        <field name="domain">[]</field>
+        <field name="view_id" ref="syllabus_view_tree"/>
+        <field name="search_view_id" ref="syllabus_view_search"/>
         <field name="help" type="html">
-            <p class="oe_view_nocontent_create">Create Syllabus
+            <p class="oe_view_nocontent_create">
+                    Click to create a new syllabus.
             </p>
         </field>
+    </record>
+
+    <record id="action_syllabus_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="syllabus_view_tree"/>
+        <field name="act_window_id" ref="syllabus_action"/>
+    </record>
+
+    <record id="action_syllabus_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="syllabus_view_form"/>
+        <field name="act_window_id" ref="syllabus_action"/>
     </record>
 
      <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
              action course_list_action -->
     <menuitem id="syllabus_menu" name="Syllabus" parent="syllabus_minister_submenu"
-              action="syllabus_list_action"/>
+              action="syllabus_action"/>
 </odoo>
