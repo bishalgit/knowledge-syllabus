@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
-
-from odoo import models, fields, api
+import difflib
+from odoo import api, fields, models
+from odoo.tools.translate import _
 
 class SyllabusHistory(models.Model):
     _name = 'syllabus_minister.syllabus_history'
@@ -15,7 +15,7 @@ class SyllabusHistory(models.Model):
     @api.depends('content', 'syllabus_id.history_ids')
     def _compute_diff(self):
         """Shows a diff between this version and the previous version"""
-        history = self.env['syllabus_minster.syllabus_history']
+        history = self.env['syllabus_minister.syllabus_history']
         for rec in self:
             prev = history.search([
                 ('syllabus_id', '=', rec.syllabus_id.id),
