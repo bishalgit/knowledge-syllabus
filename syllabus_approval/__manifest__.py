@@ -19,13 +19,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'syllabus_minister', 'base_user_role'],
 
     # always loaded
     'data': [
+        'security/security.xml',
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/syllabus_approval.xml',
+        'data/base_user_role.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
