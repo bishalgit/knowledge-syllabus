@@ -6,11 +6,13 @@
         <field name="arch" type="xml">
             <form string="Syllabus Form">
                 <sheet>
+                    <field name="required_name_change" invisible="1" />
                     <group>
                         <div class="oe_title">
                             <h2>
-                                <field name="name" required="1" placeholder="Syllabus Name"/>
+                                <field name="name" placeholder="Syllabus Name"/>
                             </h2>
+                            <button name="updateName" string="Synchronize Name" type="object" attrs="{'invisible': [('required_name_change','=',False)]}" />
                         </div>
                     </group>
                     <group colspan="2">

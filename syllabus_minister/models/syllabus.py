@@ -2,12 +2,13 @@
 
 from odoo import models, fields, api
 
+
 class Syllabus(models.Model):
     _name = 'syllabus_minister.syllabus'
     _inherit = 'mail.thread'
 
     name = fields.Char('Name')
-    course_id = fields.Many2one('syllabus_minister.course',string='Courses')
+    course_id = fields.Many2one('syllabus_minister.course', string='Courses')
     content = fields.Html('Content')
 
     # no-op computed field
@@ -48,6 +49,44 @@ class Syllabus(models.Model):
         index=True,
         readonly=True,
     )
+    required_name_change = fields.Boolean('Require Name Change', compute="_compute_required_name_change")
+
+    def get_name(self):
+        for record in self:
+            n = ""
+            if record.course_id:
+                n = n + record.course_id.course_code
+                if record.course_id.program_id:
+                    n = n + " / " + record.course_id.program_id.name
+                    if record.course_id.program_id.faculty_id:
+                        n = n + " / " + record.course_id.program_id.faculty_id.name
+            return n
+
+    def _compute_required_name_change(self):
+        for record in self:
+            n = record.get_name()
+            if n != record.name:
+                record.required_name_change = True
+
+    @api.multi
+    def updateName(self):
+        for record in self:
+            n = record.get_name()
+            record.write({
+                'name': n,
+                'required_name_change': False
+            })
+
+    @api.model
+    def create(self, vals):
+        syllabus = super(Syllabus, self).create(vals)
+        if syllabus:
+            if not syllabus.name:
+                n = syllabus.get_name()
+                syllabus.write({
+                    'name': n
+                })
+        return syllabus
 
     @api.multi
     @api.depends('history_ids')
