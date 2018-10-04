@@ -15,66 +15,92 @@
                     </group>
                     <group colspan="2">
                         <group>
-                            <field name="objectives"/>
-                            <field name="curricular_structure"/>
-                        </group>
-                        <group>
-                            <field name="features"/>
-                            <field name="semester_system"/>
-                        </group>
-                        <group>
-                            <field name="eligibility"/>
-                            <field name="documents_required"/>
-                        </group>
-                        <group>
-                            <field name="admission_procedures"/>
-                            <field name="academic_schedule"/>
-                        </group>
-                        <group>
-                            <field name="course_registration"/>
-                            <field name="additional_withdrawal_course"/>
-                        </group>
-                        <group>
                             <field name="normal_study_duration"/>
                             <field name="max_study_duration"/>
-                        </group>
-                        <group>
-                            <field name="attendance_requirements"/>
-                            <field name="evaluation_elective_concentration_courses"/>
-                        </group>
-                        <group>
-                            <field name="repeating_course"/>
-                            <field name="credit_transfer_withdrawal"/>
-                        </group>
-                        <group>
-                            <field name="project_work"/>
-                            <field name="internship"/>
-                        </group>
-                        <group>
-                            <field name="provision_retotaling_rechecking"/>
-                            <field name="dismissal_from_program"/>
-                        </group>
-                        <group>
-                            <field name="deanslist"/>
-                            <field name="faculty_id"/>
                         </group>
                         <group>
                             <field name="min_credit_fulltime_student"/>
                             <field name="total_credit"/>
                         </group>
+                        <group>
+                            <field name="faculty_id"/>
+                        </group>
                     </group>
                     <notebook>
+                        <page string="Objectives">
+                            <field name="objectives"/>
+                        </page>
+                        <page string="Curricular Structure">
+                            <field name="curricular_structure"/>
+                        </page>
+                        <page string="Features">
+                            <field name="features"/>
+                        </page>
+                        <page string="Semester System">
+                            <field name="semester_system"/>
+                        </page>
                         <page string="Evaluation System">
                             <field name="evaluation_system"/>
+                        </page>
+                        <page string="Eligibility">
+                            <field name="eligibility"/>
+                        </page>
+                        <page string="Documents Required">
+                            <field name="documents_required"/>
+                        </page>
+                        <page string="Admission Procedures">
+                            <field name="admission_procedures"/>
+                        </page>
+                        <page string="Academic Schedule">
+                            <field name="academic_schedule"/>
+                        </page>
+                        <page string="Course Registration">
+                            <field name="course_registration"/>
+                        </page>
+                        <page string="Additional Withdrawal Course">
+                            <field name="additional_withdrawal_course"/>
+                        </page>
+                        <page string="Attendance Requirement">
+                            <field name="attendance_requirements"/>
+                        </page>
+                        <page string="Addditional Withdrawal Course">
+                            <field name="additional_withdrawal_course"/>
+                        </page>
+                        <page string="Evaluation System">
+                            <field name="evaluation_system"/>
+                        </page>
+                        <page string="Evaluation of Elective and Concentration Courses">
+                            <field name="evaluation_elective_concentration_courses"/>
                         </page>
                         <page string="Grading System">
                             <field name="grading_system"/>
                         </page>
+                        <page string="Repeating A Course">
+                            <field name="repeating_course"/>
+                        </page>
+                        <page string="Credit Transfer and Withdrawal">
+                            <field name="credit_transfer_withdrawal"/>
+                        </page>
+                        <page string="Project Work">
+                            <field name="project_work"/>
+                        </page>
+                        <page string="Internship">
+                            <field name="internship"/>
+                        </page>
                         <page string="Unfair Means">
                             <field name="unfair_means"/>
                         </page>
+                        <page string="Provision for Re-totaling and Re-checking">
+                            <field name="provision_retotaling_rechecking"/>
+                        </page>
+                        <page string="Dismissal from the Program">
+                            <field name="dismissal_from_program"/>
+                        </page>
                         <page string="Degree Requirement">
                             <field name="degree_requirements"/>
+                        </page>
+                        <page string="Distinction and Dean's List">
+                            <field name="deanslist"/>
                         </page>
                         <page string="Course">
                             <field name="course_ids"/>

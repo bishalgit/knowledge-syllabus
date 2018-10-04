@@ -12,16 +12,17 @@
             <field name="category_id" ref="module_syllabus_minister_category"/>
             <field name="users" eval="[(4,1,0)]"/>
         </record>
-        <record id="syllabus_minister_group_university" model="res.groups">
-            <field name="name">University</field>
+        <record id="syllabus_minister_group_portal_user" model="res.groups">
+            <field name="name">Syllabus Portal User</field>
             <field name="category_id" ref="module_syllabus_minister_category"/>
-            <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_manager'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
-        <record id="syllabus_minister_group_manager" model="res.groups">
-            <field name="name">Syllabus Manager</field>
+
+        <record id="syllabus_minister_group_editor" model="res.groups">
+            <field name="name">Syllabus Editor</field>
             <field name="category_id" ref="module_syllabus_minister_category"/>
-            <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_approver'))]"/>
+            <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_portal_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="syllabus_minister_group_approver" model="res.groups">
@@ -30,19 +31,18 @@
             <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_editor'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
-        <record id="syllabus_minister_group_editor" model="res.groups">
-            <field name="name">Syllabus Editor</field>
+        <record id="syllabus_minister_group_manager" model="res.groups">
+            <field name="name">Syllabus Manager</field>
             <field name="category_id" ref="module_syllabus_minister_category"/>
-            <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_portal_user'))]"/>
+            <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_approver'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
-        <record id="syllabus_minister_group_portal_user" model="res.groups">
-            <field name="name">Syllabus Portal User</field>
+        <record id="syllabus_minister_group_university" model="res.groups">
+            <field name="name">University</field>
             <field name="category_id" ref="module_syllabus_minister_category"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_manager'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
-
         <!--Administration Setting Access-->
         <record model="ir.ui.menu" id="base.menu_administration">
             <field name="groups_id" eval="[(6, 0, [ref('syllabus_minister.syllabus_minister_group_administrator')])]"/>

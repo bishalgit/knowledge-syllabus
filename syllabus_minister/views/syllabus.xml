@@ -101,7 +101,7 @@
                             <div class="oe_dropdown_kanban">
                                  <!-- &lt;!&ndash;dropdown menu&ndash;&gt; -->
                                 <div class="oe_dropdown_toggle">
-                                    <i class="fa fa-bars fa-lg"/>
+                                    <i class="fa fa-bars fa-2x"/>
                                     <ul class="oe_dropdown_menu">
                                         <li>
                                             <a type="edit">Edit</a>
@@ -120,7 +120,7 @@
                                 <div class="o_kanban_primary_bottom bottom_block">
                                     <span>
                                         <field name="course_id"/>
-                                        Hired Employees
+                                        Course
                                     </span>
                                 </div>
                             </div>

@@ -8,11 +8,11 @@ class Faculty(models.Model):
     _inherit = 'mail.thread'
 
     name = fields.Char(string='Name')
-    introduction = fields.Text(string='Introduction')
-    vision = fields.Text(string='Vision')
+    introduction = fields.Html(string='Introduction')
+    vision = fields.Html(string='Vision')
     mission = fields.Html(string='Mission')
     goals = fields.Html(string='Goals and Objectives')
-    characteristics = fields.Text(string='Characterstics')
+    characteristics = fields.Html(string='Characterstics')
     program_ids = fields.One2many('syllabus_minister.program','faculty_id',string='Program')
     # university_id = fields.Many2one('syllabus_minister.university',string='University')
     # school_ids = fields.One2many('syllabus_minister.school','faculty_id',string='School')
