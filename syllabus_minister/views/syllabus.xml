@@ -49,6 +49,19 @@
         </field>
     </record>
 
+    <record id="syllabus_view_wiki_menu_form" model="ir.ui.view">
+        <field name="name">syllabus.menu.form</field>
+        <field name="model">syllabus_minister.syllabus</field>
+        <field name="arch" type="xml">
+            <form string="Syllabus">
+                <h1>
+                    <field name="name" placeholder="Name"/>
+                </h1>
+                <field name="content" class="oe_view_only" required="1" options='{"safe": True}'/>
+            </form>
+        </field>
+    </record>
+
     <record id="syllabus_view_search" model="ir.ui.view">
         <field name="name">syllabus.search</field>
         <field name="model">syllabus_minister.syllabus</field>
