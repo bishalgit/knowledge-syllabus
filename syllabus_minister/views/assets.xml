@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_backend" name="syllabus assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/syllabus_minister/static/src/css/syllabus.css"/>
+        </xpath>
+    </template>
+
+</odoo>
