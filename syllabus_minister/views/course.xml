@@ -15,45 +15,46 @@
                     <group colspan="2">
                         <group>
                             <field name="program_id"/>
-                            <field name="course_description"/>
-                        </group>
-                        <group>
                             <field name="course_code"/>
-                            <field name="course_content_areas"/>
                         </group>
                         <group>
                             <field name="credit_hours"/>
-                            <field name="is_elective"/>
+                            <field name="semester"/>
                         </group>
                         <group>
-                            <field name="semester"/>
-                            <field name="teaching_method"/>
+                            <field name="is_elective"/>
                         </group>
                     </group>
                     <notebook>
+                        <page string="Course Objectives">
+                            <field name="course_objectives"/>
+                        </page>
+                        <page string="Course Description">
+                            <field name="course_description"/>
+                        </page>
                         <page string="General Course Objective">
                             <field name="general_course_objectives"/>
                         </page>
                         <page string="Specific Course Objective">
                             <field name="specific_course_objectives"/>
                         </page>
-                        <page string="Course Content(Non-Unit)">
-                            <field name="course_content_nonunits"/>
-                        </page>
                         <page string="Course Outcomes">
                             <field name="course_outcomes"/>
                         </page>
-                        <page string="Basic Text">
+                        <page string="Course Content Areas">
+                            <field name="course_content_areas"/>
+                        </page>
+                        <page string="Course Contents">
+                            <field name="unit_ids"/>
+                        </page>
+                        <page string="Course Content(Non-Unit)">
+                            <field name="course_content_nonunits"/>
+                        </page>
+                        <page string="Basic Texts">
                             <field name="basic_text"/>
                         </page>
                         <page string="References">
                             <field name="references"/>
-                        </page>
-                        <page string="Syllabus">
-                            <field name="syllabus"/>
-                        </page>
-                        <page string="Course Contents">
-                            <field name="unit_ids"/>
                         </page>
                     </notebook>
                 </sheet>
