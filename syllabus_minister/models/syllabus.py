@@ -8,8 +8,14 @@ class Syllabus(models.Model):
     _inherit = 'mail.thread'
 
     name = fields.Char('Name')
-    course_id = fields.Many2one('syllabus_minister.course', string='Courses')
-    content = fields.Html('Content')
+    course_id = fields.Many2one('syllabus_minister.course',string='Course')
+    content = fields.Html(
+        "Content",
+        compute='_compute_content',
+        inverse='_inverse_content',
+        search='_search_content',
+        required=True,
+    )
 
     # no-op computed field
     summary = fields.Char(
@@ -67,8 +73,25 @@ class Syllabus(models.Model):
             n = record.get_name()
             if n != record.name:
                 record.required_name_change = True
+    @api.multi
+    @api.depends('history_head')
+    def _compute_content(self):
+        for rec in self:
+            if rec.history_head:
+                rec.content = rec.history_head.content
+            else:
+                # html widget's default, so it doesn't trigger ghost save
+                rec.content = '<p><br></p>'
 
     @api.multi
+    def _inverse_content(self):
+        for rec in self:
+            rec._create_history({
+                'content': rec.content,
+                'summary': rec.summary,
+			})
+
+	@api.multi
     def updateName(self):
         for record in self:
             n = record.get_name()
@@ -76,6 +99,10 @@ class Syllabus(models.Model):
                 'name': n,
                 'required_name_change': False
             })
+
+    @api.multi
+    def _search_content(self, operator, value):
+        return [('history_head.content', operator, value)]
 
     @api.model
     def create(self, vals):
@@ -101,10 +128,3 @@ class Syllabus(models.Model):
         history = self.env['syllabus_minister.syllabus_history']
         vals['syllabus_id'] = self.id
         return history.create(vals)
-
-    @api.onchange("parent_id")
-    def _onchange_parent_id(self):
-        """We Set it the right content to the new parent."""
-        if not self.content or self.content == '<p><br></p>':
-            if self.parent_id and self.parent_id.type == "category":
-                    self.content = self.parent_id.template

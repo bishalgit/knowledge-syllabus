@@ -51,6 +51,19 @@
         </field>
     </record>
 
+    <record id="syllabus_view_wiki_menu_form" model="ir.ui.view">
+        <field name="name">syllabus.menu.form</field>
+        <field name="model">syllabus_minister.syllabus</field>
+        <field name="arch" type="xml">
+            <form string="Syllabus">
+                <h1>
+                    <field name="name" placeholder="Name"/>
+                </h1>
+                <field name="content" class="oe_view_only" required="1" options='{"safe": True}'/>
+            </form>
+        </field>
+    </record>
+
     <record id="syllabus_view_search" model="ir.ui.view">
         <field name="name">syllabus.search</field>
         <field name="model">syllabus_minister.syllabus</field>
@@ -87,28 +100,44 @@
         <field name="arch" type="xml">
             <kanban>
                 <field name="name"/>
+                <field name="course_id"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div
                                 t-attf-class= "oe_semantic_html_override
                                               oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
-                            <!--<div class="oe_dropdown_kanban">-->
-                                 <!--&lt;!&ndash;dropdown menu&ndash;&gt;-->
-                                <!--<div class="oe_dropdown_toggle">-->
-                                    <!--<i class="fa fa-bars fa-lg"/>-->
-                                    <!--<ul class="oe_dropdown_menu">-->
-                                        <!--<li>-->
-                                            <!--<a type="delete">Delete</a>-->
-                                        <!--</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                                <!--<div class="oe_clear"></div>-->
-                            <!--</div>-->
+
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <b>Syllabus:</b>
+                                        <t t-esc="record.name.value"/>
+                                    </div>
+                                </div>
+                            <div class="oe_dropdown_kanban">
+                                 <!-- &lt;!&ndash;dropdown menu&ndash;&gt; -->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-2x"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="edit">Edit</a>
+                                        </li>
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
                             <div t-attf-class="oe_kanban_content">
-                                <!-- title -->
-                                <h2>Syllabus:</h2>
-                                <field name="name"/>
-                                <br/>
+                                <!-- <b>Syllabus:</b> -->
+                                <!-- <field name="name"/> -->
+                                <!-- <br/> -->
+                                <div class="o_kanban_primary_bottom bottom_block">
+                                    <span>
+                                        <field name="course_id"/>
+                                        Course
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </t>
