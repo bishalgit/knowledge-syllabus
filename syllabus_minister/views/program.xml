@@ -24,7 +24,7 @@
                         </group>
                         <group>
                             <field name="eligibility"/>
-                            <field name="semester_system"/>
+                            <field name="documents_required"/>
                         </group>
                         <group>
                             <field name="admission_procedures"/>
