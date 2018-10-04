@@ -23,3 +23,9 @@ syllabus_approval/models/__pycache__/__init__.cpython-36.pyc
 syllabus_approval/models/__pycache__/models.cpython-36.pyc
 syllabus_minister/models/__pycache__/syllabus.cpython-36.pyc
 syllabus_minister/models/__pycache__/syllabus_history.cpython-36.pyc
+syllabus_package/controllers/__pycache__/controllers.cpython-36.pyc
+syllabus_package/controllers/__pycache__/__init__.cpython-36.pyc
+syllabus_package/models/__pycache__/__init__.cpython-36.pyc
+syllabus_package/models/__pycache__/models.cpython-36.pyc
+syllabus_package/models/__pycache__/package.cpython-36.pyc
+syllabus_package/models/__pycache__/syllabus.cpython-36.pyc
