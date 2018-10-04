@@ -8,7 +8,13 @@ class Syllabus(models.Model):
 
     name = fields.Char('Name')
     course_id = fields.Many2one('syllabus_minister.course',string='Courses')
-    content = fields.Html('Content')
+    content = fields.Html(
+        "Content",
+        compute='_compute_content',
+        inverse='_inverse_content',
+        search='_search_content',
+        required=True,
+    )
 
     # no-op computed field
     summary = fields.Char(
@@ -48,6 +54,28 @@ class Syllabus(models.Model):
         index=True,
         readonly=True,
     )
+
+    @api.multi
+    @api.depends('history_head')
+    def _compute_content(self):
+        for rec in self:
+            if rec.history_head:
+                rec.content = rec.history_head.content
+            else:
+                # html widget's default, so it doesn't trigger ghost save
+                rec.content = '<p><br></p>'
+
+    @api.multi
+    def _inverse_content(self):
+        for rec in self:
+            rec._create_history({
+                'content': rec.content,
+                'summary': rec.summary,
+            })
+
+    @api.multi
+    def _search_content(self, operator, value):
+        return [('history_head.content', operator, value)]
 
     @api.multi
     @api.depends('history_ids')

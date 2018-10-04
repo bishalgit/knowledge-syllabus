@@ -5,16 +5,6 @@
         <field name="implied_ids" eval="[(4, ref('syllabus_minister.syllabus_minister_group_university'))]"/>
         <field name="rpn">2</field>
     </record>
-    <record id="base_user_role_syllabus_manager_group" model="res.users.role">
-        <field name="name">Manager</field>
-        <field name="implied_ids" eval="[(4, ref('syllabus_minister.syllabus_minister_group_manager'))]"/>
-        <field name="rpn">1</field>
-    </record>
-    <record id="base_user_role_syllabus_approver_group" model="res.users.role">
-        <field name="name">Approver</field>
-        <field name="implied_ids" eval="[(4, ref('syllabus_minister.syllabus_minister_group_approver'))]"/>
-        <field name="rpn">1</field>
-    </record>
     <record id="base_user_role_syllabus_editor_group" model="res.users.role">
         <field name="name">Editor</field>
         <field name="implied_ids" eval="[(4, ref('syllabus_minister.syllabus_minister_group_editor'))]"/>
