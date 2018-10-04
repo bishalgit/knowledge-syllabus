@@ -90,10 +90,3 @@ class Syllabus(models.Model):
         history = self.env['syllabus_minister.syllabus_history']
         vals['syllabus_id'] = self.id
         return history.create(vals)
-
-    @api.onchange("parent_id")
-    def _onchange_parent_id(self):
-        """We Set it the right content to the new parent."""
-        if not self.content or self.content == '<p><br></p>':
-            if self.parent_id and self.parent_id.type == "category":
-                    self.content = self.parent_id.template
