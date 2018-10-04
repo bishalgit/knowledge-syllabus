@@ -85,28 +85,44 @@
         <field name="arch" type="xml">
             <kanban>
                 <field name="name"/>
+                <field name="course_id"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div
                                 t-attf-class= "oe_semantic_html_override
                                               oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
-                            <!--<div class="oe_dropdown_kanban">-->
-                                 <!--&lt;!&ndash;dropdown menu&ndash;&gt;-->
-                                <!--<div class="oe_dropdown_toggle">-->
-                                    <!--<i class="fa fa-bars fa-lg"/>-->
-                                    <!--<ul class="oe_dropdown_menu">-->
-                                        <!--<li>-->
-                                            <!--<a type="delete">Delete</a>-->
-                                        <!--</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                                <!--<div class="oe_clear"></div>-->
-                            <!--</div>-->
+
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <b>Syllabus:</b>
+                                        <t t-esc="record.name.value"/>
+                                    </div>
+                                </div>
+                            <div class="oe_dropdown_kanban">
+                                 <!-- &lt;!&ndash;dropdown menu&ndash;&gt; -->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="edit">Edit</a>
+                                        </li>
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
                             <div t-attf-class="oe_kanban_content">
-                                <!-- title -->
-                                <h2>Syllabus:</h2>
-                                <field name="name"/>
-                                <br/>
+                                <!-- <b>Syllabus:</b> -->
+                                <!-- <field name="name"/> -->
+                                <!-- <br/> -->
+                                <div class="o_kanban_primary_bottom bottom_block">
+                                    <span>
+                                        <field name="course_id"/>
+                                        Hired Employees
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </t>
