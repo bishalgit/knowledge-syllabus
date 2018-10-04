@@ -89,9 +89,9 @@ class Syllabus(models.Model):
             rec._create_history({
                 'content': rec.content,
                 'summary': rec.summary,
-			})
+                })
 
-	@api.multi
+    @api.multi
     def updateName(self):
         for record in self:
             n = record.get_name()
