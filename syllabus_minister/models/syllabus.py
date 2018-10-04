@@ -7,7 +7,7 @@ class Syllabus(models.Model):
     _inherit = 'mail.thread'
 
     name = fields.Char('Name')
-    course_id = fields.Many2one('syllabus_minister.course',string='Courses')
+    course_id = fields.Many2one('syllabus_minister.course',string='Course')
     content = fields.Html(
         "Content",
         compute='_compute_content',

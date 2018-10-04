@@ -30,7 +30,6 @@
             <field name="implied_ids" eval="[(4, ref('syllabus_minister_group_editor'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
-
         <!--Administration Setting Access-->
         <record model="ir.ui.menu" id="base.menu_administration">
             <field name="groups_id" eval="[(6, 0, [ref('syllabus_minister.syllabus_minister_group_administrator')])]"/>
