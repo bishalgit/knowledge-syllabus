@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_syllabus_display_form" model="ir.ui.view">
+            <field name="name">Syllabus Display</field>
+            <field name="model">syllabus.display</field>
+            <field name="arch" type="xml">
+                <form string="Syllabus Display">
+                    <field name="temp_syllabus" widget="html" options="{'safe': True}" readonly="1" />
+                    <footer>
+                        <button name="saveSyllabus" string="Apply" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_view_syllabus_display_form" model="ir.actions.act_window">
+            <field name="name">Syllabus Display</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syllabus.display</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
