@@ -53,29 +53,11 @@
         <field name="model">syllabus_minister.university</field>
         <field name="arch" type="xml">
             <kanban>
-                <field name="name"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div
-                                t-attf-class="oe_kanban_global_click_edit oe_semantic_html_override
-                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
-                            <!--<div class="oe_dropdown_kanban">-->
-                                 <!--&lt;!&ndash;dropdown menu&ndash;&gt;-->
-                                <!--<div class="oe_dropdown_toggle">-->
-                                    <!--<i class="fa fa-bars fa-lg"/>-->
-                                    <!--<ul class="oe_dropdown_menu">-->
-                                        <!--<li>-->
-                                            <!--<a type="delete">Delete</a>-->
-                                        <!--</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                                <!--<div class="oe_clear"></div>-->
-                            <!--</div>-->
-                            <div t-attf-class="oe_kanban_content">
-                                <!-- title -->
-                                <b>University:</b>
-                                <field name="name"/>
-                                <br/>
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
                             </div>
                         </div>
                     </t>

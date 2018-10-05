@@ -55,13 +55,13 @@ class Syllabus(models.Model):
         index=True,
         readonly=True,
     )
-    required_name_change = fields.Boolean('Require Name Change', compute="_compute_required_name_change")
+    required_name_change = fields.Boolean('Require Name Change', compute="_compute_required_name_change", store=True)
 
     def get_name(self):
         for record in self:
             n = ""
             if record.course_id:
-                n = n + record.course_id.course_code
+                n = n + str(record.course_id.course_code)
                 if record.course_id.program_id:
                     n = n + " / " + record.course_id.program_id.name
                     if record.course_id.program_id.faculty_id:
