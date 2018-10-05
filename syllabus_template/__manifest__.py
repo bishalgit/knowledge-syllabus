@@ -26,6 +26,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'wizard/syllabus_display_views.xml',
         'views/ir_ui_view_views.xml',
         'views/syllabus_views.xml',
         # 'views/templates.xml',
