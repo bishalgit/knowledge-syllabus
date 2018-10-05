@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 
+
 class Syllabus(models.Model):
     _name = 'syllabus_minister.syllabus'
     _inherit = 'mail.thread'
@@ -54,7 +55,24 @@ class Syllabus(models.Model):
         index=True,
         readonly=True,
     )
+    required_name_change = fields.Boolean('Require Name Change', compute="_compute_required_name_change", store=True)
 
+    def get_name(self):
+        for record in self:
+            n = ""
+            if record.course_id:
+                n = n + str(record.course_id.course_code)
+                if record.course_id.program_id:
+                    n = n + " / " + record.course_id.program_id.name
+                    if record.course_id.program_id.faculty_id:
+                        n = n + " / " + record.course_id.program_id.faculty_id.name
+            return n
+
+    def _compute_required_name_change(self):
+        for record in self:
+            n = record.get_name()
+            if n != record.name:
+                record.required_name_change = True
     @api.multi
     @api.depends('history_head')
     def _compute_content(self):
@@ -71,11 +89,31 @@ class Syllabus(models.Model):
             rec._create_history({
                 'content': rec.content,
                 'summary': rec.summary,
+                })
+
+    @api.multi
+    def updateName(self):
+        for record in self:
+            n = record.get_name()
+            record.write({
+                'name': n,
+                'required_name_change': False
             })
 
     @api.multi
     def _search_content(self, operator, value):
         return [('history_head.content', operator, value)]
+
+    @api.model
+    def create(self, vals):
+        syllabus = super(Syllabus, self).create(vals)
+        if syllabus:
+            if not syllabus.name:
+                n = syllabus.get_name()
+                syllabus.write({
+                    'name': n
+                })
+        return syllabus
 
     @api.multi
     @api.depends('history_ids')
