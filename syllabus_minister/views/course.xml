@@ -45,7 +45,7 @@
                             <field name="course_content_areas"/>
                         </page>
                         <page string="Course Contents">
-                            <field name="unit_ids"/>
+                            <field name="unit_ids" readonly="1"/>
                         </page>
                         <page string="Course Content(Non-Unit)">
                             <field name="course_content_nonunits"/>
@@ -94,25 +94,9 @@
                 <field name="name"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div
-                                t-attf-class="oe_semantic_html_override
-                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
-                            <!--<div class="oe_dropdown_kanban">-->
-                                 <!--&lt;!&ndash;dropdown menu&ndash;&gt;-->
-                                <!--<div class="oe_dropdown_toggle">-->
-                                    <!--<i class="fa fa-bars fa-lg"/>-->
-                                    <!--<ul class="oe_dropdown_menu">-->
-                                        <!--<li>-->
-                                            <!--<a type="delete">Delete</a>-->
-                                        <!--</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                                <!--<div class="oe_clear"></div>-->
-                            <!--</div>-->
-                            <div t-attf-class="oe_kanban_content">
-                                <!-- title -->
-                                <h2>Course:</h2>
-                                <field name="name"/>
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
                             </div>
                         </div>
                     </t>
