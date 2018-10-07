@@ -12,13 +12,15 @@
                                 <field name="name" required="1" placeholder="College Name"/>
                             </h2>
                         </div>
-                        <div>
-                            <group>
-                                <field name="university_id"/>
-                                <field name="packages_id"/>
-                            </group>
-                        </div>
                     </group>
+                    <group colspan="2">
+                        <field name="university_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Package">
+                            <field name="packages_id"/>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
