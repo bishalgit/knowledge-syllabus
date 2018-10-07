@@ -11,3 +11,5 @@ from . import change_password_wizard
 from . import res_users_role
 from . import res_users
 from . import syllabus_history
+from . import university
+
