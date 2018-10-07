@@ -45,7 +45,7 @@
                             <field name="course_content_areas"/>
                         </page>
                         <page string="Course Contents">
-                            <field name="unit_ids" readonly="1"/>
+                            <field name="unit_ids"/>
                         </page>
                         <page string="Course Content(Non-Unit)">
                             <field name="course_content_nonunits"/>
