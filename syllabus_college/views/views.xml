@@ -1,0 +1,10 @@
+<odoo>
+  <data>
+    <!-- top level menu: no parent -->
+    <menuitem id="syllabus_college_menu" name="College" sequence="1" web_icon="syllabus_college,logo.png"/>
+    <menuitem id="syllabus_college_submenu" name="Affiliated Colleges" parent="syllabus_college_menu"/>
+
+    <!-- Configuration Menuitem -->
+    <menuitem name="Configuration" id="syllabus_college_configuration_menu" parent="syllabus_college_menu" groups="syllabus_minister.syllabus_minister_group_university" sequence="100"/>
+  </data>
+</odoo>

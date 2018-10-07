@@ -79,7 +79,7 @@ class SyllabusHistoryWorkflow(models.Model):
         template = self.env.ref(
             'syllabus_approval.email_template_new_draft_need_approval')
         approver_gid = self.env.ref(
-            'syllabus_approval.group_document_approver_user')
+            'syllabus_approval.syllabus_approval_group_approver')
         for rec in self:
             if rec.is_approval_required:
                 guids = [g.id for g in rec.syllabus_id.approver_group_ids]

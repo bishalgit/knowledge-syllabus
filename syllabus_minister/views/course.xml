@@ -113,7 +113,7 @@
         <field name="name">Course</field>
         <field name="res_model">syllabus_minister.course</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="view_mode">kanban,tree,form,search</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Course
