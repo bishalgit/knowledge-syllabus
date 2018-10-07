@@ -52,6 +52,7 @@
         'views/syllabus_history.xml',
         'views/templates.xml',
         'data/base_user_role.xml',
+        'report/syllabus_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
