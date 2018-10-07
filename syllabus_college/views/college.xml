@@ -12,13 +12,13 @@
                                 <field name="name" required="1" placeholder="College Name"/>
                             </h2>
                         </div>
-                        <field name="university_id"/>
+                        <div>
+                            <group>
+                                <field name="university_id"/>
+                                <field name="packages_id"/>
+                            </group>
+                        </div>
                     </group>
-                    <!-- <notebook>
-                        <page string="Syllabus">
-                            <field name="syllabus_ids"/>
-                        </page>
-                    </notebook> -->
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
@@ -45,6 +45,7 @@
         <field name="arch" type="xml">
             <tree string="College">
                 <field name="name"/>
+                <field name="university_id"/>
             </tree>
         </field>
     </record>
