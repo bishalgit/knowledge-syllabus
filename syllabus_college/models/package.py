@@ -9,3 +9,4 @@ class Package(models.Model):
 
     name = fields.Char(string='Name')
     syllabus_ids = fields.One2many('syllabus_minister.syllabus','package_id',string='Syllabus')
+    colleges_id = fields.Many2many('syllabus_college.college', string='Related College')

@@ -10,17 +10,14 @@ class ResUsers(models.Model):
     _inherit = "res.users"
 
     rpn = fields.Integer('RPN', help="This is the role priority number of the user.")
+    university_id = fields.Many2one('syllabus_minister.university', string='Related University')
 
-    # @api.model
-    # def create(self, vals):
-    #     user = super(ResUsers, self).create(vals)
-    #     _logger.warning("User ID " + str(user.id))
-    #     _logger.warning("User Role Name " + str(user.role_ids))
-    #
-    #     # to assure that the user creator in from university group
-    #     if not self.env.user.id == 1:
-    #         user.write({
-    #             'rpn': 1
-    #         })
-    #     return user
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        if args is None:
+            args = []
+        else:
+            args = [('name', '=', self.env.user.university_id.name)]
+            records = self.search(args, limit=limit)
+        return [(record.id, record.display_name) for record in records]
 

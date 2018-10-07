@@ -87,5 +87,5 @@
              its parent openacademy_menu and *after* its
              action course_list_action -->
     <menuitem id="university_menu" name="University" parent="syllabus_minister_submenu"
-              action="university_list_action"/>
+              action="university_list_action" sequence="1"/>
 </odoo>
