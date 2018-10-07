@@ -12,6 +12,7 @@
                                 <field name="name" required="1" placeholder="College Name"/>
                             </h2>
                         </div>
+                        <field name="university_id"/>
                     </group>
                     <!-- <notebook>
                         <page string="Syllabus">
