@@ -9,3 +9,14 @@ class University(models.Model):
 
     name = fields.Char(string='Name')
     faculty_ids = fields.One2many('syllabus_minister.faculty','university_id', string='Faculty')
+
+    # Groups Involved in University
+    group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        university = super(University, self).create(vals)
+        university.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
+        })
+        return university

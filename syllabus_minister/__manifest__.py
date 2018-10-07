@@ -42,7 +42,7 @@
         'views/res_users_views.xml',
         'views/base_user_role_views.xml',
         'views/views.xml',
-        # 'views/university.xml',
+        'views/university.xml',
         'views/faculty.xml',
         'views/program.xml',
         'views/faculty.xml',
@@ -52,6 +52,7 @@
         'views/syllabus_history.xml',
         'views/templates.xml',
         'data/base_user_role.xml',
+        'report/syllabus_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
