@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Syllabus Package",
+    'name': "Syllabus College",
 
     'summary': """
-        Syllabus Package is the package system that creates syllabus of a whole program.
-        E.g. B.SC,B.A.,B.E.S.E.,etc.""",
+        Affiliated Colleges of the University""",
 
     'description': """
-        Syllabus Package is the package system that creates syllabus of a whole program.
-        E.g. B.SC,B.A.,B.E.S.E.,etc.
-        The features are given below:
-        - Packaging courses for specific semester and program
-        - Easy and Quick search
-        - Generating PDF Format of the Syllabus and program wise
+        This module lists the colleges which are affiliated with the university.
+        There are basic infomation of the colleges and the related syllabus packages 
+        as provided by the university.
     """,
 
-    'author': "Nerku",
+    'author': "Nerku Inc.",
     'website': "http://www.nerku.com",
 
     # Categories can be used to filter modules in modules listing
