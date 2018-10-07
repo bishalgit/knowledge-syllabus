@@ -8,7 +8,7 @@ class College(models.Model):
     _inherit = 'mail.thread'
 
     name = fields.Char(string='Name')
-    packages_id = fields.Many2many('syllabus_college.package', string='Programs')
+    packages_id = fields.Many2many('syllabus_college.package', string='Packages')
 
 
     university_id = fields.Many2one('syllabus_minister.university', string='University', domain="['|', ('user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
