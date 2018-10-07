@@ -15,7 +15,7 @@ class Syllabus(models.Model):
         for record in self:
             if record.template_id:
                 record.write({
-                    "temp_content": record.env['ir.ui.view'].render_template(record.template_id.id, {object: record})
+                    "temp_content": record.env['ir.ui.view'].render_template(record.template_id.id, {'object': record})
                 })
                 return {'type': 'ir.actions.act_window', 'res_model': 'syllabus.display', 'view_type': 'form', 'view_mode': 'form', 'target': 'new', 'name': 'Syllabus Display'}
             else:

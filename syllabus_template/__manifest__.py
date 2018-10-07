@@ -19,6 +19,11 @@
     # for the full list
     'category': 'web',
     'version': '11.0.1.0.0',
+    'external_dependencies': {
+        'python': [
+            'inflect',
+        ]
+    },
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web_widget_m2o_image', 'syllabus_minister'],
@@ -26,6 +31,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'data/data.xml',
         'wizard/syllabus_display_views.xml',
         'views/ir_ui_view_views.xml',
         'views/syllabus_views.xml',
