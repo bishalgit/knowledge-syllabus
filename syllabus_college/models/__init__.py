@@ -3,3 +3,4 @@
 from . import models
 from . import package
 from . import syllabus
+from . import college

@@ -2,7 +2,7 @@
 
     <record id="package_view_form" model="ir.ui.view">
         <field name="name">package.form</field>
-        <field name="model">syllabus_package.package</field>
+        <field name="model">syllabus_college.package</field>
         <field name="arch" type="xml">
             <form string="Package Form">
                 <sheet>
@@ -29,7 +29,7 @@
 
     <record id="package_view_search" model="ir.ui.view">
         <field name="name">package.search</field>
-        <field name="model">syllabus_package.package</field>
+        <field name="model">syllabus_college.package</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
@@ -40,7 +40,7 @@
     <!--override the automatically generated list view for courses-->
     <record id="package_view_tree" model="ir.ui.view">
         <field name="name">package.tree</field>
-        <field name="model">syllabus_package.package</field>
+        <field name="model">syllabus_college.package</field>
         <field name="arch" type="xml">
             <tree string="Package">
                 <field name="name"/>
@@ -50,7 +50,7 @@
 
     <record id="package_view_kanban" model="ir.ui.view">
         <field name="name">package.kanban</field>
-        <field name="model">syllabus_package.package</field>
+        <field name="model">syllabus_college.package</field>
         <field name="arch" type="xml">
             <kanban>
                 <field name="name"/>
@@ -73,7 +73,7 @@
      -->
     <record id="package_list_action" model="ir.actions.act_window">
         <field name="name">Package</field>
-        <field name="res_model">syllabus_package.package</field>
+        <field name="res_model">syllabus_college.package</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,kanban,search</field>
         <field name="domain">[]</field>
@@ -84,6 +84,6 @@
     </record>
 
 
-    <menuitem id="package_program" name="Package" parent="syllabus_minister.syllabus_minister_menu" action="package_list_action"/>
+    <menuitem id="package_menu" name="Syllabus Package" parent="syllabus_college_submenu" action="package_list_action"/>
 
 </odoo>

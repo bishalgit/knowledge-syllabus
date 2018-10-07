@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-# class syllabus_package(models.Model):
-#     _name = 'syllabus_package.syllabus_package'
+# class syllabus_college(models.Model):
+#     _name = 'syllabus_college.syllabus_college'
 
 #     name = fields.Char()
 #     value = fields.Integer()

@@ -1,27 +1,23 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Syllabus Package",
+    'name': "Syllabus College",
 
     'summary': """
-        Syllabus Package is the package system that creates syllabus of a whole program.
-        E.g. B.SC,B.A.,B.E.S.E.,etc.""",
+        Affiliated Colleges of the University""",
 
     'description': """
-        Syllabus Package is the package system that creates syllabus of a whole program.
-        E.g. B.SC,B.A.,B.E.S.E.,etc.
-        The features are given below:
-        - Packaging courses for specific semester and program
-        - Easy and Quick search
-        - Generating PDF Format of the Syllabus and program wise
+        This module lists the colleges which are affiliated with the university.
+        There are basic infomation of the colleges and the related syllabus packages 
+        as provided by the university.
     """,
 
-    'author': "Nerku",
+    'author': "Nerku Inc.",
     'website': "http://www.nerku.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Syllabus',
     'version': '11.0.0.0.0',
 
     # any module necessary for this one to work correctly
@@ -30,9 +26,10 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/package.xml',
-        'views/views.xml',
         'views/templates.xml',
+        'views/views.xml',
+        'views/package.xml',
+        'views/college.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

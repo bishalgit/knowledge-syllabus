@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class Package(models.Model):
-    _name = 'syllabus_package.package'
+    _name = 'syllabus_college.package'
     _inherit = 'mail.thread'
 
     name = fields.Char(string='Name')
