@@ -44,6 +44,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="course_id"/>
+                <group>
+                    <filter string="Course" name="groupby_course" domain="[]" context="{'group_by':'course_id'}"/>
+                </group> 
             </search>
         </field>
     </record>
@@ -56,6 +60,7 @@
             <tree string="Unit">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="course_id"/>
             </tree>
         </field>
     </record>
@@ -87,6 +92,9 @@
         <field name="res_model">syllabus_minister.unit</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,kanban,search</field>
+        <field name="context">{
+                'search_default_groupby_course':1,
+            }</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Unit
