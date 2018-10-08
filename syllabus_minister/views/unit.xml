@@ -23,6 +23,9 @@
                         <group>
                             <field name="sequence"/>
                         </group>
+                        <group>
+                            <field name="display_name"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Description">
