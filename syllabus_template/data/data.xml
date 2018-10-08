@@ -1,47 +1,120 @@
 <odoo>
-    <data>
-        <record id="standard_syllabus" model="ir.ui.view">
+	<data>
+		<record id="standard_syllabus" model="ir.ui.view">
 			<field name="name">Standard Syllabus</field>
 			<field name="type">qweb</field>
 			<field name="key">syllabus_template.standard_syllabus</field>
-            <field name="syllabus_template">True</field>
-            <field name="image" file="syllabus_template/static/img/demo_template.png" type="base64" />
+			<field name="syllabus_template">True</field>
+			<field name="image" file="syllabus_template/static/img/demo_template.png" type="base64" />
 			<field name="arch" type="xml">
 				<t name="Standard Syllabus" t-name="syllabus_template.standard_syllabus">
-					<p style="text-align: center;"><strong><span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><t t-esc="object.course_id.course_code"/> <t t-esc="object.course_id.name"/></span></strong></p>
-<p style="text-align: center;"><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">(<t t-esc="object.course_id.program_id.name"/>: <t t-esc="object.course_id.semester_prefix"/><sup><t t-esc="object.course_id.semester_sufix"/></sup> Semester)</span></strong></p>
-<p><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Objectives</span></strong></p>
-<p style="text-align: justify;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><t t-raw="object.course_id.course_objectives"/></span></p>
-<p><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Description</span></strong></p>
-<p style="text-align: justify;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><t t-raw="object.course_id.course_description"/></span></p>
-<p><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Outcomes</span></strong></p>
-<p style="text-align: justify;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><t t-raw="object.course_id.course_outcomes"/></span></p>
-<p><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Contents</span></strong></p>
-<table style="border-collapse: collapse; border: none; width: 100%">
-<tbody>
-<t t-foreach="object.course_id.unit_ids" t-as="unit">
-<tr>
-<td style="width: 80%;">
-<p style="text-align: justify; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;"><t t-esc="unit.name"/></span></strong></p>
-</td>
-<td style="width: 20%;">
-<p style="text-align: center; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;"><t t-esc="unit.study_hours"/> hours</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 100%;" colspan="2">
-<t t-raw="unit.description"/>
-</td>
-</tr>
-</t>
-</tbody>
-</table>
-<p><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Basic Texts</span></strong></p>
-<p style="text-align: justify;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><t t-raw="object.course_id.basic_text"/></span></p>
-<p><strong><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">References</span></strong></p>
-<p style="text-align: justify;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><t t-raw="object.course_id.references"/></span></p>
+					<p style="text-align: center;">
+						<strong>
+							<span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+								<t t-esc="object.course_id.course_code"/>
+								<t t-esc="object.course_id.name"/>
+							</span>
+						</strong>
+					</p>
+					<p style="text-align: center;">
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">(
+								<t t-esc="object.course_id.program_id.name"/>: 
+								<t t-esc="object.course_id.semester_prefix"/>
+								<sup>
+									<t t-esc="object.course_id.semester_sufix"/>
+								</sup> Semester)
+							</span>
+						</strong>
+					</p>
+					<p>
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Objectives</span>
+						</strong>
+					</p>
+					<p style="text-align: justify;">
+						<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<t t-raw="object.course_id.course_objectives"/>
+						</span>
+					</p>
+					<p>
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Description</span>
+						</strong>
+					</p>
+					<p style="text-align: justify;">
+						<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<t t-raw="object.course_id.course_description"/>
+						</span>
+					</p>
+					<p>
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Outcomes</span>
+						</strong>
+					</p>
+					<p style="text-align: justify;">
+						<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<t t-raw="object.course_id.course_outcomes"/>
+						</span>
+					</p>
+					<p>
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Contents</span>
+						</strong>
+					</p>
+					<table style="border-collapse: collapse; border: none; width: 100%">
+						<tbody>
+							<t t-foreach="object.course_id.unit_ids" t-as="unit">
+								<tr>
+									<td style="width: 80%;">
+										<p style="text-align: justify; line-height: normal;">
+											<strong>
+												<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
+													<t t-esc="unit.name"/>
+												</span>
+											</strong>
+										</p>
+									</td>
+									<td style="width: 20%;">
+										<p style="text-align: center; line-height: normal;">
+											<strong>
+												<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
+													<t t-esc="unit.study_hours"/> hours
+												</span>
+											</strong>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 100%;" colspan="2">
+										<t t-raw="unit.description"/>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+					<p>
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Basic Texts</span>
+						</strong>
+					</p>
+					<p style="text-align: justify;">
+						<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<t t-raw="object.course_id.basic_text"/>
+						</span>
+					</p>
+					<p>
+						<strong>
+							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">References</span>
+						</strong>
+					</p>
+					<p style="text-align: justify;">
+						<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<t t-raw="object.course_id.references"/>
+						</span>
+					</p>
 				</t>
 			</field>
 		</record>
-    </data>
+	</data>
 </odoo>
