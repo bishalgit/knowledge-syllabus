@@ -23,7 +23,8 @@ class Course(models.Model):
     references = fields.Html(string='References')
     is_elective = fields.Boolean(string='Is elective?')
     semester = fields.Char(string='Semester')
-    program_id = fields.Many2one('syllabus_minister.program',string='Program')
+    program_id = fields.Many2one('syllabus_minister.program',string='Program',
+    domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
 
     # Groups Involved in Course
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -35,3 +36,10 @@ class Course(models.Model):
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
         return course
+    
+    # This function filters the course record for the user of certain university.
+    @api.model
+    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+        domain = (domain or []) + ['|', ('program_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        return super(Course, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+                                                     order=order)

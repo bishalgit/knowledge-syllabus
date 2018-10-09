@@ -2,6 +2,10 @@
 
 from odoo import models, fields, api
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class Faculty(models.Model):
     _name = 'syllabus_minister.faculty'
@@ -27,3 +31,9 @@ class Faculty(models.Model):
         })
         return faculty
 
+    # This function filters the faculty record for the user of certain university.
+    @api.model
+    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+        domain = (domain or []) + ['|', ('university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        return super(Faculty, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+                                                     order=order)
