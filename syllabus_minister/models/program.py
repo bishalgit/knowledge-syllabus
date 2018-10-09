@@ -37,3 +37,14 @@ class Program(models.Model):
     course_ids = fields.One2many('syllabus_minister.course','program_id',string='Course')
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty')
+
+    # Groups Involved in Program
+    group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        program = super(Program, self).create(vals)
+        program.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
+        })
+        return program

@@ -13,6 +13,9 @@
                             </h2>
                         </div>
                     </group>
+                    <group>
+                        <field name="university_id" />
+                    </group>
                     <notebook>
                         <page string="Introduction">
                             <field name="introduction"/>

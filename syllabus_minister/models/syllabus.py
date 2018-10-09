@@ -132,3 +132,16 @@ class Syllabus(models.Model):
         _logger.warning("Creating History in Syllabus >>>>>>>>>> ")
         vals['syllabus_id'] = self.id
         return history.create(vals)
+
+
+    # Groups Involved in Syllabus
+    group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        syllabus = super(Syllabus, self).create(vals)
+        syllabus.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
+        })
+        return syllabus
+

@@ -70,11 +70,11 @@
          The following tag is an action definition for a "window action",
          that is an action opening a view or a set of views
      -->
-    <record id="university_list_action" model="ir.actions.act_window">
+    <record id="university_action" model="ir.actions.act_window">
         <field name="name">University</field>
         <field name="res_model">syllabus_minister.university</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="view_mode">kanban,tree,form,search</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create University
@@ -86,6 +86,6 @@
      <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
              action course_list_action -->
-    <menuitem id="university_menu" name="University" parent="syllabus_minister_submenu"
-              action="university_list_action" sequence="1"/>
+    <!-- <menuitem id="university_menu" name="University" parent="syllabus_minister_submenu"
+              action="university_action" sequence="1"/> -->
 </odoo>
