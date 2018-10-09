@@ -6,6 +6,7 @@ class SyllabusHistory(models.Model):
     _name = 'syllabus_minister.syllabus_history'
     _inherit = 'mail.thread'
     _order = 'id DESC'
+    _description = "Syllabus Change History"
 
     syllabus_id = fields.Many2one('syllabus_minister.syllabus', 'Syllabus', ondelete='cascade')
     summary = fields.Char('Summary', index=True)

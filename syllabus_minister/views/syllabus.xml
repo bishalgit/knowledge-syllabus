@@ -29,7 +29,7 @@
                             <label for="summary" class="oe_edit_only"/>
                             <field name="summary" placeholder="eg: Changed ... for ..." class="oe_edit_only"/>
                             <label for="content" class="oe_edit_only"/>
-                            <field name="content" widget="html" required="1" options="{'safe': True}" readonly="1"/>
+                            <field name="content" widget="html" required="1" options="{'safe': True}" readonly="0"/>
                         </page>
                         <page name="history" string="History">
                             <field name="history_ids">
