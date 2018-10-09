@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class Syllabus(models.Model):
     _name = 'syllabus_minister.syllabus'
     _inherit = 'mail.thread'
+    _description = "Syllabus"
 
     name = fields.Char('Name')
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
     content = fields.Html(
         "Content",
         compute='_compute_content',
-        inverse='_inverse_content',
+        # _create_historyinverse='_inverse_content',
         search='_search_content',
         required=True,
     )
@@ -126,5 +129,6 @@ class Syllabus(models.Model):
     def _create_history(self, vals):
         self.ensure_one()
         history = self.env['syllabus_minister.syllabus_history']
+        _logger.warning("Creating History in Syllabus >>>>>>>>>> ")
         vals['syllabus_id'] = self.id
         return history.create(vals)
