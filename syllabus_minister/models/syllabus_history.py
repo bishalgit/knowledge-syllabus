@@ -8,7 +8,8 @@ class SyllabusHistory(models.Model):
     _order = 'id DESC'
     _description = "Syllabus Change History"
 
-    syllabus_id = fields.Many2one('syllabus_minister.syllabus', 'Syllabus', ondelete='cascade')
+    syllabus_id = fields.Many2one('syllabus_minister.syllabus', 'Syllabus', ondelete='cascade',
+    domain="['|', ('course_id.program_id.faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
     summary = fields.Char('Summary', index=True)
     content = fields.Text("Content")
     diff = fields.Text(compute='_compute_diff')
@@ -58,8 +59,7 @@ class SyllabusHistory(models.Model):
             name = "%s #%i" % (rec.syllabus_id.name, rec.id)
             result.append((rec.id, name))
         return result
-
-    
+ 
     # Groups Involved in Syllabus History
     group_ids = fields.Many2many('res.groups', string="Related Groups")
 
@@ -70,3 +70,11 @@ class SyllabusHistory(models.Model):
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
         return syllabus_history
+    
+    # This function filters the syllabus history record for the certain syllabus.
+    @api.model
+    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+        domain = (domain or []) + ['|', ('syllabus_id.course_id.program_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        return super(SyllabusHistory, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+                                                     order=order)
+

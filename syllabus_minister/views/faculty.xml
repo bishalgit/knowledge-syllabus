@@ -33,7 +33,7 @@
                             <field name="goals"/>
                         </page>
                         <page string="Program">
-                            <field name="program_ids"/>
+                            <field name="program_ids" widget="many2many"/>
                         </page>
                     </notebook>
                 </sheet>
