@@ -58,3 +58,15 @@ class SyllabusHistory(models.Model):
             name = "%s #%i" % (rec.syllabus_id.name, rec.id)
             result.append((rec.id, name))
         return result
+
+    
+    # Groups Involved in Syllabus History
+    group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        syllabus_history = super(SyllabusHistory, self).create(vals)
+        syllabus_history.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
+        })
+        return syllabus_history

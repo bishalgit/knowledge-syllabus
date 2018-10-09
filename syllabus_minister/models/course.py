@@ -24,3 +24,14 @@ class Course(models.Model):
     is_elective = fields.Boolean(string='Is elective?')
     semester = fields.Char(string='Semester')
     program_id = fields.Many2one('syllabus_minister.program',string='Program')
+
+    # Groups Involved in Course
+    group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        course = super(Course, self).create(vals)
+        course.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
+        })
+        return course
