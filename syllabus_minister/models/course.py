@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Course(models.Model):
     _name = 'syllabus_minister.course'
     _inherit = 'mail.thread'
+    _description = 'Course'
 
     name = fields.Char(string='Name')
     course_code = fields.Char(string='Course Code')

@@ -5,6 +5,7 @@ from odoo.tools.translate import _
 class SyllabusHistory(models.Model):
     _name = 'syllabus_minister.syllabus_history'
     _inherit = 'mail.thread'
+    _description = 'Syllabus History'
     _order = 'id DESC'
 
     syllabus_id = fields.Many2one('syllabus_minister.syllabus', 'Syllabus', ondelete='cascade')
