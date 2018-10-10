@@ -67,13 +67,12 @@
                 <field name="is_approval_required" invisible="1"/>
                 <field name="has_changes_pending_approval" invisible="1"/>
             </sheet>
-
-            <field name="course_id" position="after">
+            <field name="name" position="before">
                 <div class="oe_button_box" name="button_box">
-                    <button class="oe_stat_button" name="action_changes_pending_approval"
-                            string="Change Requests" type="object"
-                            attrs="{'invisible':[('has_changes_pending_approval','=',False)]}" icon="fa-edit"/>
+                    <button class="oe_stat_button" name="action_changes_pending_approval" string="Change Requests" type="object" attrs="{'invisible':[('has_changes_pending_approval','=',False)]}" icon="fa-edit"/>
                 </div>
+            </field>
+            <field name="course_id" position="after">
                 <field name="approval_required"/>
                 <field name="approver_gid" attrs="{'invisible':[('approval_required','!=', True)], 'required':[('approval_required','=', True)]}"/>
 

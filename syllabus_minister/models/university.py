@@ -11,6 +11,9 @@ class University(models.Model):
     name = fields.Char(string='Name')
     faculty_ids = fields.One2many('syllabus_minister.faculty','university_id', string='Faculty')
 
+    # Related University User
+    university_user_ids = fields.One2many('res.users', 'university_id', string="Related University User")
+
     # Groups Involved in University
     group_ids = fields.Many2many('res.groups', string="Related Groups")
 

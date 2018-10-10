@@ -14,12 +14,10 @@
                     </group>
                     <group colspan="2">
                         <group>
-                            <field name="program_id"/>
                             <field name="course_code"/>
                         </group>
                         <group>
                             <field name="credit_hours"/>
-                            <field name="semester"/>
                         </group>
                         <group>
                             <field name="is_elective"/>
@@ -45,7 +43,7 @@
                             <field name="course_content_areas"/>
                         </page>
                         <page string="Course Contents">
-                            <field name="unit_ids"/>
+                            <field name="unit_ids" widget="many2many"/>
                         </page>
                         <page string="Course Content(Non-Unit)">
                             <field name="course_content_nonunits"/>
