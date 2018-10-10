@@ -13,6 +13,7 @@ class Syllabus(models.Model):
     name = fields.Char('Name')
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
     semester = fields.Char(string='Semester')
+    attachment_id = fields.Many2one('ir.attachment',string = 'Decision Attachment')
     content = fields.Html(
         "Content",
         compute='_compute_content',
