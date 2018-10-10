@@ -148,3 +148,8 @@ class Syllabus(models.Model):
         return super(Syllabus, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
                                                      order=order)
 
+    # Since each syllabus is defined for specific program in the university, 
+    # so related program object is linked for each syllabus object
+    program_id = fields.Many2one('syllabus_minister.program', string='Program',
+    domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+
