@@ -47,6 +47,10 @@
                                 </tree>
                             </field>
                         </page>
+                        <page string="Attachment">
+                            <b>Attachment</b>
+                            <field name="attachment_id"/>
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
