@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Syllabus(models.Model):
     _name = 'syllabus_minister.syllabus'
     _inherit = 'mail.thread'
+    _description = 'Syllabus'
 
     name = fields.Char('Name')
     course_id = fields.Many2one('syllabus_minister.course',string='Course')

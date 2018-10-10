@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Unit(models.Model):
     _name = 'syllabus_minister.unit'
     _inherit = 'mail.thread'
+    _description = 'Unit'
     _order = 'sequence,id'
 
     name = fields.Char(string='Name')
