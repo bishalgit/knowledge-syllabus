@@ -58,6 +58,10 @@
                             <label for="content"/>
                             <field name="content" widget="html" placeholder="e.g. Once upon a time..." options="{'safe': True}"/>
                         </page>
+                        <page string="Attachment">
+                            <b>Attachment</b>
+                            <field name="attachment_id"/>
+                        </page>
                         <!-- <page name="diff" string="Changes">
                             <field name="diff" widget="html" style="overflow-x: scroll" />
                         </page> -->
