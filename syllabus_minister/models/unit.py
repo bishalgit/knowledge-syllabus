@@ -6,12 +6,13 @@ from odoo import models, fields, api
 class Unit(models.Model):
     _name = 'syllabus_minister.unit'
     _inherit = 'mail.thread'
+    _description = 'Unit'
     _order = 'sequence,id'
 
     name = fields.Char(string='Name')
     study_hours = fields.Integer(string='Study hours')
     description = fields.Html(string='Description')
-    course_id = fields.Many2one('syllabus_minister.course',string='Course',domain="['|', ('program_id.faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    course_id = fields.Many2one('syllabus_minister.course',string='Course',domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
     sequence = fields.Integer(string='sequence',default=1)
     display_name = fields.Char(string='Display Name', compute='_display_name')
 
@@ -34,6 +35,6 @@ class Unit(models.Model):
     # This function filters the unit record for the user of certain course.
     @api.model
     def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('course_id.program_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-        return super(Course, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+        domain = (domain or []) + ['|', ('course_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        return super(Unit, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
                                                      order=order)

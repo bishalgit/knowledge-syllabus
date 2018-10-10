@@ -18,6 +18,7 @@
                     <group colspan="2">
                         <group>
                             <field name="course_id"/>
+                            <field name="semester"/>
                         </group>
                         <group>
                             <field name="content_uid"/>
@@ -25,9 +26,11 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Content">
+                        <page string="Summary">
                             <label for="summary" class="oe_edit_only"/>
                             <field name="summary" placeholder="eg: Changed ... for ..." class="oe_edit_only"/>
+                        </page>
+                        <page string="Content">
                             <label for="content" class="oe_edit_only"/>
                             <field name="content" widget="html" required="1" options="{'safe': True}" readonly="0"/>
                         </page>

@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class College(models.Model):
     _name = 'syllabus_college.college'
     _inherit = 'mail.thread'
+    _description = 'College'
 
     name = fields.Char(string='Name')
     packages_id = fields.Many2many('syllabus_college.package', string='Packages')

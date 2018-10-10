@@ -10,6 +10,7 @@ _logger = logging.getLogger(__name__)
 class Faculty(models.Model):
     _name = 'syllabus_minister.faculty'
     _inherit = 'mail.thread'
+    _description = 'Faculty'
 
     name = fields.Char(string='Name')
     introduction = fields.Html(string='Introduction')
