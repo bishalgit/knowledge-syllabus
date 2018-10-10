@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Course(models.Model):
     _name = 'syllabus_minister.course'
     _inherit = 'mail.thread'
+    _description = 'Course'
 
     name = fields.Char(string='Name')
     course_code = fields.Char(string='Course Code')
@@ -22,9 +23,11 @@ class Course(models.Model):
     basic_text = fields.Html(string='Basic Texts')
     references = fields.Html(string='References')
     is_elective = fields.Boolean(string='Is elective?')
-    semester = fields.Char(string='Semester')
-    program_id = fields.Many2one('syllabus_minister.program',string='Program',
-    domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty',
+    domain="['|', ('university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+
+    # program_id = fields.Many2one('syllabus_minister.program',string='Program',
+    # domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
 
     # Groups Involved in Course
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -40,6 +43,6 @@ class Course(models.Model):
     # This function filters the course record for the user of certain university.
     @api.model
     def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('program_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
         return super(Course, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
                                                      order=order)

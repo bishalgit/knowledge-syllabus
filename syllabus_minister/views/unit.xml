@@ -63,7 +63,6 @@
             <tree string="Unit">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
-                <field name="course_id"/>
             </tree>
         </field>
     </record>

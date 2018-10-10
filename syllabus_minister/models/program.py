@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Program(models.Model):
     _name = 'syllabus_minister.program'
     _inherit = 'mail.thread'
+    _description = 'Program'
 
     name = fields.Char(string='Name')
     objectives = fields.Html(string='Objectives')
@@ -34,7 +35,7 @@ class Program(models.Model):
     dismissal_from_program = fields.Html(string='Dismissal from the program')
     degree_requirements = fields.Html(string='Degree Requirement')
     deanslist = fields.Html(string='Distinction and deans list')
-    course_ids = fields.One2many('syllabus_minister.course','program_id',string='Course')
+    courses_id = fields.Many2many('syllabus_minister.course',string='Course')
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty',domain="['|', ('university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
 

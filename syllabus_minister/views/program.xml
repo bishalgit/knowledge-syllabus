@@ -103,7 +103,7 @@
                             <field name="deanslist"/>
                         </page>
                         <page string="Course">
-                            <field name="course_ids" widget="many2many"/>
+                            <field name="courses_id" widget="many2many"/>
                         </page>
                     </notebook>
                 </sheet>

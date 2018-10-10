@@ -8,11 +8,11 @@ _logger = logging.getLogger(__name__)
 class Syllabus(models.Model):
     _name = 'syllabus_minister.syllabus'
     _inherit = 'mail.thread'
-    _description = "Syllabus"
+    _description = 'Syllabus'
 
     name = fields.Char('Name')
-    course_id = fields.Many2one('syllabus_minister.course',string='Course',
-    domain="['|', ('program_id.faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    course_id = fields.Many2one('syllabus_minister.course',string='Course')
+    semester = fields.Char(string='Semester')
     content = fields.Html(
         "Content",
         compute='_compute_content',
@@ -22,7 +22,7 @@ class Syllabus(models.Model):
     )
 
     # no-op computed field
-    summary = fields.Char(
+    summary = fields.Html(
         help='Describe the changes made',
         compute=lambda x: x,
         inverse=lambda x: x,
@@ -108,17 +108,6 @@ class Syllabus(models.Model):
     def _search_content(self, operator, value):
         return [('history_head.content', operator, value)]
 
-    @api.model
-    def create(self, vals):
-        syllabus = super(Syllabus, self).create(vals)
-        if syllabus:
-            if not syllabus.name:
-                n = syllabus.get_name()
-                syllabus.write({
-                    'name': n
-                })
-        return syllabus
-
     @api.multi
     @api.depends('history_ids')
     def _compute_history_head(self):
@@ -141,6 +130,12 @@ class Syllabus(models.Model):
     @api.model
     def create(self, vals):
         syllabus = super(Syllabus, self).create(vals)
+        if syllabus:
+            if not syllabus.name:
+                n = syllabus.get_name()
+                syllabus.write({
+                    'name': n
+                })
         syllabus.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
@@ -149,7 +144,7 @@ class Syllabus(models.Model):
     # This function filters the syllabus record for the user of certain course.
     @api.model
     def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('course_id.program_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        domain = (domain or []) + ['|', ('course_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
         return super(Syllabus, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
                                                      order=order)
 
