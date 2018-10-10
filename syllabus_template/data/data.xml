@@ -19,10 +19,10 @@
 					<p style="text-align: center;">
 						<strong>
 							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">(
-								<t t-esc="object.course_id.program_id.name"/>: 
-								<t t-esc="object.course_id.semester_prefix"/>
+								<t t-esc="object.program_id.name"/>: 
+								<t t-esc="object.semester_prefix"/>
 								<sup>
-									<t t-esc="object.course_id.semester_sufix"/>
+									<t t-esc="object.semester_sufix"/>
 								</sup> Semester)
 							</span>
 						</strong>
