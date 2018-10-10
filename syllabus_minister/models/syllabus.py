@@ -16,7 +16,7 @@ class Syllabus(models.Model):
     content = fields.Html(
         "Content",
         compute='_compute_content',
-        # _create_historyinverse='_inverse_content',
+        inverse='_inverse_content',
         search='_search_content',
         required=True,
     )
