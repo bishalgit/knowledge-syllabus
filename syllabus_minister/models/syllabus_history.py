@@ -10,7 +10,7 @@ class SyllabusHistory(models.Model):
 
     syllabus_id = fields.Many2one('syllabus_minister.syllabus', 'Syllabus', ondelete='cascade',
     domain="['|', ('course_id.program_id.faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
-    summary = fields.Char('Summary', index=True)
+    summary = fields.Html('Summary', index=True)
     content = fields.Text("Content")
     diff = fields.Text(compute='_compute_diff')
 

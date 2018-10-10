@@ -46,18 +46,21 @@
                         <group>
                             <field name="create_uid" readonly="1"/>
                             <field name="create_date" readonly="1"/>
+                            <field name="diff" widget="html" style="overflow-x: scroll" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
-                        <page name="content" string="Content">
+                        <page  name="summary" string="Change Summary">
                             <label for="summary"/>
                             <field name="summary" placeholder="eg: Changed ... for ..."/>
+                        </page>
+                        <page name="content" string="Content">
                             <label for="content"/>
                             <field name="content" widget="html" placeholder="e.g. Once upon a time..." options="{'safe': True}"/>
                         </page>
-                        <page name="diff" string="Changes">
+                        <!-- <page name="diff" string="Changes">
                             <field name="diff" widget="html" style="overflow-x: scroll" />
-                        </page>
+                        </page> -->
                     </notebook>
                 </sheet>
             </form>
