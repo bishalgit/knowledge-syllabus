@@ -13,6 +13,9 @@
                             </h2>
                         </div>
                     </group>
+                    <group>
+                        <field name="university_id" />
+                    </group>
                     <notebook>
                         <page string="Introduction">
                             <field name="introduction"/>
@@ -30,7 +33,7 @@
                             <field name="goals"/>
                         </page>
                         <page string="Program">
-                            <field name="program_ids"/>
+                            <field name="program_ids" widget="many2many"/>
                         </page>
                     </notebook>
                 </sheet>

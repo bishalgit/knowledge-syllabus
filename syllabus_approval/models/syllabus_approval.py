@@ -1,6 +1,10 @@
 from odoo import api, fields, models
 from ast import literal_eval
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class SyllabusApproval(models.Model):
     """Useful to know the state of a syllabus."""
@@ -110,11 +114,13 @@ class SyllabusApproval(models.Model):
             changes = history.search_count([
                 ('syllabus_id', '=', rec.id),
                 ('state', '=', 'to approve')])
+            _logger.warning("Changes >>>>>>>>>>>>>>>>>>>> " + str(changes))
             rec.has_changes_pending_approval = (changes > 0)
 
     @api.multi
     def _create_history(self, vals):
         res = super(SyllabusApproval, self)._create_history(vals)
+        _logger.warning("Change History Created >>>>>>>>>>>>>>>>>>>> " + str(res))
         res.syllabus_auto_confirm()
 
     @api.multi

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class Syllabus(models.Model):
     _name = 'syllabus_minister.syllabus'
@@ -10,16 +12,17 @@ class Syllabus(models.Model):
 
     name = fields.Char('Name')
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
+    semester = fields.Char(string='Semester')
     content = fields.Html(
         "Content",
         compute='_compute_content',
-        inverse='_inverse_content',
+        # _create_historyinverse='_inverse_content',
         search='_search_content',
         required=True,
     )
 
     # no-op computed field
-    summary = fields.Char(
+    summary = fields.Html(
         help='Describe the changes made',
         compute=lambda x: x,
         inverse=lambda x: x,
@@ -105,17 +108,6 @@ class Syllabus(models.Model):
     def _search_content(self, operator, value):
         return [('history_head.content', operator, value)]
 
-    @api.model
-    def create(self, vals):
-        syllabus = super(Syllabus, self).create(vals)
-        if syllabus:
-            if not syllabus.name:
-                n = syllabus.get_name()
-                syllabus.write({
-                    'name': n
-                })
-        return syllabus
-
     @api.multi
     @api.depends('history_ids')
     def _compute_history_head(self):
@@ -127,5 +119,32 @@ class Syllabus(models.Model):
     def _create_history(self, vals):
         self.ensure_one()
         history = self.env['syllabus_minister.syllabus_history']
+        _logger.warning("Creating History in Syllabus >>>>>>>>>> ")
         vals['syllabus_id'] = self.id
         return history.create(vals)
+
+
+    # Groups Involved in Syllabus
+    group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        syllabus = super(Syllabus, self).create(vals)
+        if syllabus:
+            if not syllabus.name:
+                n = syllabus.get_name()
+                syllabus.write({
+                    'name': n
+                })
+        syllabus.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
+        })
+        return syllabus
+
+    # This function filters the syllabus record for the user of certain course.
+    @api.model
+    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+        domain = (domain or []) + ['|', ('course_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        return super(Syllabus, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+                                                     order=order)
+
