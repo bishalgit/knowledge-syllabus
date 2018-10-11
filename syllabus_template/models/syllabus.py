@@ -27,20 +27,20 @@ class Syllabus(models.Model):
     semester_prefix = fields.Char("Semester Prefix")
     semester_sufix = fields.Char("Semester Sufix")
 
-    @api.model
-    def create(self, vals):
-        response = super(Syllabus, self).create(vals)
-        if response:
-            if 'semester' in vals:
-                try:
-                    p = inflect.engine()
-                    s = p.ordinal(int(vals['semester']))
-                    self.semester_sufix = s[-2:]
-                    self.semester_prefix = s[:-2]
-                except Exception:
-                    self.semester_sufix = "undefined"
-                    self.semester_prefix = "undefined"
-        return response
+    # @api.model
+    # def create(self, vals):
+    #     response = super(Syllabus, self).create(vals)
+    #     if response:
+    #         if 'semester' in vals:
+    #             try:
+    #                 p = inflect.engine()
+    #                 s = p.ordinal(int(vals['semester']))
+    #                 self.semester_sufix = s[-2:]
+    #                 self.semester_prefix = s[:-2]
+    #             except Exception:
+    #                 self.semester_sufix = "undefined"
+    #                 self.semester_prefix = "undefined"
+    #     return response
     
     @api.multi
     def write(self, vals):
