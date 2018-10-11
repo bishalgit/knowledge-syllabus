@@ -28,9 +28,9 @@
         'security/ir.model.access.csv',
         'views/templates.xml',
         'views/views.xml',
-        'views/package.xml',
+        # 'views/package.xml',
         'views/college.xml',
-        'report/syllabus_college_report.xml',
+        # 'report/syllabus_college_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
