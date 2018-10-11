@@ -60,7 +60,8 @@ class Syllabus(models.Model):
         index=True,
         readonly=True,
     )
-    required_name_change = fields.Boolean('Require Name Change', compute="_compute_required_name_change", store=True)
+    required_name_change = fields.Boolean('Require Name Change', compute="_compute_required_name_change")
+    store_required_name_change = fields.Boolean('Store Required Name Change', default=False)
 
     def get_name(self):
         for record in self:
@@ -75,9 +76,11 @@ class Syllabus(models.Model):
 
     def _compute_required_name_change(self):
         for record in self:
+            _logger.warning("Name comptuted >>>> ")
             n = record.get_name()
             if n != record.name:
-                record.required_name_change = True
+                record.store_required_name_change = True
+    
     @api.multi
     @api.depends('history_head')
     def _compute_content(self):
@@ -102,7 +105,7 @@ class Syllabus(models.Model):
             n = record.get_name()
             record.write({
                 'name': n,
-                'required_name_change': False
+                'store_required_name_change': False
             })
 
     @api.multi
