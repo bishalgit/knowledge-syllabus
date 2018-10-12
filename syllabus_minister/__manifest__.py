@@ -51,6 +51,7 @@
         'views/syllabus.xml',
         'views/syllabus_history.xml',
         'views/templates.xml',
+        'views/courseline.xml',
         'data/base_user_role.xml',
         'report/syllabus_report.xml',
     ],

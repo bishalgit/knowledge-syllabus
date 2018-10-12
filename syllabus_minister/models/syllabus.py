@@ -13,7 +13,7 @@ class Syllabus(models.Model):
     name = fields.Char('Name')
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
     semester = fields.Char(string='Semester')
-    attachment_id = fields.Many2one('ir.attachment',string = 'Decision Attachment')
+    attachment_id = fields.Many2one('ir.attachment',string='Decision Attachment')
     content = fields.Html(
         "Content",
         compute='_compute_content',
@@ -148,9 +148,3 @@ class Syllabus(models.Model):
         domain = (domain or []) + ['|', ('course_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
         return super(Syllabus, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
                                                      order=order)
-
-    # Since each syllabus is defined for specific program in the university, 
-    # so related program object is linked for each syllabus object
-    program_id = fields.Many2one('syllabus_minister.program', string='Program',
-    domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
-

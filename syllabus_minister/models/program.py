@@ -38,6 +38,7 @@ class Program(models.Model):
     courses_id = fields.Many2many('syllabus_minister.course',string='Course')
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty',domain="['|', ('university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    courseline_ids = fields.One2many('syllabus_minister.courseline','program_id',string="Courseline")
 
     # Groups Involved in Program
     group_ids = fields.Many2many('res.groups', string="Related Groups")
