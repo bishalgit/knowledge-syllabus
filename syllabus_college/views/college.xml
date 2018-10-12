@@ -17,8 +17,8 @@
                         <field name="university_id"/>
                     </group>
                     <notebook>
-                        <page string="Package">
-                            <field name="packages_id"/>
+                        <page string="Programs">
+                            <field name="programs_id"/>
                         </page>
                     </notebook>
                 </sheet>
