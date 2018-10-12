@@ -102,8 +102,11 @@
                         <page string="Distinction and Dean's List">
                             <field name="deanslist"/>
                         </page>
-                        <page string="Course">
+                        <!-- <page string="Course">
                             <field name="courses_id" widget="many2many"/>
+                        </page> -->
+                        <page string="Courses">
+                            <field name="courseline_ids"/>
                         </page>
                     </notebook>
                 </sheet>

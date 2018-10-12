@@ -24,9 +24,6 @@
                             <field name="content_uid"/>
                             <field name="content_date"/>
                         </group>
-                        <group>
-                            <field name="program_id"/>
-                        </group>
                     </group>
                     <notebook>
                         <page string="Summary">
