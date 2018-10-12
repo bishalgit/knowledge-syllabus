@@ -24,10 +24,10 @@ class Courseline(models.Model):
     @api.model
     def create(self, vals):
         courseline = super(Courseline, self).create(vals)
-        course.write({
+        courseline.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
-        return course
+        return courseline
     
     # This function filters the courseline record for the program of certain university.
     @api.model
