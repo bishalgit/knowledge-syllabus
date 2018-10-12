@@ -23,36 +23,36 @@ class Syllabus(models.Model):
             else:
                 raise UserError("Please select a template to render the syllabus.")
 
-    # Semester prefixing
-    semester_prefix = fields.Char("Semester Prefix")
-    semester_sufix = fields.Char("Semester Sufix")
+    # # Semester prefixing
+    # semester_prefix = fields.Char("Semester Prefix")
+    # semester_sufix = fields.Char("Semester Sufix")
 
-    @api.model
-    def create(self, vals):
-        response = super(Syllabus, self).create(vals)
-        if response:
-            if 'semester' in vals:
-                try:
-                    p = inflect.engine()
-                    s = p.ordinal(int(vals['semester']))
-                    response.semester_sufix = s[-2:]
-                    response.semester_prefix = s[:-2]
-                except Exception:
-                    response.semester_sufix = "undefined"
-                    response.semester_prefix = "undefined"
-        return response
+    # @api.model
+    # def create(self, vals):
+    #     response = super(Syllabus, self).create(vals)
+    #     if response:
+    #         if 'semester' in vals:
+    #             try:
+    #                 p = inflect.engine()
+    #                 s = p.ordinal(int(vals['semester']))
+    #                 response.semester_sufix = s[-2:]
+    #                 response.semester_prefix = s[:-2]
+    #             except Exception:
+    #                 response.semester_sufix = "undefined"
+    #                 response.semester_prefix = "undefined"
+    #     return response
     
-    @api.multi
-    def write(self, vals):
-        response = super(Syllabus, self).write(vals)
-        if response:
-            if 'semester' in vals:
-                try:
-                    p = inflect.engine()
-                    s = p.ordinal(int(vals['semester']))
-                    self.semester_sufix = s[-2:]
-                    self.semester_prefix = s[:-2]
-                except Exception:
-                    self.semester_sufix = "undefined"
-                    self.semester_prefix = "undefined"
-        return response
+    # @api.multi
+    # def write(self, vals):
+    #     response = super(Syllabus, self).write(vals)
+    #     if response:
+    #         if 'semester' in vals:
+    #             try:
+    #                 p = inflect.engine()
+    #                 s = p.ordinal(int(vals['semester']))
+    #                 self.semester_sufix = s[-2:]
+    #                 self.semester_prefix = s[:-2]
+    #             except Exception:
+    #                 self.semester_sufix = "undefined"
+    #                 self.semester_prefix = "undefined"
+    #     return response
