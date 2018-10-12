@@ -18,7 +18,7 @@
                     <group colspan="2">
                         <group>
                             <field name="course_id"/>
-                            <field name="semester"/>
+                            <!-- <field name="semester"/> -->
                         </group>
                         <group>
                             <field name="content_uid"/>

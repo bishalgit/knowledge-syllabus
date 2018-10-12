@@ -16,7 +16,7 @@
 							</span>
 						</strong>
 					</p>
-					<p style="text-align: center;">
+					<!-- <p style="text-align: center;">
 						<strong>
 							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">(
 								<t t-esc="object.program_id.name"/>: 
@@ -26,7 +26,7 @@
 								</sup> Semester)
 							</span>
 						</strong>
-					</p>
+					</p> -->
 					<p>
 						<strong>
 							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Course Objectives</span>

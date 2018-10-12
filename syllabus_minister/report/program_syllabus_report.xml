@@ -14,6 +14,17 @@
                 <t t-foreach="doc.courseline_ids" t-as="courseline">
                     <t t-call="web.external_layout">
                         <div class="page">
+                            <p style="text-align: center;">
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">(
+                                        <t t-esc="courseline.program_id.name"/>: 
+                                        <t t-esc="courseline.semester_prefix"/>
+                                        <sup>
+                                            <t t-esc="courseline.semester_sufix"/>
+                                        </sup> Semester)
+                                    </span>
+                                </strong>
+                            </p>
                             <span t-field="courseline.syllabus_id.content"/>
                         </div>
                     </t>
