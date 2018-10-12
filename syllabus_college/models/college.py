@@ -9,7 +9,7 @@ class College(models.Model):
     _description = 'College'
 
     name = fields.Char(string='Name')
-    packages_id = fields.Many2many('syllabus_college.package', string='Packages')
+    programs_id = fields.Many2many('syllabus_minister.program', string='Programs')
 
 
     university_id = fields.Many2one('syllabus_minister.university', string='University', domain="['|', ('user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
