@@ -1,8 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_syllabus_minister_university,syllabus_minister.university,model_syllabus_minister_university,,1,1,0,0
-access_syllabus_minister_faculty,syllabus_minister.faculty,model_syllabus_minister_faculty,,1,1,1,1
-access_syllabus_minister_program,syllabus_minister.program,model_syllabus_minister_program,,1,1,1,1
-access_syllabus_minister_course,syllabus_minister.course,model_syllabus_minister_course,,1,1,1,1
-access_syllabus_minister_unit,syllabus_minister.unit,model_syllabus_minister_unit,,1,1,1,1
-access_syllabus_minister_syllabus,syllabus_minister.syllabus,model_syllabus_minister_syllabus,,1,1,1,1
-access_syllabus_minister_courseline,syllabus_minister.courseline,model_syllabus_minister_courseline,,1,1,1,1
+access_syllabus_minister_faculty,syllabus_minister.faculty,model_syllabus_minister_faculty,,1,1,1,0
+access_syllabus_minister_program,syllabus_minister.program,model_syllabus_minister_program,,1,1,1,0
+access_syllabus_minister_course,syllabus_minister.course,model_syllabus_minister_course,,1,1,1,0
+access_syllabus_minister_unit,syllabus_minister.unit,model_syllabus_minister_unit,,1,1,1,0
+access_syllabus_minister_syllabus,syllabus_minister.syllabus,model_syllabus_minister_syllabus,,1,1,1,0
+access_syllabus_minister_courseline,syllabus_minister.courseline,model_syllabus_minister_courseline,,1,1,1,0
+
