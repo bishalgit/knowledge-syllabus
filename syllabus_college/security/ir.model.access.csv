@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_syllabus_college_college,syllabus_college.college,model_syllabus_college_college,,1,1,1,0

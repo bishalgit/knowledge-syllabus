@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_syllabus_approval_syllabus_approval,syllabus_approval.syllabus_approval,model_syllabus_minister_syllabus,,1,1,1,1
-access_syllabus_approval_syllabus_history_workflow,syllabus_approval.syllabus_history_workflow,model_syllabus_minister_syllabus_history,,1,1,1,1
