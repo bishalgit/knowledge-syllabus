@@ -55,6 +55,7 @@
         'data/base_user_role.xml',
         'report/syllabus_report.xml',
         'report/program_syllabus_report.xml',
+        'report/syllabus_history_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
