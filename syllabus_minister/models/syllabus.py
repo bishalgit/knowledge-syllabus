@@ -14,6 +14,7 @@ class Syllabus(models.Model):
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
     # semester = fields.Char(string='Semester')
     attachment_id = fields.Many2one('ir.attachment',string='Decision Attachment')
+    faculty_id = fields.Many2one('syllabus_minister.faculty',string="Faculty")
     content = fields.Html(
         "Content",
         compute='_compute_content',
@@ -148,6 +149,6 @@ class Syllabus(models.Model):
     # This function filters the syllabus record for the user of certain course.
     @api.model
     def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('course_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+        domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
         return super(Syllabus, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
                                                      order=order)

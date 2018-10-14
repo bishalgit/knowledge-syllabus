@@ -18,7 +18,6 @@
                             <field name="is_elective"/>
                         </group>
                         <group>
-                            <field name="faculty_id"/>
                             <field name="credit_hours"/>
                         </group>
                     </group>
