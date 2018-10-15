@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "syllabus_template",
+    'name': "Syllabus Template",
 
     'summary': """
         This module adds the feature of template selection and generate the
