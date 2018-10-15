@@ -9,6 +9,7 @@ class Program(models.Model):
     _description = 'Program'
 
     name = fields.Char(string='Name')
+    short_form = fields.Char(string='Short Form')
     objectives = fields.Html(string='Objectives')
     curricular_structure = fields.Html(string='Curricular Structure')
     features = fields.Html(string='Features')
@@ -42,6 +43,10 @@ class Program(models.Model):
 
     # Groups Involved in Program
     group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    #This constraints make fields unique
+    _sql_constraints = [
+         ('short_form_unique', 'unique(short_form)','Short Form must be unique')]
 
     @api.model
     def create(self, vals):

@@ -13,17 +13,13 @@
                             </h2>
                         </div>
                     </group>
-                    <group colspan="1">
+                    <group colspan="2">
                         <group>
                             <field name="study_hours"/>
-                        </group>
-                        <group>
-                            <field name="course_id"/>
-                        </group>
-                        <group>
                             <field name="sequence"/>
                         </group>
                         <group>
+                            <field name="course_id"/>
                             <field name="display_name"/>
                         </group>
                     </group>
@@ -96,7 +92,8 @@
         <field name="view_mode">tree,form,kanban,search</field>
         <field name="context">{
                 'search_default_groupby_course':1,
-            }</field>
+            }
+        </field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Unit
