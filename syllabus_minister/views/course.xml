@@ -68,6 +68,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="course_code"/>
             </search>
         </field>
     </record>
@@ -78,6 +79,7 @@
         <field name="arch" type="xml">
             <tree string="Course">
                 <field name="name"/>
+                <field name="course_code"/>
             </tree>
         </field>
     </record>
@@ -110,7 +112,7 @@
         <field name="res_model">syllabus_minister.course</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,search</field>
-        <field name="domain">[]</field>
+        <field name="context" eval="{'search_default_my_courses': 1}"/>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Course
             </p>

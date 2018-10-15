@@ -127,10 +127,11 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="courseline_ids"/>
                 <field name="faculty_id"/>
                 <group>
-                    <filter string="Faculty" name="groupby_faculty" domain="[]" context="{'group_by':'faculty_id'}"/>
-                </group>
+                    <filter string="Faculty0" name="groupby_faculty" domain="[]" context="{'group_by':'faculty_id'}"/>
+                </group> 
             </search>
         </field>
     </record>
@@ -141,6 +142,7 @@
         <field name="arch" type="xml">
             <tree string="Program">
                 <field name="name"/>
+                <field name="faculty_id"/>
             </tree>
         </field>
     </record>
@@ -154,7 +156,9 @@
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
                             <div>
-                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong><br/>
+                                <b>Faculty:</b>
+                                <field name="faculty_id"/>
                             </div>
                         </div>
                     </t>
@@ -167,11 +171,11 @@
         <field name="res_model">syllabus_minister.program</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,search</field>
-        <field name="domain">[]</field>
         <field name="context">{
                 'search_default_groupby_faculty':1,
             }
         </field>
+        <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Program
             </p>
