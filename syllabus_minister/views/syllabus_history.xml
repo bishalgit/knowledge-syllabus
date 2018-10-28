@@ -79,6 +79,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="syllabus_history_menu" parent="syllabus_menu" name="Syllabi History" action="action_history" sequence="30"/>
+    <!-- <menuitem id="syllabus_history_menu" parent="syllabus_menu" name="Syllabi History" action="action_history" sequence="30"/> -->
 
 </odoo>
