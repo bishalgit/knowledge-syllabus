@@ -12,7 +12,7 @@ class College(models.Model):
     programs_id = fields.Many2many('syllabus_minister.program', string='Programs')
 
 
-    university_id = fields.Many2one('syllabus_minister.university', string='University', domain="['|', ('user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    # university_id = fields.Many2one('syllabus_minister.university', string='University', domain="['|', ('user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
 
     # Groups Involved in College
     group_ids = fields.Many2many('res.groups', string="Related Groups")
