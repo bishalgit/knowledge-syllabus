@@ -165,9 +165,9 @@
         <field name="context">{'search_default_state':'to approve'}</field>
     </record>
 
-    <menuitem id="syllabus_change_requests_menu"
+    <!-- <menuitem id="syllabus_change_requests_menu"
         name="Change Requests"
         parent="syllabus_minister.syllabus_menu"
         action="action_change_requests"
-        sequence="25"/>
+        sequence="25"/> -->
 </odoo>
