@@ -10,6 +10,8 @@ class Course(models.Model):
 
     name = fields.Char(string='Name')
     course_code = fields.Char(string='Course Code')
+    name = fields.Char(string='Name')
+    course_type = fields.Selection([('Foundation', 'Foundation Course'), ('Core', 'Core Course'), ('Concentration', 'Concentration'), ('Elective', 'Elective'), ('Project Work and Internship', 'Project Work and Internship')], string='Course Type')
     course_description = fields.Html(string='Course Description')
     course_objectives = fields.Html(string='Course Objectives')
     credit_hours = fields.Integer(string='Credit Hours')
@@ -22,7 +24,7 @@ class Course(models.Model):
     course_outcomes = fields.Html(string='Course Outcomes')
     basic_text = fields.Html(string='Basic Texts')
     references = fields.Html(string='References')
-    is_elective = fields.Boolean(string='Is elective?')
+    # is_elective = fields.Boolean(string='Is elective?')
     # faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty',
     # domain="['|', ('university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
 
