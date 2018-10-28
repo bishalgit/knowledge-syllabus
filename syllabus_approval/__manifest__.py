@@ -28,7 +28,7 @@
         'data/email_template.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/syllabus_approval.xml',
+        # 'views/syllabus_approval.xml',
         'data/base_user_role.xml',
     ],
     # only loaded in demonstration mode
