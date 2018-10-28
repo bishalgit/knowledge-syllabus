@@ -29,8 +29,8 @@ class DocumentPage(models.Model):
         return syllabus
 
     # This function filters the syllabus record for the user of certain course.
-    @api.model
-    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-        return super(DocumentPage, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
-                                                     order=order)
+    # @api.model
+    # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+    #     domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+    #     return super(DocumentPage, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+    #                                                  order=order)

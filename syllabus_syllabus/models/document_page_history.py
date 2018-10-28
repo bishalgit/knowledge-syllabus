@@ -21,7 +21,7 @@ class DocumentPageHistory(models.Model):
         return syllabus_history
     
     # This function filters the syllabus history record for the certain syllabus.
-    @api.model
-    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('page_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-        return super(DocumentPageHistory, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit, order=order)
+    # @api.model
+    # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+    #     domain = (domain or []) + ['|', ('page_id.faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+    #     return super(DocumentPageHistory, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit, order=order)
