@@ -39,7 +39,7 @@ class Program(models.Model):
     deanslist = fields.Html(string='Distinction and deans list')
     courses_id = fields.Many2many('syllabus_minister.course',string='Course')
     total_credit = fields.Integer(string='Total Credit')
-    faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty',domain="['|', ('university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty')
     courseline_ids = fields.One2many('syllabus_minister.courseline','program_id',string="Courseline")
 
     # Groups Involved in Program
@@ -58,8 +58,8 @@ class Program(models.Model):
         return program
 
     # This function filters the program record for the user of certain university.
-    @api.model
-    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-        return super(Program, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
-                                                     order=order)
+    # @api.model
+    # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+    #     domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
+    #     return super(Program, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
+    #                                                  order=order)

@@ -13,9 +13,9 @@
                             </h2>
                         </div>
                     </group>
-                    <group colspan="2">
+                    <!-- <group colspan="2">
                         <field name="university_id"/>
-                    </group>
+                    </group> -->
                     <notebook>
                         <page string="Programs">
                             <field name="programs_id"/>
@@ -47,7 +47,7 @@
         <field name="arch" type="xml">
             <tree string="College">
                 <field name="name"/>
-                <field name="university_id"/>
+                <!-- <field name="university_id"/> -->
             </tree>
         </field>
     </record>

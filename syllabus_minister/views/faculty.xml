@@ -13,9 +13,9 @@
                             </h2>
                         </div>
                     </group>
-                    <group>
+                    <!-- <group>
                         <field name="university_id" />
-                    </group>
+                    </group> -->
                     <notebook>
                         <page string="Introduction">
                             <field name="introduction"/>

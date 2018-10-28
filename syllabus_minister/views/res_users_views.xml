@@ -31,10 +31,10 @@
                 <h2>
                     <field name="rpn"/>
                 </h2>
-                <label for="university_id" class="oe_edit_only"/>
+                <!-- <label for="university_id" class="oe_edit_only"/>
                 <h2>
                     <field name="university_id"/>
-                </h2>
+                </h2> -->
             </xpath>
         </field>
     </record>
@@ -48,10 +48,10 @@
                 <h2>
                     <field name="rpn"/>
                 </h2>
-                <label for="university_id" class="oe_edit_only"/>
+                <!-- <label for="university_id" class="oe_edit_only"/>
                 <h2>
                     <field name="university_id"/>
-                </h2>
+                </h2> -->
             </xpath>
         </field>
     </record>

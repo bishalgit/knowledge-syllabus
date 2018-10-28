@@ -10,13 +10,10 @@ class Courseline(models.Model):
 
     name = fields.Char(string='Name')
     semester = fields.Char(string='Semester')
-    course_id = fields.Many2one('syllabus_minister.course', string='Related Course',
-    domain="[('group_ids.users.id', '=', uid)]")
+    course_id = fields.Many2one('syllabus_minister.course', string='Related Course')
     sequence = fields.Integer(string='sequence',default=1)
-    program_id = fields.Many2one('syllabus_minister.program',string="Program",
-    domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
-    syllabus_id = fields.Many2one('syllabus_minister.syllabus',string="Syllabus",
-    domain="['|', ('faculty_id.university_id.university_user_ids', '=', uid), ('group_ids.users.id', '=', uid)]")
+    program_id = fields.Many2one('syllabus_minister.program',string="Program")
+    syllabus_id = fields.Many2one('document.page',string="Syllabus")
 
     # Groups Involved in Courseline
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -36,36 +33,3 @@ class Courseline(models.Model):
     #     return super(Courseline, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
     #                                                  order=order)
 
-    # Semester prefixing
-    semester_prefix = fields.Char("Semester Prefix")
-    semester_sufix = fields.Char("Semester Sufix")
-
-    @api.model
-    def create(self, vals):
-        response = super(Courseline, self).create(vals)
-        if response:
-            if 'semester' in vals:
-                try:
-                    p = inflect.engine()
-                    s = p.ordinal(int(vals['semester']))
-                    response.semester_sufix = s[-2:]
-                    response.semester_prefix = s[:-2]
-                except Exception:
-                    response.semester_sufix = "undefined"
-                    response.semester_prefix = "undefined"
-        return response
-    
-    @api.multi
-    def write(self, vals):
-        response = super(Courseline, self).write(vals)
-        if response:
-            if 'semester' in vals:
-                try:
-                    p = inflect.engine()
-                    s = p.ordinal(int(vals['semester']))
-                    self.semester_sufix = s[-2:]
-                    self.semester_prefix = s[:-2]
-                except Exception:
-                    self.semester_sufix = "undefined"
-                    self.semester_prefix = "undefined"
-        return response
