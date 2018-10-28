@@ -6,15 +6,15 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class Course(models.Model):
-    _inherit = 'syllabus_minister.course'
+class Courseline(models.Model):
+    _inherit = 'syllabus_minister.courseline'
 
     semester_prefix = fields.Char("Semester Prefix")
     semester_sufix = fields.Char("Semester Sufix")
 
     @api.multi
     def write(self, vals):
-        response = super(Course, self).write(vals)
+        response = super(Courseline, self).write(vals)
         if response:
             if 'semester' in vals:
                 try:

@@ -2,6 +2,6 @@
 
 from . import ir_ui_view
 # from . import syllabus
-# from . import course
+from . import courseline
 from . import document_page
 
