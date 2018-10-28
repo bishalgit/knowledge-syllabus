@@ -13,7 +13,7 @@ from odoo import http
 #             'objects': http.request.env['syllabus_minister.syllabus_minister'].search([]),
 #         })
 
-#     @http.route('/syllabus_minister/syllabus_minister/objects/<model("syllabus_minister.syllabus_minister"):obj>/', auth='public')
+#     @http.route('/syllabus_minister/syllabus_minister/objects/<model("_minister"):obj>/', auth='public')
 #     def object(self, obj, **kw):
 #         return http.request.render('syllabus_minister.object', {
 #             'object': obj
