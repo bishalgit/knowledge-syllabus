@@ -9,12 +9,12 @@ class SyllabusDisplay(models.TransientModel):
     _description = "Syllabus display wizard"
 
     def _get_default_syllabus(self):
-        return self.env['syllabus_minister.syllabus'].browse(self._context.get('active_ids'))[0]
+        return self.env['document.page'].browse(self._context.get('active_ids'))[0]
 
     def _get_temp_syllabus(self):
-        return self.env['syllabus_minister.syllabus'].browse(self._context.get('active_ids'))[0].temp_content
+        return self.env['document.page'].browse(self._context.get('active_ids'))[0].temp_content
 
-    syllabus_id = fields.Many2one("syllabus_minister.syllabus", string="Syllabus", default=_get_default_syllabus)
+    syllabus_id = fields.Many2one("document.page", string="Syllabus", default=_get_default_syllabus)
     temp_syllabus = fields.Html(string="Temporary syllabus", default=_get_temp_syllabus)
 
     @api.multi
