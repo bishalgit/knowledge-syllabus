@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Page Form View -->
+    <record id="syllabus_page_form_view_inherit" model="ir.ui.view">
+        <field name="name">document.page.form</field>
+        <field name="model">document.page</field>
+        <field name="inherit_id" ref="document_page.view_wiki_form" />
+        <field name="arch" type="xml">
+
+            <field name="parent_id" position="after">
+                <field name="course_id"/>
+                <field name="faculty_id"/>
+                <field name="attachment_id"/>
+            </field>
+
+        </field>
+    </record>
+</odoo>

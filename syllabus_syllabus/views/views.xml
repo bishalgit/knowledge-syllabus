@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <menuitem name="Syllabus" id="syllabus_syllabus_page_menu" parent="syllabus_minister.syllabus_minister_menu"/>
+    <menuitem name="Syllabus" id="syllabus_syllabus_page_submenu" parent="syllabus_syllabus_page_menu"
+              action="document_page.action_page"/>
+    <menuitem name="Syllabus History" id="syllabus_syllabus_history_menu" parent="syllabus_syllabus_page_menu"
+              action="document_page.action_history"/>
+    <menuitem id="syllabus_syllabus_change_requests"
+        name="Change Requests"
+        parent="syllabus_syllabus_page_menu"
+        action="document_page_approval.action_change_requests"
+        sequence="25"/>
+
+    <record model="ir.ui.menu" id="knowledge.menu_document_root">
+      <field name="groups_id" eval="[(6, 0, [ref('syllabus_minister.syllabus_minister_group_administrator')])]"/>
+    </record>
+  </data>
+</odoo>
