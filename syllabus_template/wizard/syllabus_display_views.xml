@@ -6,6 +6,9 @@
             <field name="model">syllabus.display</field>
             <field name="arch" type="xml">
                 <form string="Syllabus Display">
+                    <group>
+                        <field name="summary"/>
+                    </group>
                     <field name="temp_syllabus" widget="html" options="{'safe': True}" readonly="1" />
                     <footer>
                         <button name="saveSyllabus" string="Apply" type="object" class="btn-primary"/>

@@ -11,7 +11,9 @@
             <field name="parent_id" position="after">
                 <field name="course_id"/>
                 <field name="faculty_id"/>
-                <field name="attachment_id"/>
+            </field>
+            <field name="content_uid" position="after">
+                <field name="decision_date"/>
             </field>
 
         </field>

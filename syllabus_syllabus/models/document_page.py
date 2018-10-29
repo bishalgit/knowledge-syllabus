@@ -16,6 +16,14 @@ class DocumentPage(models.Model):
         search='_search_content',
         required=True,
     )
+    # no-op computed field
+    summary = fields.Text(
+        help='Describe the changes made',
+        compute=lambda x: x,
+        inverse=lambda x: x,
+    )
+
+    decision_date = fields.Date('Decision Date')
 
     # Groups Involved in Syllabus
     group_ids = fields.Many2many('res.groups', string="Related Groups")
