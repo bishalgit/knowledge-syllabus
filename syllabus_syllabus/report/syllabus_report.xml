@@ -1,7 +1,7 @@
 <odoo>
 
     <report
-        id="report_syllabus"
+        id="document_page.report_document_page"
         model="document.page"
         string="Syllabus Report"
         name="syllabus_syllabus.report_syllabus_view"

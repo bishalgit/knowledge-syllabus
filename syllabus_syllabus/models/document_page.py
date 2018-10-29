@@ -23,6 +23,8 @@ class DocumentPage(models.Model):
         inverse=lambda x: x,
     )
 
+    decision_date = fields.Date('Decision Date')
+
     # Groups Involved in Syllabus
     group_ids = fields.Many2many('res.groups', string="Related Groups")
 
