@@ -16,11 +16,13 @@ class SyllabusDisplay(models.TransientModel):
 
     syllabus_id = fields.Many2one("document.page", string="Syllabus", default=_get_default_syllabus)
     temp_syllabus = fields.Html(string="Temporary syllabus", default=_get_temp_syllabus)
+    summary = fields.Text(String="Change Summary")
 
     @api.multi
     def saveSyllabus(self):
         for record in self:
             record.syllabus_id.write({
-                'content': record.temp_syllabus
+                'content': record.temp_syllabus,
+                'summary': record.summary
             })
         return {'type': 'ir.actions.act_window_close'}
