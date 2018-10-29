@@ -9,15 +9,15 @@ _logger = logging.getLogger(__name__)
 class Syllabus(models.Model):
     _inherit = 'syllabus_minister.syllabus'
 
-     = fields.Many2one('ir.ui.view', string="Template")
+    syllabus_template_id = fields.Many2one('ir.ui.view', string="Template")
     temp_content = fields.Html("Temporary content")
 
     @api.multi
     def onCreateButtonClicked(self):
         for record in self:
-            if record.:
+            if record.syllabus_template_id:
                 record.write({
-                    "temp_content": record.env['ir.ui.view'].render_template(record..id, {'object': record})
+                    "temp_content": record.env['ir.ui.view'].render_template(record.id, {'object': record})
                 })
                 return {'type': 'ir.actions.act_window', 'res_model': 'syllabus.display', 'view_type': 'form', 'view_mode': 'form', 'target': 'new', 'name': 'Syllabus Display'}
             else:
