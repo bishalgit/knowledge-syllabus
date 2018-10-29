@@ -9,7 +9,7 @@ class Program(models.Model):
     _description = 'Program'
 
     name = fields.Char(string='Name')
-    short_form = fields.Char(string='Short Form')
+    short_form = fields.Char(string='Short Form', required='True')
     objectives = fields.Html(string='Objectives')
     curricular_structure = fields.Html(string='Curricular Structure')
     features = fields.Html(string='Features')

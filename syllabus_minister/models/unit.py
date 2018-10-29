@@ -12,7 +12,7 @@ class Unit(models.Model):
     name = fields.Char(string='Name')
     study_hours = fields.Integer(string='Study hours')
     description = fields.Html(string='Description')
-    course_id = fields.Many2one('syllabus_minister.course',string='Course',domain="[('group_ids.users.id', '=', uid)]")
+    course_id = fields.Many2one('syllabus_minister.course',string='Course')
     sequence = fields.Integer(string='sequence',default=1)
     display_name = fields.Char(string='Display Name', compute='_display_name')
 
