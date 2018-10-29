@@ -15,4 +15,11 @@
       <field name="groups_id" eval="[(6, 0, [ref('syllabus_minister.syllabus_minister_group_administrator')])]"/>
     </record>
   </data>
+
+  <data noupdate="1">
+    <!-- Delete menu form the action button -->
+    <delete id="document_page.action_wiki_create_menu" model="ir.actions.act_window"/>
+    <delete id="base.act_menu_create" model="ir.actions.act_window"/>
+    <delete id="document_page.action_related_page_create_menu" model="ir.actions.act_window"/>
+  </data>
 </odoo>

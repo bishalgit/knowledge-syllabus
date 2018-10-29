@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <!-- Page Form View -->
+    <!-- Page Inherit Form View -->
     <record id="syllabus_page_form_view_inherit" model="ir.ui.view">
         <field name="name">document.page.form</field>
         <field name="model">document.page</field>
         <field name="inherit_id" ref="document_page.view_wiki_form" />
         <field name="arch" type="xml">
-
+            <div class="oe_button_box" name="button_box" position="inside">
+                <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                    <field string="Decision Documents" name="doc_count" widget="statinfo"/>
+                </button>
+            </div>
             <field name="parent_id" position="after">
                 <field name="course_id"/>
                 <field name="faculty_id"/>
@@ -16,6 +20,31 @@
                 <field name="decision_date"/>
             </field>
 
+        </field>
+    </record>
+
+    <!-- History Inherit Form view  -->
+    <record model="ir.ui.view" id="wiki_history_form_inherit">
+        <field name="name">document.page.history.form.inherit</field>
+        <field name="model">document.page.history</field>
+        <field name="inherit_id" ref="document_page.wiki_history_form" />
+        <field name="arch" type="xml">
+            <page name="diff" position="replace"/>
+        </field>
+    </record>
+
+    <!-- Category Inherit form View -->
+    <record id="view_category_form_inherit" model="ir.ui.view">
+        <field name="name">document.page.category.form</field>
+        <field name="model">document.page</field>
+        <field name="inherit_id" ref="document_page.view_category_form" />
+        <field name="arch" type="xml">
+            <field name="parent_id" position="replace"/>
+            <field name="write_uid" position="replace"/>
+            <field name="write_date" position="replace"/>
+            <field name="menu_id" position="replace"/>
+            <page name="template" position="replace"/>
+            <page name="documents" position="replace"/>
         </field>
     </record>
 </odoo>

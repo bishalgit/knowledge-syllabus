@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class DocumentPage(models.Model):
@@ -7,7 +7,7 @@ class DocumentPage(models.Model):
     _description = 'Syllabus'
 
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
-    attachment_id = fields.Many2one('ir.attachment',string='Decision Attachment')
+    # attachment_ids = fields.Many2many('ir.attachment',string='Decision Attachment')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string="Faculty")
     content = fields.Html(
         "Content",
@@ -23,7 +23,36 @@ class DocumentPage(models.Model):
         inverse=lambda x: x,
     )
 
+    # Decision date and documents
     decision_date = fields.Date('Decision Date')
+    doc_count = fields.Integer(compute='_compute_attached_docs_count', string="Number of documents attached")
+    def _compute_attached_docs_count(self):
+        Attachment = self.env['ir.attachment']
+        for page in self:
+            page.doc_count = Attachment.search_count([
+                '|', ('res_model', '=', 'document.page'), ('res_id', '=', page.id)
+            ])
+
+    @api.multi
+    def attachment_tree_view(self):
+        self.ensure_one()
+        domain = [
+            '|', ('res_model', '=', 'document.page'), ('res_id', 'in', self.ids)]
+        return {
+            'name': _('Decision Attachments'),
+            'domain': domain,
+            'res_model': 'ir.attachment',
+            'type': 'ir.actions.act_window',
+            'view_id': False,
+            'view_mode': 'kanban,tree,form',
+            'view_type': 'form',
+            'help': _('''<p class="oe_view_nocontent_create">
+                        These are the documents of the decision attachments during syllabus
+                        management.
+                    </p>'''),
+            'limit': 80,
+            'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
+        }
 
     # Groups Involved in Syllabus
     group_ids = fields.Many2many('res.groups', string="Related Groups")
