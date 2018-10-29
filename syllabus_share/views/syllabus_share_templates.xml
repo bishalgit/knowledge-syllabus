@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="syllabus_share._display_syllabus">
+        <t t-raw="content"/>
+    </template>
+    <template id="syllabus_share.display_syllabus" name="Syllabus Share">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_frontend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_frontend" t-css="false"/>
+            </t>
+            <div class="o_share_document">
+                <header>
+                    <div class="container text-center">
+                        <!-- <a href="/"><img src="/logo.png" alt="Logo"/></a>
+                        <div t-if="sign_request" class="o_sign_header_instruction">
+                            <t t-if="not current_request_item">Need to sign? Check your inbox to get your secure access</t>
+                            <t t-if="current_request_item and current_request_item.state == 'sent'">Please Review And Act On This Document</t>
+                            <t t-if="current_request_item and current_request_item.state == 'completed'">You have completed the document</t>
+                        </div>
+                        <a href="https://www.odoo.com/page/sign"><img src="/sign/static/img/odoo_signed.png" alt="Signed"/></a> -->
+                    </div>
+                </header>
+                <t t-call="syllabus_share._display_syllabus"/>
+            </div>
+        </t>
+    </template>
+</odoo>

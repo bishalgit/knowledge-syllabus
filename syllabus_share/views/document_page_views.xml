@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Page Form View -->
+    <record id="share_syllabus_page_form_view_inherit" model="ir.ui.view">
+        <field name="name">document.page.inherit.view.form</field>
+        <field name="model">document.page</field>
+        <field name="inherit_id" ref="document_page.view_wiki_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="before">
+                <button name="onShareButtonClicked" type="object" class="oe_button_box" icon="fa-share-alt">
+                    Share
+                </button>
+            </xpath>
+            <xpath expr="//notebook[1]" position="before">
+                <group>
+                    <field name="access_token" groups="base.group_no_one"/>
+                </group>
+                <!-- <button name="onShareButtonClicked" string="Share" type="object" class="btn-primary" /> -->
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
