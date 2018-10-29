@@ -21,6 +21,7 @@ class Program(models.Model):
     course_registration = fields.Html(string='Course Registration')
     additional_withdrawal_course = fields.Html(string='Additional Withdrawal Course')
     attendance_requirements = fields.Html(string='Attendance Requirements')
+    study_duration = fields.Html(string='Normal and Maximum Duration of Study')
     normal_study_duration = fields.Char(string='Normal Study Duration')
     max_study_duration = fields.Char(string='Maximum Study Duration')
     min_credit_fulltime_student = fields.Integer(string='Minimum no. of credits for full time student')

@@ -77,6 +77,8 @@
                         <page string="Requirements">
                             <label for="attendance_requirements" class="oe_edit_only"/>
                             <field name="attendance_requirements"/>
+                            <label for="study_duration" class="oe_edit_only"/>
+                            <field name="study_duration"/>
                             <label for="degree_requirements" class="oe_edit_only"/>
                             <field name="degree_requirements"/>
                         </page>
