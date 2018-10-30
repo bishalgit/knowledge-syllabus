@@ -65,9 +65,15 @@ class DocumentPage(models.Model):
         })
         return syllabus
 
-    # This function filters the syllabus record for the user of certain course.
-    # @api.model
-    # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-    #     domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-    #     return super(DocumentPage, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
-    #                                                  order=order)
+    # Overriding _inverse_content to transfer decision date and attachment in the 
+    # syllabus history
+    @api.multi
+    def _inverse_content(self):
+        for rec in self:
+            if rec.type == 'content':
+                rec._create_history({
+                    'content': rec.content,
+                    'summary': rec.summary,
+                    'decision_date': rec.decision_date,
+                })
+    

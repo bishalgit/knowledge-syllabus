@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <div class="oe_button_box" name="button_box" position="inside">
                 <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
-                    <field string="Decision Documents" name="doc_count" widget="statinfo"/>
+                    <field string="Documents" name="doc_count" widget="statinfo"/>
                 </button>
             </div>
             <field name="parent_id" position="after">
@@ -18,6 +18,20 @@
             </field>
             <field name="content_uid" position="after">
                 <field name="decision_date"/>
+            </field>
+
+            <field name="history_ids" position="inside">
+                <tree>
+                    <field name="id"/>
+                    <field name="approved_date"/>
+                    <field name="summary"/>
+                    <field name="decision_date" />
+                    <field name="create_uid"/>
+                    <field name="approved_uid"/>
+                    <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                        <field string="Documents" name="doc_count" widget="statinfo"/>
+                    </button>
+                </tree>
             </field>
 
         </field>
@@ -30,6 +44,25 @@
         <field name="inherit_id" ref="document_page.wiki_history_form" />
         <field name="arch" type="xml">
             <page name="diff" position="replace"/>
+            <field name="page_id" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                        <field string="Documents" name="doc_count" widget="statinfo"/>
+                    </button>
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <!-- History Inherit Tree view -->
+    <record model="ir.ui.view" id="view_wiki_history_tree_inherit">
+        <field name="name">document.page.history.tree</field>
+        <field name="model">document.page.history</field>
+        <field name="inherit_id" ref="document_page.view_wiki_history_tree" />
+        <field name="arch" type="xml">
+            <field name="summary" position="after">
+                <field name="decision_date" />
+            </field>
         </field>
     </record>
 
