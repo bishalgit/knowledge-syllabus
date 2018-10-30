@@ -31,65 +31,65 @@
                     </group>
                     <notebook>
                         <page string="General">
-                            <label for="objectives" class="oe_edit_only"/>
+                            <label for="objectives" />
                             <field name="objectives"/>
-                            <label for="curricular_structure" class="oe_edit_only"/>
+                            <label for="curricular_structure" />
                             <field name="curricular_structure"/>
-                            <label for="features" class="oe_edit_only"/>
+                            <label for="features" />
                             <field name="features"/>
                         </page>
                         <page string="Entry Requirement and Adminssion Procedures">
-                            <label for="eligibility" class="oe_edit_only"/>
+                            <label for="eligibility" />
                             <field name="eligibility"/>
-                            <label for="documents_required" class="oe_edit_only"/>
+                            <label for="documents_required" />
                             <field name="documents_required"/>
-                            <label for="admission_procedures" class="oe_edit_only"/>
+                            <label for="admission_procedures" />
                             <field name="admission_procedures"/>
                         </page>
                         <page string="System">
-                            <label for="semester_system" class="oe_edit_only"/>
+                            <label for="semester_system" />
                             <field name="semester_system"/>
-                            <label for="evaluation_system" class="oe_edit_only"/>
+                            <label for="evaluation_system" />
                             <field name="evaluation_system"/>
-                            <label for="grading_system" class="oe_edit_only"/>
+                            <label for="grading_system" />
                             <field name="grading_system"/>
                         </page>
                         <page string="Course information">
-                            <label for="academic_schedule" class="oe_edit_only"/>
+                            <label for="academic_schedule" />
                             <field name="academic_schedule"/>
-                            <label for="course_registration" class="oe_edit_only"/>
+                            <label for="course_registration" />
                             <field name="course_registration"/>
-                            <label for="additional_withdrawal_course" class="oe_edit_only"/>
+                            <label for="additional_withdrawal_course" />
                             <field name="additional_withdrawal_course"/>
-                            <label for="evaluation_elective_concentration_courses" class="oe_edit_only"/>
+                            <label for="evaluation_elective_concentration_courses" />
                             <field name="evaluation_elective_concentration_courses"/>
-                            <label for="repeating_course" class="oe_edit_only"/>
+                            <label for="repeating_course" />
                             <field name="repeating_course"/>
-                            <label for="credit_transfer_withdrawal" class="oe_edit_only"/>
+                            <label for="credit_transfer_withdrawal" />
                             <field name="credit_transfer_withdrawal"/>
                         </page>
                         <page string="Project/Internship">
-                            <label for="project_work" class="oe_edit_only"/>
+                            <label for="project_work" />
                             <field name="project_work"/>
-                            <label for="internship" class="oe_edit_only"/>
+                            <label for="internship" />
                             <field name="internship"/>
                         </page>
                         <page string="Requirements">
-                            <label for="attendance_requirements" class="oe_edit_only"/>
+                            <label for="attendance_requirements" />
                             <field name="attendance_requirements"/>
-                            <label for="study_duration" class="oe_edit_only"/>
+                            <label for="study_duration" />
                             <field name="study_duration"/>
-                            <label for="degree_requirements" class="oe_edit_only"/>
+                            <label for="degree_requirements" />
                             <field name="degree_requirements"/>
                         </page>
                         <page string="Protocol">
-                            <label for="unfair_means" class="oe_edit_only"/>
+                            <label for="unfair_means" />
                             <field name="unfair_means"/>
-                            <label for="provision_retotaling_rechecking" class="oe_edit_only"/>
+                            <label for="provision_retotaling_rechecking" />
                             <field name="provision_retotaling_rechecking"/>
-                            <label for="dismissal_from_program" class="oe_edit_only"/>
+                            <label for="dismissal_from_program" />
                             <field name="dismissal_from_program"/>
-                            <label for="deanslist" class="oe_edit_only"/>
+                            <label for="deanslist" />
                             <field name="deanslist"/>
                         </page>
                         <page string="Courses">

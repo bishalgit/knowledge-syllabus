@@ -21,5 +21,7 @@
     <delete id="document_page.action_wiki_create_menu" model="ir.actions.act_window"/>
     <delete id="base.act_menu_create" model="ir.actions.act_window"/>
     <delete id="document_page.action_related_page_create_menu" model="ir.actions.act_window"/>
+    <delete id="document_page.action_view_wiki_show_diff" model="ir.actions.act_window"/>
+    <delete id="document_page.action_view_wiki_show_diff_values" model="ir.actions.act_window"/>
   </data>
 </odoo>
