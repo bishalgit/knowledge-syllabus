@@ -18,7 +18,13 @@
                     </group> -->
                     <notebook>
                         <page string="Programs">
-                            <field name="programs_id"/>
+                            <field name="programs_id">
+                                <tree string="Program">
+                                    <field name="name"/>
+                                    <field name="faculty_id"/>
+                                    <button name="%(syllabus_syllabus.report_program_syllabus)d" string="Print" type="action" icon="fa-print"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
