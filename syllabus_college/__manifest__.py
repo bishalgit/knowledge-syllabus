@@ -21,7 +21,7 @@
     'version': '11.0.0.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','syllabus_minister'],
+    'depends': ['base','mail','syllabus_minister','syllabus_syllabus'],
 
     # always loaded
     'data': [
@@ -30,7 +30,6 @@
         'views/views.xml',
         # 'views/package.xml',
         'views/college.xml',
-        # 'report/syllabus_college_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
