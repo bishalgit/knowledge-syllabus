@@ -488,7 +488,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '1'">
+                                        <t t-if="course.semester == 1">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -530,7 +530,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '2'">
+                                        <t t-if="course.semester == 2">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -572,7 +572,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '3'">
+                                        <t t-if="course.semester == 3">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -614,7 +614,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '4'">
+                                        <t t-if="course.semester == 4">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -656,7 +656,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '5'">
+                                        <t t-if="course.semester == 5">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -698,7 +698,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '6'">
+                                        <t t-if="course.semester == 6">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -740,7 +740,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '7'">
+                                        <t t-if="course.semester == 7">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
@@ -782,7 +782,7 @@
                                 </tr>
                                 <t t-foreach="doc.courseline_ids" t-as="course">
                                     <tr>
-                                        <t t-if="course.semester == '8'">
+                                        <t t-if="course.semester == 8">
                                             <td>
                                                 <p style="text-align: justify; line-height: normal;">
                                                     <span style="font-family: 'Times New Roman',serif;">
