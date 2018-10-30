@@ -10,7 +10,6 @@ class Course(models.Model):
 
     name = fields.Char(string='Name')
     course_code = fields.Char(string='Course Code')
-    name = fields.Char(string='Name')
     course_type = fields.Selection([('Foundation', 'Foundation Course'), ('Core', 'Core Course'), ('Concentration', 'Concentration'), ('Elective', 'Elective'), ('Project Work and Internship', 'Project Work and Internship')], string='Course Type')
     course_description = fields.Html(string='Course Description')
     course_objectives = fields.Html(string='Course Objectives')
