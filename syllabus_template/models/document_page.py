@@ -11,7 +11,7 @@ class DocumentPage(models.Model):
     _inherit = 'document.page'
     _description = 'Syllabus'
     
-    syllabus_template_id = fields.Many2one('ir.ui.view', string="Template")
+    syllabus_template_id = fields.Many2one('ir.ui.view', string="Syllabus Template")
     temp_content = fields.Html("Temporary content")
 
     @api.multi

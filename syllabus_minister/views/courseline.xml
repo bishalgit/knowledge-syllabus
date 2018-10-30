@@ -49,9 +49,8 @@
         <field name="arch" type="xml">
             <tree string="Courseline" editable="top">
                 <field name="sequence" widget="handle"/>
-                <field name="name"/>
+                <field name="course_id"/>
                 <field name="semester"/>
-                <field name="course_id" />
                 <field name="syllabus_id"/>
             </tree>
         </field>
