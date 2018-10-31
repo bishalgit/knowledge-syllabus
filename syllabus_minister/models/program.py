@@ -102,55 +102,55 @@ class Program(models.Model):
     def _compute_sem1(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "1":
+                if r.semester == 1:
                     record.total_sem1_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_sem2(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "2":
+                if r.semester == 2:
                     record.total_sem2_cr_hr += r.course_id.credit_hours  
 
     @api.multi
     def _compute_sem3(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "3":
+                if r.semester == 3:
                     record.total_sem3_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_sem4(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "4":
+                if r.semester == 4:
                     record.total_sem4_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_sem5(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "5":
+                if r.semester == 5:
                     record.total_sem5_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_sem6(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "6":
+                if r.semester == 6:
                     record.total_sem6_cr_hr += r.course_id.credit_hours  
 
     @api.multi
     def _compute_sem7(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "7":
+                if r.semester == 7:
                     record.total_sem7_cr_hr += r.course_id.credit_hours
     @api.multi
     def _compute_sem8(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.semester == "8":
+                if r.semester == 8:
                     record.total_sem8_cr_hr += r.course_id.credit_hours
 
     @api.model
