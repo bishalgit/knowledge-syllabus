@@ -33,7 +33,14 @@
                     </button>
                 </tree>
             </field>
-
+            <label for="summary" position="replace"/>
+            <field name="summary" position="replace">
+                <field name="summary" invisible="1" />
+            </field>
+            <field name="content" position="replace">
+                <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="1"
+                    options="{'safe': True}" readonly="1"/>
+            </field>
         </field>
     </record>
 
