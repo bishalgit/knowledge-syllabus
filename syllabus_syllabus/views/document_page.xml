@@ -44,6 +44,19 @@
         </field>
     </record>
 
+    <!-- Page Search Form View -->
+    <record id="syllabus_page_search_view_inherit" model="ir.ui.view">
+        <field name="name">document.page.search</field>
+        <field name="model">document.page</field>
+        <field name="inherit_id" ref="document_page.view_wiki_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="course_id"/>
+                <field name="faculty_id"/>
+            </field>
+        </field>
+    </record>
+
     <!-- History Inherit Form view  -->
     <record model="ir.ui.view" id="wiki_history_form_inherit">
         <field name="name">document.page.history.form.inherit</field>
