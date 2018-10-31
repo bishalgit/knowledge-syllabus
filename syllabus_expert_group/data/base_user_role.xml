@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="base_user_role_expert_group" model="res.users.role">
-        <field name="name">Expert</field>
-        <field name="rpn">1</field>
-        <field name="implied_ids" eval="[(4, ref('syllabus_expert_group.syllabus_expert_group_expert'))]"/>
-    </record>
-</odoo>
