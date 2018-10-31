@@ -20,9 +20,10 @@
                         </group>
                         <group>
                             <field name="faculty_id"/>
-                            <field name="max_study_duration"/>
+                            <field name="level"/>
                         </group>
                         <group>
+                            <field name="max_study_duration"/>
                             <field name="total_credit"/>
                         </group>
                         <group>
@@ -111,8 +112,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
-                <field name="courseline_ids"/>
+                <field name="related_course"/>
+                <field name="related_syllabus"/>
                 <field name="faculty_id"/>
+                <field name="level"/>
                 <group>
                     <filter string="Faculty" name="groupby_faculty" domain="[]" context="{'group_by':'faculty_id'}"/>
                 </group> 

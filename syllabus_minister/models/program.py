@@ -10,6 +10,7 @@ class Program(models.Model):
 
     name = fields.Char(string='Name')
     short_form = fields.Char(string='Short Form', required='True')
+    level = fields.Selection([('Bachelor','Bachelor'),('Master','Master'),('Phd','Phd')],string="Level")
     objectives = fields.Html(string='Objectives')
     curricular_structure = fields.Html(string='Curricular Structure')
     features = fields.Html(string='Features')
@@ -37,7 +38,9 @@ class Program(models.Model):
     dismissal_from_program = fields.Html(string='Dismissal from the program')
     degree_requirements = fields.Html(string='Degree Requirement')
     deanslist = fields.Html(string='Distinction and deans list')
-    courses_id = fields.Many2many('syllabus_minister.course',string='Course')
+    # courses_id = fields.Many2many('syllabus_minister.course',string='Course')
+    related_course = fields.Many2one(related='courseline_ids.course_id', string="Course")
+    related_syllabus = fields.Many2one(related='courseline_ids.syllabus_id', string="Syllabus")
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty')
     courseline_ids = fields.One2many('syllabus_minister.courseline','program_id',string="Courseline")
