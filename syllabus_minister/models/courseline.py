@@ -10,9 +10,10 @@ class Courseline(models.Model):
 
     name = fields.Char(string='Name')
     semester = fields.Integer(string='Semester')
-    course_id = fields.Many2one('syllabus_minister.course', string='Related Course')
+    course_id = fields.Many2one('syllabus_minister.course', string='Course')
     sequence = fields.Integer(string='sequence',default=1)
     program_id = fields.Many2one('syllabus_minister.program',string="Program")
+    related_faculty = fields.Many2one(related="program_id.faculty_id",string="Faculty")
     syllabus_id = fields.Many2one('document.page',string="Syllabus", 
     domain="[('type', '=', 'content')]")
 

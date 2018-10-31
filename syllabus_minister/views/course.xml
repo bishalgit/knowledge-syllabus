@@ -69,7 +69,7 @@
             <search>
                 <field name="name"/>
                 <field name="course_code"/>
-                <field name="level"/>
+                <!-- <field name="level"/> -->
             </search>
         </field>
     </record>

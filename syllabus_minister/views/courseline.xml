@@ -32,7 +32,7 @@
         </field>
     </record>
 
-    <record id="courseline_view_search" model="ir.ui.view">
+    <!-- <record id="courseline_view_search" model="ir.ui.view">
         <field name="name">courseline.search</field>
         <field name="model">syllabus_minister.courseline</field>
         <field name="arch" type="xml">
@@ -40,7 +40,7 @@
                 <field name="name"/>
             </search>
         </field>
-    </record>
+    </record> -->
 
 
     <record id="courseline_view_tree" model="ir.ui.view">
@@ -82,7 +82,7 @@
         <field name="name">Courseline</field>
         <field name="res_model">syllabus_minister.courseline</field>
         <field name="view_type">form</field>
-        <field name="view_mode">kanban,tree,form,search</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Courseline

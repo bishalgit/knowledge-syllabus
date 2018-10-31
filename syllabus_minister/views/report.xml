@@ -1,0 +1,93 @@
+<odoo>
+
+    <record id="report_view_search" model="ir.ui.view">
+        <field name="name">report.search</field>
+        <field name="model">syllabus_minister.courseline</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="course_id"/>
+                <field name="semester"/>
+                <field name="syllabus_id"/>
+                <field name="program_id"/>
+                <field name="related_faculty"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="report_view_tree" model="ir.ui.view">
+        <field name="name">report.tree</field>
+        <field name="model">syllabus_minister.courseline</field>
+        <field name="arch" type="xml">
+            <tree string="Report" create="false">
+                <field name="sequence" widget="handle"/>
+                <field name="semester"/>
+                <field name="course_id"/>
+                <field name="syllabus_id"/>
+                <field name="program_id"/>
+                <field name="related_faculty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="report_view_kanban" model="ir.ui.view">
+        <field name="name">report.kanban</field>
+        <field name="model">syllabus_minister.courseline</field>
+        <field name="arch" type="xml">
+            <kanban create="false">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- window action -->
+     <!--**
+         The following tag is an action definition for a "window action",
+         that is an action opening a view or a set of views
+     -->
+    <record id="report_action" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="res_model">syllabus_minister.courseline</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">tree,kanban,search</field>
+        <field name="domain">[]</field>
+        <!-- <field name="help" type="html"> -->
+            <!-- <p class="oe_view_nocontent_create">Create Courseline
+            </p> -->
+        <!-- </field> -->
+    </record>
+
+    <record model="ir.actions.act_window.view" id="report_list_action">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="report_view_tree"/>            
+        <field name="act_window_id" ref="report_action"/>
+    </record>
+
+    <!-- <record model="ir.actions.act_window.view" id="report_search_action">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">search</field>
+        <field name="view_id" ref="report_view_search"/>            
+        <field name="act_window_id" ref="report_action"/>
+    </record> -->
+
+    <record model="ir.actions.act_window.view" id="report_kanban_action">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="report_view_kanban"/>            
+        <field name="act_window_id" ref="report_action"/>
+    </record>
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="report_menu" name="Report" parent="syllabus_minister_menu"
+               action="report_action"/>
+</odoo>
