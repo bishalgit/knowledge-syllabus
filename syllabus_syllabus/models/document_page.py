@@ -76,4 +76,9 @@ class DocumentPage(models.Model):
                     'summary': rec.summary,
                     'decision_date': rec.decision_date,
                 })
+
+    # providing sql contraint for unqiue name of the syllabus objects
+    _sql_constraints = [
+        ('name_key', 'unique (name)', 'This name already exists, please provide another name for the syllabus.'),
+    ]
     

@@ -1,7 +1,7 @@
 <odoo>
 
     <report
-        id="report_syllabus"
+        id="report_history_syllabus"
         model="document.page.history"
         string="Syllabus History Report"
         name="syllabus_syllabus.report_syllabus_history_view"

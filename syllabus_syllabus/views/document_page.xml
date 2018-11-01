@@ -38,7 +38,7 @@
                 <field name="summary" invisible="1" />
             </field>
             <field name="content" position="replace">
-                <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="1"
+                <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="0"
                     options="{'safe': True}" readonly="1"/>
             </field>
         </field>
@@ -71,6 +71,26 @@
                     </button>
                 </div>
             </field>
+            <field name="page_id" position="before">
+                <group colspan="2">
+                    <group>
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </group>
+                    <group>
+                        <field name="syllabus_version" readonly="1"/>
+                    </group>
+                </group>
+            </field>
+            <label for="summary" position="replace"/>
+            <field name="summary" position="replace">
+                <field name="summary" readonly="1" />
+            </field>
+            <field name="content" position="replace">
+                <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="0"
+                    options="{'safe': True}" readonly="1"/>
+            </field>
         </field>
     </record>
 
@@ -80,9 +100,14 @@
         <field name="model">document.page.history</field>
         <field name="inherit_id" ref="document_page.view_wiki_history_tree" />
         <field name="arch" type="xml">
+            <field name="page_id" position="before">
+                <field name="name" />
+                <field name="syllabus_version" />
+            </field>
             <field name="summary" position="after">
                 <field name="decision_date" />
             </field>
+            <field name="summary" position="replace" />
         </field>
     </record>
 
