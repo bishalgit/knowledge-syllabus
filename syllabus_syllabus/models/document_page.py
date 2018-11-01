@@ -71,14 +71,19 @@ class DocumentPage(models.Model):
     def _inverse_content(self):
         for rec in self:
             if rec.type == 'content':
+                rec.latest_version += 1
                 rec._create_history({
                     'content': rec.content,
                     'summary': rec.summary,
                     'decision_date': rec.decision_date,
+                    'syllabus_version': rec.latest_version
                 })
 
     # providing sql contraint for unqiue name of the syllabus objects
     _sql_constraints = [
         ('name_key', 'unique (name)', 'This name already exists, please provide another name for the syllabus.'),
     ]
+
+    # latest version of the syllabus
+    latest_version = fields.Integer("Latest Version", default=0)
     
