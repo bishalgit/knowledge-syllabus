@@ -14,8 +14,7 @@ class Courseline(models.Model):
     sequence = fields.Integer(string='sequence',default=1)
     program_id = fields.Many2one('syllabus_minister.program',string="Program")
     related_faculty = fields.Many2one(related="program_id.faculty_id",string="Faculty")
-    syllabus_id = fields.Many2one('document.page',string="Syllabus", 
-    domain="[('type', '=', 'content')]")
+    syllabus_id = fields.Many2one('document.page.history',string="Syllabus")
 
     # Groups Involved in Courseline
     group_ids = fields.Many2many('res.groups', string="Related Groups")
