@@ -11,6 +11,15 @@ class DocumentPageHistory(models.Model):
 
     # Groups Involved in Syllabus History
     group_ids = fields.Many2many('res.groups', string="Related Groups")
+
+    @api.model
+    def create(self, vals):
+        syllabus_history = super(DocumentPageHistory, self).create(vals)
+        syllabus_history.write({
+            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)],
+        })
+        return syllabus_history
+
     
     # change requests and approval decision date and attachments
     decision_date = fields.Date('Decision Date')
@@ -45,17 +54,6 @@ class DocumentPageHistory(models.Model):
 
     # syllabus version field
     syllabus_version = fields.Integer("Version", default=0)
-
-    @api.model
-    def create(self, vals):
-        version = self.syllabus_version
-        version += 1
-        syllabus_history = super(DocumentPageHistory, self).create(vals)
-        syllabus_history.write({
-            'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)],
-            'syllabus_version': version
-        })
-        return syllabus_history
 
     # compute name for syllabus history with version convention
     name = fields.Char("Name", compute="_compute_name")
