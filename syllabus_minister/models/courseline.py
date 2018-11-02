@@ -2,6 +2,11 @@
 
 from odoo import models, fields, api
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
+
 
 class Courseline(models.Model):
     _name = 'syllabus_minister.courseline'
@@ -9,7 +14,7 @@ class Courseline(models.Model):
     _order =  'sequence, id'
 
     name = fields.Char(string='Name')
-    semester = fields.Integer(string='Semester')
+    semester = fields.Integer(string='Semester', default=1)
     course_id = fields.Many2one('syllabus_minister.course', string='Course')
     sequence = fields.Integer(string='sequence',default=1)
     program_id = fields.Many2one('syllabus_minister.program',string="Program")
@@ -27,4 +32,9 @@ class Courseline(models.Model):
         })
         return courseline
 
-
+    # get syllabus of the related course
+    @api.onchange('course_id')
+    def _campus_onchange(self):
+        res = {}
+        res['domain']={'syllabus_id':[('final_draft', '=', True)]}
+        return res
