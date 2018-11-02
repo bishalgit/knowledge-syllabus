@@ -23,6 +23,6 @@ class SyllabusDisplay(models.TransientModel):
         for record in self:
             record.syllabus_id.write({
                 'content': record.temp_syllabus,
-                'summary': record.summary
+                'draft_summary': record.summary
             })
         return {'type': 'ir.actions.act_window_close'}

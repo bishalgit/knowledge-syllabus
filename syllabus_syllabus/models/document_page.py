@@ -17,7 +17,8 @@ class DocumentPage(models.Model):
         required=True,
     )
     # no-op computed field
-    summary = fields.Text(
+    draft_summary = fields.Char(
+        string='Summary',
         help='Describe the changes made',
         compute=lambda x: x,
         inverse=lambda x: x,
@@ -74,7 +75,7 @@ class DocumentPage(models.Model):
                 rec.latest_version += 1
                 rec._create_history({
                     'content': rec.content,
-                    'summary': rec.summary,
+                    'summary': rec.draft_summary,
                     'decision_date': rec.decision_date,
                     'syllabus_version': rec.latest_version
                 })

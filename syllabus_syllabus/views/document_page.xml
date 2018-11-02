@@ -33,9 +33,11 @@
                     </button>
                 </tree>
             </field>
-            <label for="summary" position="replace"/>
-            <field name="summary" position="replace">
-                <field name="summary" invisible="1" />
+            <field name="draft_name" position="replace">
+                <field name="draft_name" invisible="1" />
+            </field>
+            <field name="draft_summary" position="replace">
+                <field name="draft_summary" invisible="1" />
             </field>
             <field name="content" position="replace">
                 <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="0"
@@ -83,7 +85,6 @@
                     </group>
                 </group>
             </field>
-            <label for="summary" position="replace"/>
             <field name="summary" position="replace">
                 <field name="summary" readonly="1" />
             </field>
