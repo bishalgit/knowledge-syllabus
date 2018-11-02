@@ -1,5 +1,9 @@
 from odoo import api, fields, models, _
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class DocumentPage(models.Model):
 
@@ -76,7 +80,8 @@ class DocumentPage(models.Model):
                     'content': rec.content,
                     'summary': rec.summary,
                     'decision_date': rec.decision_date,
-                    'syllabus_version': rec.latest_version
+                    'syllabus_version': rec.latest_version,
+                    'final_draft': rec.major_change,
                 })
 
     # providing sql contraint for unqiue name of the syllabus objects
@@ -86,4 +91,7 @@ class DocumentPage(models.Model):
 
     # latest version of the syllabus
     latest_version = fields.Integer("Latest Version", default=0)
+
+    # if the change from the syllabus template model is major change
+    major_change = fields.Boolean("Major Change", default=False)
     

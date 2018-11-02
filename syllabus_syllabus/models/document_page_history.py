@@ -89,3 +89,22 @@ class DocumentPageHistory(models.Model):
             return self.browse(records.ids).name_get()
         else:
             return []
+
+    # @api.model
+    # def name_search(self, name, args=None, operator='ilike', limit=100):
+    #     if args is None:
+    #         args = []
+    #     if self.env.context.get('course_id'):
+    #         _logger.warning("if courseeeeeeeeeeeeeeeee")
+    #         args = args + [('related_course_id', '=', self.env.context.get('course_id'))]
+    #     records = self.search(args, limit=limit)
+    #     if records:
+    #         return self.browse(records.ids).name_get()
+    #     else:
+    #         return []
+
+    #provide a boolean if the change history of the syllabus is the final draft version
+    final_draft = fields.Boolean('Final Draft Version', default=False)
+
+    # syllabus history of the related course
+    related_course_id = fields.Many2one(related='page_id.course_id', string="Related Course")
