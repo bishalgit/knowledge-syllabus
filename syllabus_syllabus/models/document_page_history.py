@@ -2,6 +2,10 @@ import difflib
 from odoo import api, fields, models
 from odoo.tools.translate import _
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class DocumentPageHistory(models.Model):
 
@@ -67,3 +71,21 @@ class DocumentPageHistory(models.Model):
 
     # overriding content field to type HTML
     content = fields.Html('Content')
+
+    # displaying default name field
+    @api.multi
+    def name_get(self):
+        res = []
+        for rec in self:
+            res.append((rec.id, rec.name))
+        return res
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        if args is None:
+            args = []
+        records = self.search(args, limit=limit)
+        if records:
+            return self.browse(records.ids).name_get()
+        else:
+            return []
