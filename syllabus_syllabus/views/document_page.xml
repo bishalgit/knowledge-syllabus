@@ -101,6 +101,23 @@
         </field>
     </record>
 
+    <!-- History Search view  -->
+    <record id="document_page.view_wiki_history_filter" model="ir.ui.view">
+        <field name="name">document.page.history.search</field>
+        <field name="model">document.page.history</field>
+        <field name="arch" type="xml">
+            <search string="Syllabus Change History">
+                <field name="page_id"/>
+                <field name="content"/>
+                <field name="create_uid"/>
+                <group expand="0" string="Group By...">
+                    <filter name="group_author" string="Author" context="{'group_by':'create_uid'}" />
+                    <filter string="Page" name="groupby_page" domain="[]" context="{'group_by':'page_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <!-- History Inherit Tree view -->
     <record model="ir.ui.view" id="view_wiki_history_tree_inherit">
         <field name="name">document.page.history.tree</field>
@@ -119,6 +136,19 @@
             <field name="summary" position="replace" />
         </field>
     </record>
+
+    <!-- History Action  -->
+    <record model="ir.actions.act_window" id="document_page.action_history">
+        <field name="name">Syllabus Change History</field>
+        <field name="res_model">document.page.history</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+                'search_default_groupby_page':1,
+            }
+        </field>
+    </record>
+
 
     <!-- Category Inherit form View -->
     <record id="view_category_form_inherit" model="ir.ui.view">
