@@ -15,6 +15,8 @@
             <field name="parent_id" position="after">
                 <field name="course_id"/>
                 <field name="faculty_id"/>
+                <field name="major_change" invisible="1" />
+                <field name="major_version" readonly="1" />
             </field>
             <field name="content_uid" position="after">
                 <field name="decision_date"/>
@@ -22,7 +24,8 @@
 
             <field name="history_ids" position="inside">
                 <tree>
-                    <field name="id"/>
+                    <field name="name" />
+                    <field name="final_draft" />
                     <field name="approved_date"/>
                     <field name="summary"/>
                     <field name="decision_date" />
@@ -75,17 +78,21 @@
                 <group colspan="2">
                     <group>
                         <h1>
-                            <field name="name" placeholder="Name"/>
+                            <field name="name" placeholder="Name" />
                         </h1>
                     </group>
                     <group>
-                        <field name="syllabus_version" readonly="1"/>
+                        <field name="final_draft" readonly="1" />
+                        <field name="major_version" readonly="1" />
+                        <field name="syllabus_version" invisible="1" />
                     </group>
                 </group>
             </field>
             <label for="summary" position="replace"/>
             <field name="summary" position="replace">
-                <field name="summary" readonly="1" />
+                <group>
+                    <field name="summary" readonly="1" />
+                </group>
             </field>
             <field name="content" position="replace">
                 <field name="content" widget="html" placeholder="e.g. Once upon a time..." required="0"
@@ -117,8 +124,10 @@
         <field name="model">document.page.history</field>
         <field name="inherit_id" ref="document_page.view_wiki_history_tree" />
         <field name="arch" type="xml">
+            <field name="id" position="replace" />
             <field name="page_id" position="before">
                 <field name="name" />
+                <field name="final_draft" />
                 <field name="syllabus_version" />
             </field>
             <field name="summary" position="after">

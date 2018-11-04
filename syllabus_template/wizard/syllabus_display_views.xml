@@ -8,6 +8,8 @@
                 <form string="Syllabus Display">
                     <group>
                         <field name="summary"/>
+                        <field name="major_change"/>
+                        <field name="major_version" attrs="{'invisible': [('major_change', '=', False)]}" />
                     </group>
                     <field name="temp_syllabus" widget="html" options="{'safe': True}" readonly="1" />
                     <footer>
