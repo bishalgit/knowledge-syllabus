@@ -10,6 +10,13 @@
                 <field name="syllabus_id"/>
                 <field name="program_id"/>
                 <field name="related_faculty"/>
+                <group>
+                    <filter string="Faculty" name="groupby_faculty" context="{'group_by':'related_faculty'}"/>
+                    <filter string="Program" name="groupby_program" context="{'group_by':'program_id'}"/>
+                    <filter string="Course" name="groupby_course" context="{'group_by':'course_id'}"/>
+                    <filter string="Semester" name="groupby_semester" context="{'group_by':'semester'}"/>
+                    <filter string="Syllabus" name="groupby_syllabus" context="{'group_by':'syllabus_id'}"/>
+                </group>
             </search>
         </field>
     </record>
