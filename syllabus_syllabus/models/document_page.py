@@ -13,6 +13,7 @@ class DocumentPage(models.Model):
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
     # attachment_ids = fields.Many2many('ir.attachment',string='Decision Attachment')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string="Faculty")
+    major_version = fields.Char('Major Version')
     content = fields.Html(
         "Content",
         compute='_compute_content',
@@ -82,6 +83,7 @@ class DocumentPage(models.Model):
                     'decision_date': rec.decision_date,
                     'syllabus_version': rec.latest_version,
                     'final_draft': rec.major_change,
+                    'major_version': rec.major_version,
                 })
 
     # providing sql contraint for unqiue name of the syllabus objects

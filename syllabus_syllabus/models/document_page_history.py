@@ -58,16 +58,10 @@ class DocumentPageHistory(models.Model):
 
     # syllabus version field
     syllabus_version = fields.Integer("Version", default=0)
+    major_version = fields.Char('Major Version')
 
     # compute name for syllabus history with version convention
     name = fields.Char("Name", compute="_compute_name")
-
-    @api.multi
-    @api.depends('page_id', 'syllabus_version')
-    def _compute_name(self):
-        "Compute name for syllabus with version"
-        for rec in self:
-            rec.name = str(rec.page_id.name) + "_version_" + str(rec.syllabus_version)
 
     # overriding content field to type HTML
     content = fields.Html('Content')
@@ -105,6 +99,20 @@ class DocumentPageHistory(models.Model):
 
     #provide a boolean if the change history of the syllabus is the final draft version
     final_draft = fields.Boolean('Final Draft Version', default=False)
+
+    # compute name for the syllabus versions
+    @api.multi
+    @api.depends('page_id', 'syllabus_version', 'final_draft', 'major_version')
+    def _compute_name(self):
+        "Compute name for syllabus with version"
+        for rec in self:
+            if rec.final_draft:
+                if rec.major_version:
+                    rec.name = str(rec.page_id.name) + "_version_" + str(rec.major_version)
+                else:
+                    rec.name = str(rec.page_id.name) + "_version_" + str(rec.syllabus_version)
+            else:
+                rec.name = str(rec.page_id.name) + "_version_" + str(rec.syllabus_version)
 
     # syllabus history of the related course
     related_course_id = fields.Many2one(related='page_id.course_id', string="Related Course")
