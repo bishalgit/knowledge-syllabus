@@ -31,7 +31,7 @@
                             </span>
                             <br /><br />
                             <span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
-                                2018
+                                <t t-esc="doc.year"/>
                             </span>
                         </h2>
                     </div>

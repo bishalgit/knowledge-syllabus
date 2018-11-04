@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from datetime import datetime,date
 from odoo import models, fields, api
 
 
@@ -39,6 +39,7 @@ class Program(models.Model):
     degree_requirements = fields.Html(string='Degree Requirement')
     deanslist = fields.Html(string='Distinction and deans list')
     # courses_id = fields.Many2many('syllabus_minister.course',string='Course')
+    year = fields.Selection([(num, str(num)) for num in range(1900, (datetime.now().year)+1 )], 'Year')
     related_course = fields.Many2one(related='courseline_ids.course_id', string="Course")
     related_syllabus = fields.Many2one(related='courseline_ids.syllabus_id', string="Syllabus")
     total_credit = fields.Integer(string='Total Credit')

@@ -28,6 +28,7 @@
                         </group>
                         <group>
                             <field name="min_credit_fulltime_student"/>
+                            <field name="year"/>
                         </group>
                     </group>
                     <notebook>
