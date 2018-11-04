@@ -41,7 +41,7 @@
                             <field name="course_content_areas"/>
                         </page>
                         <page string="Course Contents">
-                            <field name="unit_ids" widget="many2many" context="{'form_view_ref' : 'syllabus_minister.course_unit_view_form'}"/>
+                            <field name="unit_ids" context="{'form_view_ref' : 'syllabus_minister.course_unit_view_form'}"/>
                         </page>
                         <page string="Course Content(Non-Unit)">
                             <field name="course_content_nonunits"/>
