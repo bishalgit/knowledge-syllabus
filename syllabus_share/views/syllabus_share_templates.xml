@@ -11,7 +11,7 @@
                 <t t-call-assets="web.assets_common" t-css="false"/>
                 <t t-call-assets="web.assets_frontend" t-css="false"/>
             </t>
-            <div class="o_share_document">
+            <div class="o_share_document" style="margin: 50px">
                 <header>
                     <div class="container text-center">
                         <!-- <a href="/"><img src="/logo.png" alt="Logo"/></a>
