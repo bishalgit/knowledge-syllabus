@@ -88,6 +88,9 @@
                     </group>
                 </group>
             </field>
+            <field name="page_id" position="replace">
+                <field name="page_id" context="{'form_view_ref' : 'document_page.view_wiki_form'}" />
+            </field>
             <label for="summary" position="replace"/>
             <field name="summary" position="replace">
                 <group>

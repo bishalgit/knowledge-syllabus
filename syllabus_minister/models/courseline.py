@@ -20,6 +20,7 @@ class Courseline(models.Model):
     program_id = fields.Many2one('syllabus_minister.program',string="Program")
     related_faculty = fields.Many2one(related="program_id.faculty_id",string="Faculty", store=True)
     syllabus_id = fields.Many2one('document.page.history',string="Syllabus", domain="[('final_draft', '=', True)]")
+    # syllabus_version = fields.Integer(related="syllabus_id.syllabus_version", string='Syllabus Version', store=True)
 
     # Groups Involved in Courseline
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -32,9 +33,9 @@ class Courseline(models.Model):
         })
         return courseline
 
-    # # get syllabus of the related course
-    # @api.onchange('course_id')
-    # def _campus_onchange(self):
-    #     res = {}
-    #     res['domain']={'syllabus_id':[('final_draft', '=', True)]}
-    #     return res
+    # get syllabus of the related course
+    @api.onchange('course_id')
+    def _campus_onchange(self):
+        res = {}
+        res['domain']={'syllabus_id':[('final_draft', '=', True)]}
+        return res
