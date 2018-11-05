@@ -33,8 +33,7 @@
         'report/program_syllabus_report.xml',
         'report/syllabus_history_report.xml',
         'report/report.xml',
-        'report/curriculum_structure_report.xml',
-        'report/course_cycle_report.xml'
+        'report/curriculum_structure_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

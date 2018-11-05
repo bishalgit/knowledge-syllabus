@@ -53,6 +53,7 @@
         'views/templates.xml',
         'views/courseline.xml',
         'views/report.xml',
+        'views/curriculum_report_views.xml',
         'data/base_user_role.xml',
         # 'report/syllabus_report.xml',
         # 'report/program_syllabus_report.xml',

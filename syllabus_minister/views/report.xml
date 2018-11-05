@@ -80,13 +80,7 @@
         <field name="act_window_id" ref="report_action"/>
     </record>
 
-    <!-- <record model="ir.actions.act_window.view" id="report_search_action">
-        <field name="sequence" eval="10"/>
-        <field name="view_mode">search</field>
-        <field name="view_id" ref="report_view_search"/>            
-        <field name="act_window_id" ref="report_action"/>
-    </record> -->
-
+    
     <record model="ir.actions.act_window.view" id="report_kanban_action">
         <field name="sequence" eval="10"/>
         <field name="view_mode">kanban</field>
@@ -94,9 +88,7 @@
         <field name="act_window_id" ref="report_action"/>
     </record>
 
-     <!-- the following menuitem should appear *after*
-             its parent openacademy_menu and *after* its
-             action course_list_action -->
+     
     <menuitem id="report_menu" name="Report" parent="syllabus_minister_menu"
                action="report_action"/>
 </odoo>
