@@ -48,6 +48,7 @@ class SyllabusTask(models.Model):
     user_id = fields.Many2one('res.users',
         string='Assigned to',
         default=lambda self: self.env.uid,
+        domain="[('id', '!=', 1)]",
         index=True, track_visibility='always')
     manager_id = fields.Many2one('res.users', string='Syllabus Task Manager')
     color = fields.Integer(string='Color Index')
@@ -131,3 +132,11 @@ class SyllabusTask(models.Model):
                     'res_id': self.id,
                 }
         return super(SyllabusTask, self).get_access_action(access_uid)
+
+    # to do
+    # task type and status
+    # task_type = fields.Selection()
+    # task_status = fields.Selection()
+
+    # need to send notification to the selected user_id when creating the task
+

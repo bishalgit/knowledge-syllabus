@@ -23,7 +23,9 @@
                         </div>
                         <group>
                             <group>
-                                <field name="syllabus_id"/>
+                                <field name="syllabus_id" context="{'form_view_ref' : 'document_page.view_wiki_form'}"/>
+                                <field name="sequence" groups="base.group_no_one"/>
+                                <field name="date_assign" groups="base.group_no_one"/>
                             </group>
                             <group>
                                 <field name="date_deadline"/>
@@ -35,12 +37,8 @@
                                 <field name="description" type="html"/>
                                 <div class="oe_clear"/>
                             </page>
-                            <page name="extra_info" string="Extra Info">
+                            <!-- <page name="extra_info" string="Extra Info">
                                 <group>
-                                    <group>
-                                        <field name="sequence" groups="base.group_no_one"/>
-                                        <field name="date_assign" groups="base.group_no_one"/>
-                                    </group>
                                     <group string="Working Time to Assign" attrs="{'invisible': [('working_hours_open', '=', 0.0)]}">
                                         <field name="working_hours_open" string="Hours"/>
                                         <field name="working_days_open" string="Days"/>
@@ -50,7 +48,7 @@
                                         <field name="working_days_close" string="Days"/>
                                     </group>
                                 </group>
-                            </page>
+                            </page> -->
                         </notebook>
                     </sheet>
                     <div class="oe_chatter">
