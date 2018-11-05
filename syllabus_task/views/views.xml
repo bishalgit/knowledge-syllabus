@@ -1,0 +1,6 @@
+<odoo>
+  <data>
+    <menuitem name="Syllabus Tasks" id="syllabus_task_page_menu" parent="syllabus_syllabus.syllabus_syllabus_page_menu"
+              action="action_view_syllabus_task"/>
+  </data>
+</odoo>
