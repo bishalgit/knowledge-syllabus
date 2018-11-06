@@ -59,6 +59,26 @@ class DocumentPage(models.Model):
             'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
         }
 
+    @api.multi
+    def history_tree_view(self):
+        self.ensure_one()
+        domain = [('page_id', '=', self.id)]
+        return {
+            'name': _('History'),
+            'domain': domain,
+            'res_model': 'document.page.history',
+            'type': 'ir.actions.act_window',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            # 'help': _('''<p class="oe_view_nocontent_create">
+            #             These are the documents of the decision attachments during syllabus
+            #             management.
+            #         </p>'''),
+            'limit': 80,
+            'context': "{'default_res_model': '%s','default_res_id': %d, 'create': False, 'edit': False, 'delete': False}" % (self._name, self.id)
+        }
+
     # Groups Involved in Syllabus
     group_ids = fields.Many2many('res.groups', string="Related Groups")
 

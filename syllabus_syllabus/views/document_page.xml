@@ -8,6 +8,9 @@
         <field name="inherit_id" ref="document_page.view_wiki_form" />
         <field name="arch" type="xml">
             <div class="oe_button_box" name="button_box" position="inside">
+                <button  class="oe_stat_button" name="history_tree_view" type="object" icon="fa-file-text" string="History">
+                    <!-- <field string="History" name="history_ids" widget="statinfo"/> -->
+                </button>
                 <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
                     <field string="Documents" name="doc_count" widget="statinfo"/>
                 </button>
@@ -31,11 +34,13 @@
                     <field name="decision_date" />
                     <field name="create_uid"/>
                     <field name="approved_uid"/>
-                    <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                    <!-- <button  class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
                         <field string="Documents" name="doc_count" widget="statinfo"/>
-                    </button>
+                    </button> -->
                 </tree>
             </field>
+
+            <page name="history" position="replace"/>
             <label for="summary" position="replace"/>
             <field name="summary" position="replace">
                 <field name="summary" invisible="1" />
