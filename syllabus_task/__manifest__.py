@@ -23,13 +23,13 @@
     'version': '11.0.0.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'syllabus_syllabus'],
+    'depends': ['base', 'project', 'reminder_task_deadline', 'mail_debrand'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/syllabus_task.xml',
-        'views/views.xml',
+        # 'views/syllabus_task.xml',
+        # 'views/views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

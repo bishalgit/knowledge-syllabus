@@ -27,9 +27,9 @@
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <label for="rpn" class="oe_edit_only"/>
+                <label for="rpn" class="oe_edit_only" attrs="{'invisible': [('uid', '!=', 1)]}"/>
                 <h2>
-                    <field name="rpn"/>
+                    <field name="rpn" attrs="{'invisible': [('uid', '!=', 1)]}"/>
                 </h2>
                 <!-- <label for="university_id" class="oe_edit_only"/>
                 <h2>
