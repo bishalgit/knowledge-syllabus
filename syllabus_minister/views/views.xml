@@ -4,6 +4,9 @@
     <menuitem id="syllabus_minister_menu" name="Syllabus Minister" sequence="1" web_icon="syllabus_minister,logo.png"/>
     <menuitem id="syllabus_minister_submenu" name="University" parent="syllabus_minister_menu"/>
 
+    <!-- Report Menuitem -->
+    <menuitem name="Report" id="syllabus_minister_report_menu" parent="syllabus_minister.syllabus_minister_menu" sequence="40"/>
+
     <!-- Configuration Menuitem -->
     <menuitem name="Configuration" id="syllabus_minister_configuration_menu" parent="syllabus_minister.syllabus_minister_menu" groups="syllabus_minister.syllabus_minister_group_university"
     sequence="100"/>

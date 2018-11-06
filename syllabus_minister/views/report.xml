@@ -89,6 +89,6 @@
     </record>
 
      
-    <menuitem id="report_menu" name="Report" parent="syllabus_minister_menu"
+    <menuitem id="report_menu" name="Syllabus Report" parent="syllabus_minister_report_menu"
                action="report_action"/>
 </odoo>
