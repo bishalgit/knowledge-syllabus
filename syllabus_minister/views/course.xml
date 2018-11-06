@@ -46,6 +46,9 @@
                         <page string="Course Content(Non-Unit)">
                             <field name="course_content_nonunits"/>
                         </page>
+                        <page string="Teaching Method">
+                            <field name="teaching_method"/>
+                        </page>
                         <page string="Basic Texts">
                             <field name="basic_text"/>
                         </page>

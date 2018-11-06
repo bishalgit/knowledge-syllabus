@@ -41,7 +41,7 @@
         <!-- </field> -->
     </record>
 
-    <menuitem id="curriculum_report_menu" name="Curriculum Report" parent="syllabus_minister_menu"
+    <menuitem id="curriculum_report_menu" name="Curriculum Report" parent="syllabus_minister_report_menu"
                action="curriculum_report_action"/>
 
 </odoo>
