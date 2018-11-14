@@ -45,6 +45,7 @@
         # 'views/university.xml',
         'views/faculty.xml',
         'views/program.xml',
+        'views/program_history.xml',
         'views/faculty.xml',
         'views/course.xml',
         'views/unit.xml',

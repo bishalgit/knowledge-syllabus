@@ -1,0 +1,149 @@
+<odoo>
+
+    <record id="program_history_view_form" model="ir.ui.view">
+        <field name="name">program_history.form</field>
+        <field name="model">syllabus_minister.program_history</field>
+        <field name="arch" type="xml">
+            <form string="Program History Form">
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="program_id"/>
+                            </h2>
+                        </div>
+                    </group>
+                    <group colspan="2">
+                        <group>
+                            <field name="short_form"/>
+                            <field name="normal_study_duration"/>
+                        </group>
+                        <group>
+                            <field name="faculty_id"/>
+                            <field name="level"/>
+                        </group>
+                        <group>
+                            <field name="max_study_duration"/>
+                            <field name="total_credit"/>
+                        </group>
+                        <group>
+                            <field name="min_credit_fulltime_student"/>
+                            <field name="year"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="General">
+                            <label for="objectives" />
+                            <field name="objectives"/>
+                            <label for="curricular_structure" />
+                            <field name="curricular_structure"/>
+                            <label for="features" />
+                            <field name="features"/>
+                        </page>
+                        <page string="Entry Requirement and Adminssion Procedures">
+                            <label for="eligibility" />
+                            <field name="eligibility"/>
+                            <label for="documents_required" />
+                            <field name="documents_required"/>
+                            <label for="admission_procedures" />
+                            <field name="admission_procedures"/>
+                        </page>
+                        <page string="System">
+                            <label for="semester_system" />
+                            <field name="semester_system"/>
+                            <label for="evaluation_system" />
+                            <field name="evaluation_system"/>
+                            <label for="grading_system" />
+                            <field name="grading_system"/>
+                        </page>
+                        <page string="Course information">
+                            <label for="academic_schedule" />
+                            <field name="academic_schedule"/>
+                            <label for="course_registration" />
+                            <field name="course_registration"/>
+                            <label for="additional_withdrawal_course" />
+                            <field name="additional_withdrawal_course"/>
+                            <label for="evaluation_elective_concentration_courses" />
+                            <field name="evaluation_elective_concentration_courses"/>
+                            <label for="repeating_course" />
+                            <field name="repeating_course"/>
+                            <label for="credit_transfer_withdrawal" />
+                            <field name="credit_transfer_withdrawal"/>
+                        </page>
+                        <page string="Project/Internship">
+                            <label for="project_work" />
+                            <field name="project_work"/>
+                            <label for="internship" />
+                            <field name="internship"/>
+                        </page>
+                        <page string="Requirements">
+                            <label for="attendance_requirements" />
+                            <field name="attendance_requirements"/>
+                            <label for="study_duration" />
+                            <field name="study_duration"/>
+                            <label for="degree_requirements" />
+                            <field name="degree_requirements"/>
+                        </page>
+                        <page string="Protocol">
+                            <label for="unfair_means" />
+                            <field name="unfair_means"/>
+                            <label for="provision_retotaling_rechecking" />
+                            <field name="provision_retotaling_rechecking"/>
+                            <label for="dismissal_from_program" />
+                            <field name="dismissal_from_program"/>
+                            <label for="deanslist" />
+                            <field name="deanslist"/>
+                        </page>
+                        <page string="Courses">
+                            <field name="courseline_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widsssget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="program_history_view_search" model="ir.ui.view">
+        <field name="name">program_history.search</field>
+        <field name="model">syllabus_minister.program_history</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="related_course"/>
+                <field name="related_syllabus"/>
+                <field name="faculty_id"/>
+                <field name="level"/>
+                <group>
+                    <filter string="Faculty" name="groupby_faculty" domain="[]" context="{'group_by':'faculty_id'}"/>
+                </group> 
+            </search>
+        </field>
+    </record>
+
+    <record id="program_history_view_tree" model="ir.ui.view">
+        <field name="name">program_history.tree</field>
+        <field name="model">syllabus_minister.program_history</field>
+        <field name="arch" type="xml">
+            <tree string="Program History">
+                <field name="name"/>
+                <field name="faculty_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="program_history_list_action" model="ir.actions.act_window">
+        <field name="name">Program History</field>
+        <field name="res_model">syllabus_minister.program_history</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Program History
+            </p>
+        </field>
+    </record>
+</odoo>
