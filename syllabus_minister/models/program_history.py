@@ -161,11 +161,11 @@ class ProgramHistory(models.Model):
 
     @api.model
     def create(self, vals):
-        program = super(Program, self).create(vals)
-        program.write({
+        program_history = super(ProgramHistory, self).create(vals)
+        program_history.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
-        return program
+        return program_history
 
     # This function filters the program record for the user of certain university.
     # @api.model
