@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime,date
 
 from odoo import models, fields, api
 
@@ -21,6 +22,9 @@ class Courseline(models.Model):
     related_faculty = fields.Many2one(related="program_id.faculty_id",string="Faculty", store=True)
     syllabus_id = fields.Many2one('document.page.history',string="Syllabus", domain="[('final_draft', '=', True)]")
     # syllabus_version = fields.Integer(related="syllabus_id.syllabus_version", string='Syllabus Version', store=True)
+    # year = fields.Datetime('Year')
+    issued_year = fields.Selection([(num, str(num)) for num in range(2000, (datetime.now().year)+5 )], 'Issued Year')
+
 
     # Groups Involved in Courseline
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -39,3 +43,7 @@ class Courseline(models.Model):
         res = {}
         res['domain']={'syllabus_id':[('final_draft', '=', True)]}
         return res
+
+    # @api.onchange('create_date')
+    # def _onchange_year(self):
+    #     self.year = datetime.strptime(self.create_date, "%Y").date()

@@ -10,6 +10,7 @@
                 <field name="syllabus_id"/>
                 <field name="program_id"/>
                 <field name="related_faculty"/>
+                <field name="issued_year"/>
                 <!-- <field name="syllabus_version" /> -->
                 <group>
                     <filter string="Faculty" name="groupby_faculty" context="{'group_by':'related_faculty'}"/>
@@ -17,6 +18,7 @@
                     <filter string="Course" name="groupby_course" context="{'group_by':'course_id'}"/>
                     <filter string="Semester" name="groupby_semester" context="{'group_by':'semester'}"/>
                     <filter string="Syllabus" name="groupby_syllabus" context="{'group_by':'syllabus_id'}"/>
+                    <filter string="Issued Year" name="groupby_issued_year" context="{'group_by':'issued_year'}"/>
                     <!-- <filter string="Syllabus Version" name="groupby_syllabus_version" context="{'group_by':'syllabus_version'}"/> -->
                 </group>
             </search>
@@ -28,12 +30,13 @@
         <field name="name">report.tree</field>
         <field name="model">syllabus_minister.courseline</field>
         <field name="arch" type="xml">
-            <tree string="Report" create="false">
+            <tree string="Report" create="false" delete="false">
                 <field name="sequence" widget="handle"/>
                 <field name="semester"/>
                 <field name="course_id"/>
                 <field name="syllabus_id"/>
                 <field name="program_id"/>
+                <field name="issued_year"/>
                 <field name="related_faculty"/>
             </tree>
         </field>
@@ -43,7 +46,7 @@
         <field name="name">report.kanban</field>
         <field name="model">syllabus_minister.courseline</field>
         <field name="arch" type="xml">
-            <kanban create="false">
+            <kanban create="false" delete="false">
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">

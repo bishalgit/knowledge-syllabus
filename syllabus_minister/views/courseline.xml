@@ -21,6 +21,7 @@
                         <group>
                             <field name="sequence"/>
                             <field name="syllabus_id"/>
+                            <field name="issued_year"/>
                         </group>
                     </group>
                 </sheet>
@@ -51,6 +52,7 @@
                 <field name="sequence" widget="handle"/>
                 <field name="course_id"/>
                 <field name="semester"/>
+                <field name="issued_year"/>
                 <field name="syllabus_id" options='{"no_create": True}' context="{'create': False, 'edit': False, 'delete': False}"/>
             </tree>
         </field>
