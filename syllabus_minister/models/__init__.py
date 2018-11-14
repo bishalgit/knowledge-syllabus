@@ -13,3 +13,4 @@ from . import res_users
 # from . import university
 from . import courseline
 from . import dashmodel
+from . import program_history
