@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="syllabus_minister.dashboard">
+      <!--View-->
+      <div class="syllabus_dash col-xs-12 col-md-12 col-lg-12 col-sm-12">
+        <!--Dashboard buttons-->
+        <div class="col-md-12" style="padding-top: 16px">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <a href="javascript:;" class="dashboard-block program">
+                  <div class="rotate">
+                    <i class="fa fa-fw fa-book"></i>
+                  </div>
+                  <div class="details">
+                    <span class="title">Total no. of Program</span> <br/>
+                    <span class="sub"><t t-esc="widget.syllabus_data.no_program"/></span>
+                  </div><!--/details-->
+                  <i class="fa fa-chevron-right fa-2x more"></i>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <a href="javascript:;" class="dashboard-block course">
+                  <div class="rotate">
+                    <i class="fa fa-fw fa-clipboard"></i>
+                  </div>
+                  <div class="details">
+                    <span class="title">Total no. of Course</span> <br/>
+                    <span class="sub"><t t-esc="widget.syllabus_data.no_course"/></span>
+                  </div><!--/details-->
+                  <i class="fa fa-chevron-right fa-2x more"></i>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <a href="javascript:;" class="dashboard-block faculty">
+                  <div class="rotate">
+                    <i class="fa fa-fw fa-edit"/>
+                  </div>
+                  <div class="details">
+                    <span class="title">Total No. of Faculty</span> <br/>
+                    <span class="sub"><t t-esc="widget.syllabus_data.no_faculty"/> </span>
+                  </div><!--/details-->
+                  <i class="fa fa-chevron-right fa-2x more"></i>
+                </a><!--/dashboard-block1-->
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <a href="javascript:;" class="dashboard-block syllabus">
+                  <div class="rotate">
+                    <i class="fa fa-fw fa-files-o"/>
+                  </div>
+                  <div class="details">
+                    <span class="title">Total No. of Syllabus</span> <br/>
+                    <span class="sub"><t t-esc="widget.syllabus_data.no_syllabus"/> </span>
+                  </div><!--/details-->
+                  <i class="fa fa-chevron-right fa-2x more"></i>
+                </a><!--/dashboard-block1-->
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <a href="javascript:;" class="dashboard-block users">
+                  <div class="rotate">
+                    <i class="fa fa-fw fa-users"/>
+                  </div>
+                  <div class="details">
+                    <span class="title">Total No. of Users</span> <br/>
+                    <span class="sub"><t t-esc="widget.syllabus_data.no_users"/> </span>
+                  </div><!--/details-->
+                  <i class="fa fa-chevron-right fa-2x more"></i>
+                </a><!--/dashboard-block1-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Charts-->
+        <!--label for charts-->
+        <div class="main-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Bar Chart</h3>
+                  </div>
+                  <div class="panel-body">
+                    <canvas id="myChart1" width="500px" height="350px"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Bar Chart</h3>
+                  </div>
+                  <div class="panel-body">
+                    <canvas id="myChart2" width="500px" height="350px"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Piechart for syllabus</h3>
+                  </div>
+                  <div class="panel-body">
+                    <canvas id="myChart3" width="500px" height="350px"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Piechart for program</h3>
+                  </div>
+                  <div class="panel-body">
+                    <canvas id="myChart4" width="500px" height="350px"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+</templates>

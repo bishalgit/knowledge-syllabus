@@ -54,10 +54,15 @@
         'views/courseline.xml',
         'views/report.xml',
         'views/curriculum_report_views.xml',
+        'views/assets.xml',
+        'views/syllabus_dashboard.xml',
         'data/base_user_role.xml',
         # 'report/syllabus_report.xml',
         # 'report/program_syllabus_report.xml',
         # 'report/syllabus_history_report.xml',
+    ],
+    'qweb': [
+        'static/src/xml/syllabus_dashboard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Client Action For Menu HRDashboard -->
+        <record id="action_syllabus_dashboard" model="ir.actions.client">
+            <field name="name">Syllabus</field>
+            <field name="tag">syllabus_minister.dashboard</field>
+        </record>
+
+        <!-- Menu HR Dashbaord -->
+        <menuitem id="menu_syllabus_dashboard"
+                  name="Dashboard"
+                  action="action_syllabus_dashboard" parent="syllabus_minister.syllabus_minister_menu"/>
+
+    </data>
+</odoo>

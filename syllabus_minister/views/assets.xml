@@ -3,7 +3,11 @@
 
     <template id="assets_backend" name="syllabus assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <link rel="stylesheet" href="/syllabus_minister/static/src/css/syllabus.css"/>
+            <link rel="stylesheet" href="/syllabus_minister/static/src/css/dashboard.css"/>
+            <script type="text/javascript" src="/syllabus_minister/static/src/js/syllabus_dashboard.js"/>
+            <script type="text/javascript" src="/syllabus_minister/static/lib/charts/Chart.min.js"/>
+            <script type="text/javascript" src="/syllabus_minister/static/lib/charts/Chart.bundle.min.js"/>
+            <!-- <link rel="stylesheet" href="/syllabus_minister/static/src/css/dashboard.css"/> -->
         </xpath>
     </template>
 

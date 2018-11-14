@@ -12,3 +12,4 @@ from . import res_users
 # from . import syllabus_history
 # from . import university
 from . import courseline
+from . import dashmodel
