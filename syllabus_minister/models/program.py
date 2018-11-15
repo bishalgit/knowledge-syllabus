@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime,date
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class Program(models.Model):
@@ -165,9 +169,78 @@ class Program(models.Model):
         })
         return program
 
-    # This function filters the program record for the user of certain university.
-    # @api.model
-    # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-    #     domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-    #     return super(Program, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
-    #                                                  order=order)
+    # create program history if new batch year
+    @api.onchange("year")
+    def create_program_history(self):
+        program_old_version = self.env['syllabus_minister.program_old_version']
+        if not program_old_version.search_count([('year', '=', self.year)]):
+            program_old_version.create({
+                'name': self.name,
+                'short_form': self.short_form,
+                'level': self.level,
+                'objectives': self.objectives,
+                'curricular_structure': self.curricular_structure,
+                'features': self.features,
+                'semester_system': self.semester_system,
+                'eligibility': self.eligibility,
+                'documents_required': self.documents_required,
+                'admission_procedures': self.admission_procedures,
+                'academic_schedule': self.academic_schedule,
+                'course_registration': self.course_registration,
+                'additional_withdrawal_course': self.additional_withdrawal_course,
+                'attendance_requirements': self.attendance_requirements,
+                'study_duration': self.study_duration,
+                'normal_study_duration': self.normal_study_duration,
+                'max_study_duration': self.max_study_duration,
+                'min_credit_fulltime_student': self.min_credit_fulltime_student,
+                'evaluation_system': self.evaluation_system,
+                'evaluation_elective_concentration_courses': self.evaluation_elective_concentration_courses,
+                'grading_system': self.grading_system,
+                'repeating_course': self.repeating_course,
+                'credit_transfer_withdrawal': self.credit_transfer_withdrawal,
+                'project_work': self.project_work,
+                'internship': self.internship,
+                'unfair_means': self.unfair_means,
+                'provision_retotaling_rechecking': self.provision_retotaling_rechecking,
+                'dismissal_from_program': self.dismissal_from_program,
+                'degree_requirements': self.degree_requirements,
+                'deanslist': self.deanslist,
+                'year': self.year,
+                'related_course': self.related_course,
+                'related_syllabus': self.related_syllabus,
+                'total_credit': self.total_credit,
+                'faculty_id': self.faculty_id.id,
+                'courseline_ids': self.courseline_ids,
+                'total_foundation_cr_hr': self.total_foundation_cr_hr,
+                'total_core_cr_hr': self.total_core_cr_hr,
+                'total_concentration_cr_hr': self.total_concentration_cr_hr,
+                'total_elective_cr_hr': self.total_elective_cr_hr,
+                'total_project_cr_hr': self.total_project_cr_hr,
+                'total_sem1_cr_hr': self.total_sem1_cr_hr,
+                'total_sem2_cr_hr': self.total_sem2_cr_hr,
+                'total_sem3_cr_hr': self.total_sem3_cr_hr,
+                'total_sem4_cr_hr': self.total_sem4_cr_hr,
+                'total_sem5_cr_hr': self.total_sem5_cr_hr,
+                'total_sem6_cr_hr': self.total_sem6_cr_hr,
+                'total_sem7_cr_hr': self.total_sem7_cr_hr,
+                'total_sem8_cr_hr': self.total_sem8_cr_hr,
+                'program_id': self._origin.id,
+                'group_ids': self.group_ids
+            })
+    
+    # button function for view program old versions
+    @api.multi
+    def program_history_tree_view(self):
+        self.ensure_one()
+        domain = [('program_id', '=', self.id)]
+        return {
+            'name': _('Program Old Versions'),
+            'res_model': 'syllabus_minister.program_old_version',
+            'type': 'ir.actions.act_window',
+            'domain': domain,
+            'view_id': False,
+            'view_mode': 'tree, form',
+            'view_type': 'form',
+            'limit': 80,
+            'context': "{'default_res_model': '%s','default_res_id': %d, 'create': False, 'edit': False, 'delete': False}" % (self._name, self.id)
+        }

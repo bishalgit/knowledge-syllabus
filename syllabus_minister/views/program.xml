@@ -6,6 +6,9 @@
         <field name="arch" type="xml">
             <form string="Program Form">
                 <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button  class="oe_stat_button" name="program_history_tree_view" type="object" icon="fa-file-text" string="Old Batch Versions"></button>
+                </div>
                     <group>
                         <div class="oe_title">
                             <h2>
