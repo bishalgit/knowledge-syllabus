@@ -45,119 +45,24 @@ class ProgramHistory(models.Model):
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty')
     courseline_ids = fields.One2many('syllabus_minister.courseline','program_id',string="Courseline")
-    total_foundation_cr_hr = fields.Integer(compute='_compute_foundation')
-    total_core_cr_hr = fields.Integer(compute='_compute_core')
-    total_concentration_cr_hr = fields.Integer(compute='_compute_concentration')
-    total_elective_cr_hr = fields.Integer(compute='_compute_elective')
-    total_project_cr_hr = fields.Integer(compute='_compute_project')
-    total_sem1_cr_hr = fields.Integer(compute='_compute_sem1')
-    total_sem2_cr_hr = fields.Integer(compute='_compute_sem2')
-    total_sem3_cr_hr = fields.Integer(compute='_compute_sem3')
-    total_sem4_cr_hr = fields.Integer(compute='_compute_sem4')
-    total_sem5_cr_hr = fields.Integer(compute='_compute_sem5')
-    total_sem6_cr_hr = fields.Integer(compute='_compute_sem6')
-    total_sem7_cr_hr = fields.Integer(compute='_compute_sem7')
-    total_sem8_cr_hr = fields.Integer(compute='_compute_sem8')
+    total_foundation_cr_hr = fields.Integer()
+    total_core_cr_hr = fields.Integer()
+    total_concentration_cr_hr = fields.Integer()
+    total_elective_cr_hr = fields.Integer()
+    total_project_cr_hr = fields.Integer()
+    total_sem1_cr_hr = fields.Integer()
+    total_sem2_cr_hr = fields.Integer()
+    total_sem3_cr_hr = fields.Integer()
+    total_sem4_cr_hr = fields.Integer()
+    total_sem5_cr_hr = fields.Integer()
+    total_sem6_cr_hr = fields.Integer()
+    total_sem7_cr_hr = fields.Integer()
+    total_sem8_cr_hr = fields.Integer()
 
-    program_id = fields.Many2one('syllabus_minister.program','Program')
+    program_id = fields.Many2one('syllabus_minister.program', 'Program')
 
     # Groups Involved in Program
     group_ids = fields.Many2many('res.groups', string="Related Groups")
-
-    #This constraints make fields unique
-    _sql_constraints = [
-         ('short_form_unique', 'unique(short_form)','Short Form must be unique')]
-
-    @api.multi
-    def _compute_foundation(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type == "Foundation":
-                    record.total_foundation_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_core(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type == "Core":
-                    record.total_core_cr_hr += r.course_id.credit_hours  
-
-    @api.multi
-    def _compute_concentration(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type == "Concentration":
-                    record.total_concentration_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_elective(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type == "Elective":
-                    record.total_elective_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_project(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type == "Project Work and Internship":
-                    record.total_project_cr_hr += r.course_id.credit_hours
-
-
-    @api.multi
-    def _compute_sem1(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 1:
-                    record.total_sem1_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem2(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 2:
-                    record.total_sem2_cr_hr += r.course_id.credit_hours  
-
-    @api.multi
-    def _compute_sem3(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 3:
-                    record.total_sem3_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem4(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 4:
-                    record.total_sem4_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem5(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 5:
-                    record.total_sem5_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem6(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 6:
-                    record.total_sem6_cr_hr += r.course_id.credit_hours  
-
-    @api.multi
-    def _compute_sem7(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 7:
-                    record.total_sem7_cr_hr += r.course_id.credit_hours
-    @api.multi
-    def _compute_sem8(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 8:
-                    record.total_sem8_cr_hr += r.course_id.credit_hours
 
     @api.model
     def create(self, vals):
