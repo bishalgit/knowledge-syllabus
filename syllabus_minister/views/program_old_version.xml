@@ -1,8 +1,8 @@
 <odoo>
 
-    <record id="program_history_view_form" model="ir.ui.view">
-        <field name="name">program_history.form</field>
-        <field name="model">syllabus_minister.program_history</field>
+    <record id="program_old_version_view_form" model="ir.ui.view">
+        <field name="name">program_old_version.form</field>
+        <field name="model">syllabus_minister.program_old_version</field>
         <field name="arch" type="xml">
             <form string="Program History Form">
                 <sheet>
@@ -107,9 +107,9 @@
         </field>
     </record>
 
-    <record id="program_history_view_search" model="ir.ui.view">
-        <field name="name">program_history.search</field>
-        <field name="model">syllabus_minister.program_history</field>
+    <record id="program_old_version_view_search" model="ir.ui.view">
+        <field name="name">program_old_version.search</field>
+        <field name="model">syllabus_minister.program_old_version</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
@@ -124,26 +124,23 @@
         </field>
     </record>
 
-    <record id="program_history_view_tree" model="ir.ui.view">
-        <field name="name">program_history.tree</field>
-        <field name="model">syllabus_minister.program_history</field>
+    <record id="program_old_version_view_tree" model="ir.ui.view">
+        <field name="name">program_old_version.tree</field>
+        <field name="model">syllabus_minister.program_old_version</field>
         <field name="arch" type="xml">
-            <tree string="Program History">
+            <tree string="Program Old Version">
                 <field name="name"/>
-                <field name="faculty_id"/>
+                <field name="program_id"/>
+                <field name="year"/>
             </tree>
         </field>
     </record>
 
-    <record id="program_history_list_action" model="ir.actions.act_window">
-        <field name="name">Program History</field>
-        <field name="res_model">syllabus_minister.program_history</field>
+    <record id="program_old_version_list_action" model="ir.actions.act_window">
+        <field name="name">Program Old Version</field>
+        <field name="res_model">syllabus_minister.program_old_version</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,search</field>
         <field name="domain">[]</field>
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">Create Program History
-            </p>
-        </field>
     </record>
 </odoo>

@@ -3,8 +3,8 @@ from datetime import datetime,date
 from odoo import models, fields, api
 
 
-class ProgramHistory(models.Model):
-    _name = 'syllabus_minister.program_history'
+class ProgramOldVersion(models.Model):
+    _name = 'syllabus_minister.program_old_version'
     _inherit = 'mail.thread'
     _description = 'Program History'
 
@@ -38,7 +38,6 @@ class ProgramHistory(models.Model):
     dismissal_from_program = fields.Html(string='Dismissal from the program')
     degree_requirements = fields.Html(string='Degree Requirement')
     deanslist = fields.Html(string='Distinction and deans list')
-    # courses_id = fields.Many2many('syllabus_minister.course',string='Course')
     year = fields.Selection([(num, str(num)) for num in range(2000, (datetime.now().year)+5 )], 'Batch Year')
     related_course = fields.Many2one(related='courseline_ids.course_id', string="Course")
     related_syllabus = fields.Many2one(related='courseline_ids.syllabus_id', string="Syllabus")
@@ -66,15 +65,8 @@ class ProgramHistory(models.Model):
 
     @api.model
     def create(self, vals):
-        program_history = super(ProgramHistory, self).create(vals)
-        program_history.write({
+        program_old_version = super(ProgramOldVersion, self).create(vals)
+        program_old_version.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
-        return program_history
-
-    # This function filters the program record for the user of certain university.
-    # @api.model
-    # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-    #     domain = (domain or []) + ['|', ('faculty_id.university_id.name', '=', self.env.user.university_id.name), ('group_ids.users.id', '=', self.env.uid)]
-    #     return super(Program, self).search_read(domain=domain, fields=fields, offset=offset, limit=limit,
-    #                                                  order=order)
+        return program_old_version
