@@ -174,7 +174,7 @@ class Program(models.Model):
     def create_program_history(self):
         program_old_version = self.env['syllabus_minister.program_old_version']
         if not program_old_version.search_count([('year', '=', self.year)]):
-            program_old_version.create({
+            old_version = program_old_version.create({
                 'name': self.name,
                 'short_form': self.short_form,
                 'level': self.level,
@@ -210,7 +210,6 @@ class Program(models.Model):
                 'related_syllabus': self.related_syllabus,
                 'total_credit': self.total_credit,
                 'faculty_id': self.faculty_id.id,
-                'courseline_ids': self.courseline_ids,
                 'total_foundation_cr_hr': self.total_foundation_cr_hr,
                 'total_core_cr_hr': self.total_core_cr_hr,
                 'total_concentration_cr_hr': self.total_concentration_cr_hr,
@@ -224,13 +223,19 @@ class Program(models.Model):
                 'total_sem6_cr_hr': self.total_sem6_cr_hr,
                 'total_sem7_cr_hr': self.total_sem7_cr_hr,
                 'total_sem8_cr_hr': self.total_sem8_cr_hr,
-                'program_id': self._origin.id,
-                'group_ids': self.group_ids
+                'program_id': self._origin.id
             })
+            if old_version:
+                for courseline in self.courseline_ids:
+                    old_version.write({
+                        'courseline_ids': [(4, courseline.id, 0)]
+                    })
     
     # button function for view program old versions
     @api.multi
     def program_history_tree_view(self):
+        form_view = self.env.ref('syllabus_minister.program_old_version_view_form')
+        tree_view = self.env.ref('syllabus_minister.program_old_version_view_tree')
         self.ensure_one()
         domain = [('program_id', '=', self.id)]
         return {
@@ -238,9 +243,10 @@ class Program(models.Model):
             'res_model': 'syllabus_minister.program_old_version',
             'type': 'ir.actions.act_window',
             'domain': domain,
-            'view_id': False,
+            'views': [[tree_view.id, 'list'], [form_view.id, 'form']],
+            # 'view_id': False,
             'view_mode': 'tree, form',
-            'view_type': 'form',
+            # 'view_type': 'form',
             'limit': 80,
-            'context': "{'default_res_model': '%s','default_res_id': %d, 'create': False, 'edit': False, 'delete': False}" % (self._name, self.id)
+            'context': "{'default_res_model': '%s','default_res_id': %d, 'create': False, 'edit': False}" % (self._name, self.id)
         }

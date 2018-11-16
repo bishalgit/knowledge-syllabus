@@ -19,6 +19,7 @@ class Courseline(models.Model):
     course_id = fields.Many2one('syllabus_minister.course', string='Course')
     sequence = fields.Integer(string='sequence',default=1)
     program_id = fields.Many2one('syllabus_minister.program',string="Program")
+    old_program_id = fields.Many2one('syllabus_minister.program_old_version',string="Old Program")
     related_faculty = fields.Many2one(related="program_id.faculty_id",string="Faculty", store=True)
     syllabus_id = fields.Many2one('document.page.history',string="Syllabus", domain="[('final_draft', '=', True)]")
     # syllabus_version = fields.Integer(related="syllabus_id.syllabus_version", string='Syllabus Version', store=True)
