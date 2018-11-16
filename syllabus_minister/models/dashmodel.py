@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.http import request
 import logging
+import random
 
 _logger = logging.getLogger(__name__)
 
@@ -11,6 +12,10 @@ class SyllabusDashboard(models.Model):
     _description = 'Dashboard'
 
     name = fields.Char(default="Syllabus Dashboard")
+
+    def random_color(self):     
+        r = lambda: random.randint(55,180)
+        return('#%02X%02X%02X' % (r(),r(),r()))
 
     @api.model
     def get_syllabus_info(self):
@@ -30,12 +35,23 @@ class SyllabusDashboard(models.Model):
         faculty_list = []
         program_list = []
         syllabus_list = []
+        random_color_list = []
         for faculty in faculties:
             program_count = self.env['syllabus_minister.program'].sudo().search_count([('faculty_id','=', faculty.id)])
             syllabus_count = self.env['document.page'].sudo().search_count([('faculty_id','=', faculty.id)])
+            faculty_color = self.random_color()
+            random_color_list.append(faculty_color)
             faculty_list.append(faculty.name)
             program_list.append(program_count)
             syllabus_list.append(syllabus_count)
+
+
+        # program_index = []
+        # program_old_version_list = []
+        # for p in program:
+        #     program_old_version_count = self.env['syllabus_minister.program_old_version'].sudo().search_count([('program_id','=', p.id)])
+        #     program_index.append(p.short_form)
+        #     program_old_version_list.append(program_old_version_count)
 
         if program:
             data = {
@@ -47,6 +63,9 @@ class SyllabusDashboard(models.Model):
                 'faculty_list': faculty_list,
                 'program_list': program_list,
                 'syllabus_list': syllabus_list,
+                'random_color_list': random_color_list,
+                # 'program_index': program_index,
+                # 'program_old_version_list': program_old_version_list,
             }
             _logger.warning(data)
             return data

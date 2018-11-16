@@ -182,14 +182,14 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
         },{on_reverse_breadcrumb: function(){ return self.reload();}})
 //    // Function which gives random color for charts.
     },
-    getRandomColor: function () {
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    },
+    // getRandomColor: function () {
+    //     var letters = '3456789ABC'.split('');
+    //     var color = '#';
+    //     for (var i = 0; i < 6; i++ ) {
+    //         color += letters[Math.floor(Math.random() * 16)];
+    //     }
+    //     return color;
+    // },
     // Here we are plotting bar,pie chart
     graph: function() {
 
@@ -199,7 +199,8 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
         var ctx2 = this.$el.find('#myChart2')
         var ctx3 = this.$el.find('#myChart3')
         var ctx4 = this.$el.find('#myChart4')
-        
+        // var ctx5 = this.$el.find('#myChart5')
+
         Chart.plugins.register({
             beforeDraw: function(chartInstance) {
                 var ctx1 = chartInstance.chart.ctx;                    
@@ -208,16 +209,16 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
             }
         });
 
-        for (var i=0;i<=self.syllabus_data.no_faculty;i++){
-            bg_color_list.push(self.getRandomColor())
-        }
+        // for (var i=0;i<=self.syllabus_data.no_faculty;i++){
+        //     bg_color_list.push(self.getRandomColor())
+        // }
 
 
         var data1 = {
             datasets: [{
                 label: '# by syllabus',
                 data: self.syllabus_data.syllabus_list,
-                backgroundColor: bg_color_list,
+                backgroundColor: self.syllabus_data.random_color_list,
             }],
             // These labels appear in the legend and in the tooltips when hovering different arcs
             labels: self.syllabus_data.faculty_list
@@ -227,12 +228,21 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
             datasets: [{
                 label: '# by program',
                 data: self.syllabus_data.program_list,
-                backgroundColor: bg_color_list,
+                backgroundColor: self.syllabus_data.random_color_list,
             }],
             // These labels appear in the legend and in the tooltips when hovering different arcs
             labels: self.syllabus_data.faculty_list
         };
-
+        
+        var data3 = {
+            datasets: [{
+                label: '# by old version program',
+                data: self.syllabus_data.program_old_version_list,
+                backgroundColor:self.syllabus_data.random_color_list,
+            }],
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: self.syllabus_data.program_index
+        };
         
         
         var myChart1 = new Chart(ctx1, {
@@ -274,6 +284,26 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
                 }
             }
         });
+
+        // var myChart5 = new Chart(ctx5, {
+        //     type: 'bar',
+        //     data: data3,
+        //     options: {
+        //         scales: {
+        //             yAxes: [{
+        //             ticks: {
+        //                     beginAtZero: true,
+        //                     userCallback: function(label, index, labels) {
+        //                     // when the floored value is the same as the value we have a whole number
+        //                     if (Math.floor(label) === label) {
+        //                         return label;
+        //                     }
+        //                 },
+        //             }
+        //             }]
+        //         }
+        //     }
+        // });
 
         var option1 = {
 
