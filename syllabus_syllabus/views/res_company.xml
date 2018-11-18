@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <field name="report_header" position="after">
                     <field name="watermark_logo" widget="image"  class="oe_avatar"/>
+                    <field name="require_watermark"/>
                 </field>
             </field>
         </record>

@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="syllabus_minister_action_res_company_form" model="ir.actions.act_window">
+            <field name="name">University Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.company</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False, 'delete': False}</field>
+        </record>
+        <menuitem action="syllabus_minister_action_res_company_form" name="University Information" id="syllabus_minister_menu_action_res_company_form" parent="syllabus_minister_configuration_menu"/>
+    </data>
+</odoo>
