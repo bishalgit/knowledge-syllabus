@@ -11,7 +11,7 @@
         <!-- Menu HR Dashbaord -->
         <menuitem id="menu_syllabus_dashboard"
                   name="Dashboard"
-                  action="action_syllabus_dashboard" parent="syllabus_minister.syllabus_minister_menu" sequence="1"/>
+                  action="action_syllabus_dashboard" parent="syllabus_minister.syllabus_minister_menu" sequence="1" groups="syllabus_minister.syllabus_minister_group_university,syllabus_minister.syllabus_minister_group_manager"/>
 
     </data>
 </odoo>
