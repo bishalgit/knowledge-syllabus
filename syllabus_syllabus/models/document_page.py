@@ -116,4 +116,23 @@ class DocumentPage(models.Model):
 
     # if the change from the syllabus template model is major change
     major_change = fields.Boolean("Major Change", default=False)
+
+    # check if the syllabus required watermark logo of the university
+    require_watermark = fields.Boolean("Require Watermark of the University?", default=False)
+
+    @api.onchange('require_watermark')
+    def _toggle_watermark_bool(self):
+        universities = self.env['res.company'].search([])
+
+        for university in universities:
+            if self.require_watermark:
+                university.write({
+                    'require_watermark': True
+                })
+            else:
+                university.write({
+                    'require_watermark': False
+                })
+
+
     

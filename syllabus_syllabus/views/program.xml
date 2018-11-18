@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="program_view_form_inherit" model="ir.ui.view">
+        <field name="name">program.form.inherit</field>
+        <field name="model">syllabus_minister.program</field>
+        <field name="inherit_id" ref="syllabus_minister.program_view_form" />
+        <field name="arch" type="xml">
+            <field name="short_form" position="before">
+                <field name="require_watermark" />
+            </field>
+        </field>
+    </record>
+</odoo>

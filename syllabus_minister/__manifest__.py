@@ -41,6 +41,7 @@
         'views/change_password_user_views.xml',
         'views/res_users_views.xml',
         'views/base_user_role_views.xml',
+        'views/res_company_view.xml',
         'views/views.xml',
         # 'views/university.xml',
         'views/faculty.xml',

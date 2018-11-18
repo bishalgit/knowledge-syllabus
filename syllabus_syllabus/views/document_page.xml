@@ -20,6 +20,7 @@
                 <field name="faculty_id"/>
                 <field name="major_change" invisible="1" />
                 <field name="major_version" readonly="1" />
+                <field name="require_watermark" />
             </field>
             <field name="content_uid" position="after">
                 <field name="decision_date"/>
