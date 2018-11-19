@@ -43,7 +43,7 @@ class ProgramOldVersion(models.Model):
     related_syllabus = fields.Many2one(related='courseline_ids.syllabus_id', string="Syllabus")
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty')
-    courseline_ids = fields.One2many('syllabus_minister.courseline','old_program_id',string="Courseline")
+    courseline_ids = fields.One2many('syllabus_minister.courseline','old_program_id',string="Courseline", store=True)
     total_foundation_cr_hr = fields.Integer()
     total_core_cr_hr = fields.Integer()
     total_concentration_cr_hr = fields.Integer()

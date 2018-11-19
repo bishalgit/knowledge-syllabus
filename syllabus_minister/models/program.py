@@ -66,7 +66,7 @@ class Program(models.Model):
     # Groups Involved in Program
     group_ids = fields.Many2many('res.groups', string="Related Groups")
 
-    #This constraints make fields unique
+    # This constraints make fields unique
     _sql_constraints = [
          ('short_form_unique', 'unique(short_form)','Short Form must be unique')]
 
@@ -161,6 +161,7 @@ class Program(models.Model):
                 if r.semester == 8:
                     record.total_sem8_cr_hr += r.course_id.credit_hours
 
+    # override create and write method to create old batch version of the program
     @api.model
     def create(self, vals):
         program = super(Program, self).create(vals)
@@ -291,12 +292,20 @@ class Program(models.Model):
                 if old_version:
                     if self.courseline_ids:
                         for courseline in self.courseline_ids:
-                            old_version.write({
-                                'courseline_ids': [(4, courseline.id, 0)]
-                            })
+                            vals = {
+                                'old_program_id': old_version.id,
+                                'name': courseline.name,
+                                'course_id': courseline.course_id.id,
+                                'semester': courseline.semester,
+                                'syllabus_id': courseline.syllabus_id.id,
+                                'issued_year': courseline.issued_year,
+                                'sequence': courseline.sequence,
+                                'related_faculty': courseline.related_faculty.id
+                            }
+                            self.env["syllabus_minister.courseline"].sudo().create(vals)
         return program
     
-    # button function for view program old versions
+    # button function for viewing program old versions
     @api.multi
     def program_history_tree_view(self):
         form_view = self.env.ref('syllabus_minister.program_old_version_view_form')
@@ -313,5 +322,5 @@ class Program(models.Model):
             'view_mode': 'tree, form',
             # 'view_type': 'form',
             'limit': 80,
-            'context': "{'default_res_model': '%s','default_res_id': %d, 'create': False, 'edit': False}" % (self._name, self.id)
+            'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
         }
