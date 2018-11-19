@@ -164,72 +164,137 @@ class Program(models.Model):
     @api.model
     def create(self, vals):
         program = super(Program, self).create(vals)
+        if 'year' in vals:
+            program_old_version = self.env['syllabus_minister.program_old_version']
+            old_version_count = program_old_version.search_count(['&', ('year', '=', vals['year']), ('program_id', '=', program.id)])
+            if not old_version_count:
+                old_version = program_old_version.create({
+                    'name': program.name,
+                    'short_form': program.short_form,
+                    'level': program.level,
+                    'objectives': program.objectives,
+                    'curricular_structure': program.curricular_structure,
+                    'features': program.features,
+                    'semester_system': program.semester_system,
+                    'eligibility': program.eligibility,
+                    'documents_required': program.documents_required,
+                    'admission_procedures': program.admission_procedures,
+                    'academic_schedule': program.academic_schedule,
+                    'course_registration': program.course_registration,
+                    'additional_withdrawal_course': program.additional_withdrawal_course,
+                    'attendance_requirements': program.attendance_requirements,
+                    'study_duration': program.study_duration,
+                    'normal_study_duration': program.normal_study_duration,
+                    'max_study_duration': program.max_study_duration,
+                    'min_credit_fulltime_student': program.min_credit_fulltime_student,
+                    'evaluation_system': program.evaluation_system,
+                    'evaluation_elective_concentration_courses': program.evaluation_elective_concentration_courses,
+                    'grading_system': program.grading_system,
+                    'repeating_course': program.repeating_course,
+                    'credit_transfer_withdrawal': program.credit_transfer_withdrawal,
+                    'project_work': program.project_work,
+                    'internship': program.internship,
+                    'unfair_means': program.unfair_means,
+                    'provision_retotaling_rechecking': program.provision_retotaling_rechecking,
+                    'dismissal_from_program': program.dismissal_from_program,
+                    'degree_requirements': program.degree_requirements,
+                    'deanslist': program.deanslist,
+                    'year': program.year,
+                    'related_course': program.related_course,
+                    'related_syllabus': program.related_syllabus,
+                    'total_credit': program.total_credit,
+                    'faculty_id': program.faculty_id.id,
+                    'total_foundation_cr_hr': program.total_foundation_cr_hr,
+                    'total_core_cr_hr': program.total_core_cr_hr,
+                    'total_concentration_cr_hr': program.total_concentration_cr_hr,
+                    'total_elective_cr_hr': program.total_elective_cr_hr,
+                    'total_project_cr_hr': program.total_project_cr_hr,
+                    'total_sem1_cr_hr': program.total_sem1_cr_hr,
+                    'total_sem2_cr_hr': program.total_sem2_cr_hr,
+                    'total_sem3_cr_hr': program.total_sem3_cr_hr,
+                    'total_sem4_cr_hr': program.total_sem4_cr_hr,
+                    'total_sem5_cr_hr': program.total_sem5_cr_hr,
+                    'total_sem6_cr_hr': program.total_sem6_cr_hr,
+                    'total_sem7_cr_hr': program.total_sem7_cr_hr,
+                    'total_sem8_cr_hr': program.total_sem8_cr_hr,
+                    'program_id': program.id
+                })
+                if old_version:
+                    if program.courseline_ids:
+                        for courseline in program.courseline_ids:
+                            old_version.write({
+                                'courseline_ids': [(4, courseline.id, 0)]
+                            })
         program.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
         return program
 
-    # create program history if new batch year
-    @api.onchange("year")
-    def create_program_history(self):
-        program_old_version = self.env['syllabus_minister.program_old_version']
-        if not program_old_version.search_count([('year', '=', self.year)]):
-            old_version = program_old_version.create({
-                'name': self.name,
-                'short_form': self.short_form,
-                'level': self.level,
-                'objectives': self.objectives,
-                'curricular_structure': self.curricular_structure,
-                'features': self.features,
-                'semester_system': self.semester_system,
-                'eligibility': self.eligibility,
-                'documents_required': self.documents_required,
-                'admission_procedures': self.admission_procedures,
-                'academic_schedule': self.academic_schedule,
-                'course_registration': self.course_registration,
-                'additional_withdrawal_course': self.additional_withdrawal_course,
-                'attendance_requirements': self.attendance_requirements,
-                'study_duration': self.study_duration,
-                'normal_study_duration': self.normal_study_duration,
-                'max_study_duration': self.max_study_duration,
-                'min_credit_fulltime_student': self.min_credit_fulltime_student,
-                'evaluation_system': self.evaluation_system,
-                'evaluation_elective_concentration_courses': self.evaluation_elective_concentration_courses,
-                'grading_system': self.grading_system,
-                'repeating_course': self.repeating_course,
-                'credit_transfer_withdrawal': self.credit_transfer_withdrawal,
-                'project_work': self.project_work,
-                'internship': self.internship,
-                'unfair_means': self.unfair_means,
-                'provision_retotaling_rechecking': self.provision_retotaling_rechecking,
-                'dismissal_from_program': self.dismissal_from_program,
-                'degree_requirements': self.degree_requirements,
-                'deanslist': self.deanslist,
-                'year': self.year,
-                'related_course': self.related_course,
-                'related_syllabus': self.related_syllabus,
-                'total_credit': self.total_credit,
-                'faculty_id': self.faculty_id.id,
-                'total_foundation_cr_hr': self.total_foundation_cr_hr,
-                'total_core_cr_hr': self.total_core_cr_hr,
-                'total_concentration_cr_hr': self.total_concentration_cr_hr,
-                'total_elective_cr_hr': self.total_elective_cr_hr,
-                'total_project_cr_hr': self.total_project_cr_hr,
-                'total_sem1_cr_hr': self.total_sem1_cr_hr,
-                'total_sem2_cr_hr': self.total_sem2_cr_hr,
-                'total_sem3_cr_hr': self.total_sem3_cr_hr,
-                'total_sem4_cr_hr': self.total_sem4_cr_hr,
-                'total_sem5_cr_hr': self.total_sem5_cr_hr,
-                'total_sem6_cr_hr': self.total_sem6_cr_hr,
-                'total_sem7_cr_hr': self.total_sem7_cr_hr,
-                'total_sem8_cr_hr': self.total_sem8_cr_hr,
-                'program_id': self._origin.id
-            })
-            if old_version:
-                for courseline in self.courseline_ids:
-                    old_version.write({
-                        'courseline_ids': [(4, courseline.id, 0)]
-                    })
+    @api.multi
+    def write(self, vals):
+        program = super(Program, self).write(vals)
+        if 'year' in vals:
+            program_old_version = self.env['syllabus_minister.program_old_version']
+            old_version_count = program_old_version.search_count(['&', ('year', '=', vals['year']), ('program_id', '=', self.id)])
+            if not old_version_count:
+                old_version = program_old_version.create({
+                    'name': self.name,
+                    'short_form': self.short_form,
+                    'level': self.level,
+                    'objectives': self.objectives,
+                    'curricular_structure': self.curricular_structure,
+                    'features': self.features,
+                    'semester_system': self.semester_system,
+                    'eligibility': self.eligibility,
+                    'documents_required': self.documents_required,
+                    'admission_procedures': self.admission_procedures,
+                    'academic_schedule': self.academic_schedule,
+                    'course_registration': self.course_registration,
+                    'additional_withdrawal_course': self.additional_withdrawal_course,
+                    'attendance_requirements': self.attendance_requirements,
+                    'study_duration': self.study_duration,
+                    'normal_study_duration': self.normal_study_duration,
+                    'max_study_duration': self.max_study_duration,
+                    'min_credit_fulltime_student': self.min_credit_fulltime_student,
+                    'evaluation_system': self.evaluation_system,
+                    'evaluation_elective_concentration_courses': self.evaluation_elective_concentration_courses,
+                    'grading_system': self.grading_system,
+                    'repeating_course': self.repeating_course,
+                    'credit_transfer_withdrawal': self.credit_transfer_withdrawal,
+                    'project_work': self.project_work,
+                    'internship': self.internship,
+                    'unfair_means': self.unfair_means,
+                    'provision_retotaling_rechecking': self.provision_retotaling_rechecking,
+                    'dismissal_from_program': self.dismissal_from_program,
+                    'degree_requirements': self.degree_requirements,
+                    'deanslist': self.deanslist,
+                    'year': self.year,
+                    'related_course': self.related_course,
+                    'related_syllabus': self.related_syllabus,
+                    'total_credit': self.total_credit,
+                    'faculty_id': self.faculty_id.id,
+                    'total_foundation_cr_hr': self.total_foundation_cr_hr,
+                    'total_core_cr_hr': self.total_core_cr_hr,
+                    'total_concentration_cr_hr': self.total_concentration_cr_hr,
+                    'total_elective_cr_hr': self.total_elective_cr_hr,
+                    'total_project_cr_hr': self.total_project_cr_hr,
+                    'total_sem1_cr_hr': self.total_sem1_cr_hr,
+                    'total_sem2_cr_hr': self.total_sem2_cr_hr,
+                    'total_sem3_cr_hr': self.total_sem3_cr_hr,
+                    'total_sem4_cr_hr': self.total_sem4_cr_hr,
+                    'total_sem5_cr_hr': self.total_sem5_cr_hr,
+                    'total_sem6_cr_hr': self.total_sem6_cr_hr,
+                    'total_sem7_cr_hr': self.total_sem7_cr_hr,
+                    'total_sem8_cr_hr': self.total_sem8_cr_hr,
+                    'program_id': self.id
+                })
+                if old_version:
+                    if self.courseline_ids:
+                        for courseline in self.courseline_ids:
+                            old_version.write({
+                                'courseline_ids': [(4, courseline.id, 0)]
+                            })
+        return program
     
     # button function for view program old versions
     @api.multi
