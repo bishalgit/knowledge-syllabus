@@ -49,6 +49,7 @@
         'views/program_old_version.xml',
         'views/faculty.xml',
         'views/course.xml',
+        'views/course_type.xml',
         'views/unit.xml',
         # 'views/syllabus.xml',
         # 'views/syllabus_history.xml',

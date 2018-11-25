@@ -15,7 +15,7 @@
                     <group colspan="2">
                         <group>
                             <field name="course_code"/>
-                            <field name="course_type"/>
+                            <field name="course_type_id"/>
                         </group>
                         <group>
                             <field name="credit_hours"/>

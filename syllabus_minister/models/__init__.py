@@ -14,3 +14,4 @@ from . import res_users
 from . import courseline
 from . import dashmodel
 from . import program_old_version
+from . import course_type

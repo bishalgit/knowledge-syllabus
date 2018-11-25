@@ -1,0 +1,36 @@
+<odoo>
+
+    <record id="course_type_view_form" model="ir.ui.view">
+        <field name="name">course_type.form</field>
+        <field name="model">syllabus_minister.course_type</field>
+        <field name="arch" type="xml">
+            <form string="Course Type Form">
+                <group>
+                    <field name="name"/>
+                </group>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="faculty_list_action" model="ir.actions.act_window">
+        <field name="name">Course Type</field>
+        <field name="res_model">syllabus_minister.course_type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Course TYpe
+            </p>
+        </field>
+    </record>
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <!-- <menuitem id="faculty_menu" name="Faculty" parent="syllabus_minister_submenu"
+              action="faculty_list_action"/> -->
+</odoo>
