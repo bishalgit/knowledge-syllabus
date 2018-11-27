@@ -47,49 +47,58 @@
                                 </span>
                             </strong>
                         </p>
-                        <p>
+                        <t t-if="doc.objectives != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Progarm Objectives</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Program Objectives</span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.objectives"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.objectives"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.curricular_structure != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Curricular Structure</span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.curricular_structure"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.curricular_structure"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.features != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Program Features</span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.features"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.features"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.semester_system != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">The Semester System</span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.semester_system"/>
-                            </span>
-                        </p>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.semester_system"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
                         <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Entry Requirement and Admission Procedures</span>
@@ -227,30 +236,30 @@
                             </span>
                         </p>
                         <br />
-                        <t t-if="doc.project_work">
+                        <p>
+                        <strong>
+                            <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Project Work</span>
+                        </strong>
+                        </p>
+                        <p style="text-align: justify;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                <t t-raw="doc.project_work"/>
+                            </span>
+                        </p>
+                        <br />
+                        <t t-if="doc.internship != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
                             <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Project Work</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Internship</span>
                             </strong>
                             </p>
                             <p style="text-align: justify;">
                                 <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                    <t t-raw="doc.project_work"/>
+                                    <t t-raw="doc.internship"/>
                                 </span>
                             </p>
                             <br />
                         </t>
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Internship</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.internship"/>
-                            </span>
-                        </p>
-                        <br />
                         <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Unfair Means</span>
