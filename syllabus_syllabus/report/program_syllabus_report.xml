@@ -99,154 +99,181 @@
                             </p>
                             <br />
                         </t>
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Entry Requirement and Admission Procedures</span>
-                            </strong>
-                        </p>
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Eligibility</i></span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.eligibility"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
+                        <t t-if="doc.eligibility != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Entry Requirement and Admission Procedures</span>
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Eligibility</i></span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.eligibility"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.documents_required != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Documents Required</i></span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.documents_required"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Admission Procedures</i></span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.admission_procedures"/>
-                            </span>
-                        </p>
-                        <p>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.documents_required"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.admission_procedures != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Admission Procedures</i></span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.admission_procedures"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.academic_schedule != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
                                 <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Academic Schedule and Course Registration</span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.academic_schedule"/>
-                                <t t-raw="doc.course_registration"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.academic_schedule"/>
+                                    <t t-raw="doc.course_registration"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.additional_withdrawal_course != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Additional and Withdrawal from the Course</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.additional_withdrawal_course"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.attendance_requirements != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Attendance Requirements</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.attendance_requirements"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.study_duration != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Normal and Maximum Duration of Study</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.study_duration"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.evaluation_system != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Evaluation System</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.evaluation_system"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.evaluation_elective_concentration_courses != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Evaluation of Elective and Concentration Courses</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.evaluation_elective_concentration_courses"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.grading_system != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Grading System</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.grading_system"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.repeating_course != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Repeating a Course</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.repeating_course"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.credit_transfer_withdrawal != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Credit Transfer and WithDrawal</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.credit_transfer_withdrawal"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.project_work != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Additional and Withdrawal from the Course</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Project Work</span>
                             </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.additional_withdrawal_course"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Attendance Requirements</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.attendance_requirements"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Normal and Maximum Duration of Study</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.study_duration"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Evaluation System</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.evaluation_system"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Evaluation of Elective and Concentration Courses</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.evaluation_elective_concentration_courses"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Grading System</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.grading_system"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Repeating a Course</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.repeating_course"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Credit Transfer and WithDrawal</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.credit_transfer_withdrawal"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                        <strong>
-                            <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Project Work</span>
-                        </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.project_work"/>
-                            </span>
-                        </p>
-                        <br />
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.project_work"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
                         <t t-if="doc.internship != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
                             <p>
                             <strong>
@@ -260,60 +287,70 @@
                             </p>
                             <br />
                         </t>
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Unfair Means</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.unfair_means"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Provision for Retotaling and Rechecking</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.provision_retotaling_rechecking"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Dismissal from the program</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.dismissal_from_program"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Degree Requirements</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.degree_requirements"/>
-                            </span>
-                        </p>
-                        <br />
-                        <p>
-                            <strong>
-                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Distinction and Dean's List</span>
-                            </strong>
-                        </p>
-                        <p style="text-align: justify;">
-                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
-                                <t t-raw="doc.deanslist"/>
-                            </span>
-                        </p>
+                        <t t-if="doc.unfair_means != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Unfair Means</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.unfair_means"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.provision_retotaling_rechecking != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Provision for Retotaling and Rechecking</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.provision_retotaling_rechecking"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.dismissal_from_program != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Dismissal from the program</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.dismissal_from_program"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.degree_requirements != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Degree Requirements</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.degree_requirements"/>
+                                </span>
+                            </p>
+                            <br />
+                        </t>
+                        <t t-if="doc.deanslist != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                            <p>
+                                <strong>
+                                    <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Distinction and Dean's List</span>
+                                </strong>
+                            </p>
+                            <p style="text-align: justify;">
+                                <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                    <t t-raw="doc.deanslist"/>
+                                </span>
+                            </p>
+                        </t>
                     </div>
                 </t>
                 <t t-call="web.external_layout">
