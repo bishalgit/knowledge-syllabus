@@ -33,6 +33,9 @@
                             <field name="min_credit_fulltime_student"/>
                             <field name="year"/>
                         </group>
+                        <group>
+                            <field name="course_type_ids" invisible="1"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="General">

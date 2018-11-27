@@ -7,6 +7,7 @@
             <form string="Course Type Form">
                 <group>
                     <field name="name"/>
+                    <!-- <field name="program_id"/> -->
                 </group>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>

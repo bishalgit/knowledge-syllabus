@@ -57,6 +57,8 @@ class ProgramOldVersion(models.Model):
     total_sem6_cr_hr = fields.Integer()
     total_sem7_cr_hr = fields.Integer()
     total_sem8_cr_hr = fields.Integer()
+    course_type_ids = fields.Many2many('syllabus_minister.course_type', 'syllabus_coursetype_program_old', string="Course Type", readonly=True)
+
 
     program_id = fields.Many2one('syllabus_minister.program', 'Program')
 

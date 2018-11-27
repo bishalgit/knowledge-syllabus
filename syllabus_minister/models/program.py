@@ -62,6 +62,7 @@ class Program(models.Model):
     total_sem6_cr_hr = fields.Integer(compute='_compute_sem6')
     total_sem7_cr_hr = fields.Integer(compute='_compute_sem7')
     total_sem8_cr_hr = fields.Integer(compute='_compute_sem8')
+    course_type_ids = fields.Many2many('syllabus_minister.course_type',string="Course Type", compute="_compute_course_types", store=True)
 
     # Groups Involved in Program
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -70,39 +71,56 @@ class Program(models.Model):
     _sql_constraints = [
          ('short_form_unique', 'unique(short_form)','Short Form must be unique')]
 
+    @api.onchange('courseline_ids')
+    def _compute_course_types(self):
+        course_types = []
+        for record in self:
+            for courseline in record.courseline_ids:
+                if courseline.course_id:
+                    _logger.warning('courselinessssssssssssssssss ' + str(courseline.course_id.course_type))
+                    course_types.append(courseline.course_id.course_type.id)
+                    _logger.warning('ssssssssssssssssss ' + str(course_types))
+                    # record.write({
+                    #     'course_type_ids': course_types
+                    # })
+                    record.course_type_ids = course_types
+                    _logger.warning('coursetypeidsssssddddddddd' + str(record.course_type_ids))
+
+
+
     @api.multi
     def _compute_foundation(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.course_id.course_type == "Foundation":
+                if r.course_id.course_type.name == "Foundation":
                     record.total_foundation_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_core(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.course_id.course_type == "Core":
+                if r.course_id.course_type.name == "Core":
                     record.total_core_cr_hr += r.course_id.credit_hours  
 
     @api.multi
     def _compute_concentration(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.course_id.course_type == "Concentration":
+                if r.course_id.course_type.name == "Concentration":
                     record.total_concentration_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_elective(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.course_id.course_type == "Elective":
+                if r.course_id.course_type.name == "Elective":
                     record.total_elective_cr_hr += r.course_id.credit_hours
 
     @api.multi
     def _compute_project(self):
         for record in self:
             for r in record.courseline_ids:
-                if r.course_id.course_type == "Project Work and Internship":
+                if r.course_id.course_type.name == "Project Work and Internship":
                     record.total_project_cr_hr += r.course_id.credit_hours
 
 
@@ -226,6 +244,12 @@ class Program(models.Model):
                             old_version.write({
                                 'courseline_ids': [(4, courseline.id, 0)]
                             })
+
+                        course_types = []
+                        for coursetype in program.course_type_ids:
+                            course_types.append(coursetype.id)
+                        old_version.course_type_ids = course_types
+                        _logger.warning('________________________________' +str(old_version.course_type_ids))
         program.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
@@ -303,6 +327,12 @@ class Program(models.Model):
                                 'related_faculty': courseline.related_faculty.id
                             }
                             self.env["syllabus_minister.courseline"].sudo().create(vals)
+                        course_types = []
+                        for coursetype in self.course_type_ids:
+                            course_types.append(coursetype.id)
+                            _logger.warning('dasdklja-dasjdklajdskjla' + str(course_types))
+                        old_version.course_type_ids = course_types
+                        _logger.warning('sadasdsdfdsfdsfdsfsfSADASAD' +str(old_version.course_type_ids))
         return program
     
     # button function for viewing program old versions
