@@ -2,6 +2,10 @@
 from datetime import datetime,date
 from odoo import models, fields, api
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class ProgramOldVersion(models.Model):
     _name = 'syllabus_minister.program_old_version'
@@ -72,3 +76,14 @@ class ProgramOldVersion(models.Model):
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
         return program_old_version
+
+    # this computes the total credit of the certain course types under this program
+    # this method is called from the report template
+    def _compute_course_types_total_credit(self, course_type_id):
+        total_credit = 0
+        for courseline in self.courseline_ids:
+            if int(courseline.course_id.course_type.id) == int(course_type_id):
+                total_credit += int(courseline.course_id.credit_hours)
+                _logger.warning("Total Old Credit Hoursssssssssss " + str(total_credit))
+        return total_credit
+
