@@ -17,14 +17,14 @@
         </field>
     </record>
 
-    <record id="faculty_list_action" model="ir.actions.act_window">
+    <record id="course_type_list_action" model="ir.actions.act_window">
         <field name="name">Course Type</field>
         <field name="res_model">syllabus_minister.course_type</field>
         <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
-            <p class="oe_view_nocontent_create">Create Course TYpe
+            <p class="oe_view_nocontent_create">Create Course Type
             </p>
         </field>
     </record>
