@@ -40,7 +40,7 @@
                     <div class="page">
                         <p style="text-align: center;">
                             <strong>
-                                <span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                                <span style="font-size: 16.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                     POKHARA UNIVERSITY <br />
                                     <t t-esc="doc.name"/><br />
                                     <t t-esc="doc.short_form"/>
@@ -49,76 +49,76 @@
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Progarm Objectives</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Progarm Objectives</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.objectives"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Curricular Structure</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Curricular Structure</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.curricular_structure"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Program Features</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Program Features</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.features"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">The Semester System</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">The Semester System</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.semester_system"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Entry Requirement and Admission Procedures</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Entry Requirement and Admission Procedures</span>
                             </strong>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><i>Eligibility</i></span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Eligibility</i></span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.eligibility"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><i>Documents Required</i></span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Documents Required</i></span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.documents_required"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;"><i>Admission Procedures</i></span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;"><i>Admission Procedures</i></span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.admission_procedures"/>
                             </span>
                         </p>
@@ -128,333 +128,198 @@
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.academic_schedule"/>
                                 <t t-raw="doc.course_registration"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Additional and Withdrawal from the Course</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Additional and Withdrawal from the Course</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.additional_withdrawal_course"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Attendance Requirements</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Attendance Requirements</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.attendance_requirements"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Normal and Maximum Duration of Study</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Normal and Maximum Duration of Study</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.study_duration"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Evaluation System</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Evaluation System</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.evaluation_system"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Evaluation of Elective and Concentration Courses</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Evaluation of Elective and Concentration Courses</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.evaluation_elective_concentration_courses"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Grading System</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Grading System</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.grading_system"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Repeating a Course</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Repeating a Course</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.repeating_course"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Credit Transfer and WithDrawal</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Credit Transfer and WithDrawal</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.credit_transfer_withdrawal"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Project Work</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Project Work</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.project_work"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Internship</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Internship</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.internship"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Unfair Means</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Unfair Means</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.unfair_means"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Provision for Retotaling and Rechecking</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Provision for Retotaling and Rechecking</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.provision_retotaling_rechecking"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Dismissal from the program</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Dismissal from the program</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.dismissal_from_program"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Degree Requirements</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Degree Requirements</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.degree_requirements"/>
                             </span>
                         </p>
                         <p>
                             <strong>
-                                <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">Distinction and Dean's List</span>
+                                <span style="font-size: 14.0pt; line-height: normal; font-family: 'Times New Roman',serif;">Distinction and Dean's List</span>
                             </strong>
                         </p>
                         <p style="text-align: justify;">
-                            <span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+                            <span style="font-size: 12.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
                                 <t t-raw="doc.deanslist"/>
                             </span>
                         </p>
                     </div>
                 </t>
                 <t t-call="web.external_layout">
-                    <div class="page">
+                    <div style="margin-top: 1.5px; margin-right: 1px; margin-top: 1.5px; margin-bottom: 1px" class="page">
                         <p>
 						<strong>
-							<span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">CURRICULUM STRUCTURE</span>
+							<span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif; text-transform: uppercase">CURRICULUM STRUCTURE OF <t t-esc="doc.name"/></span>
 						</strong>
 					    </p>
                         <table style="border: none; border-collapse: collapse; border: none; width: 100%">
                             <tbody>
-                                <tr>
-                                    <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">Foundation Courses</th>
-                                    <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc.total_foundation_cr_hr"/> Credit Hours)</th>
-                                </tr>
-                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                    <t t-if="course.course_id.course_type == 'Foundation'">
+                                <t t-foreach="doc.course_type_ids" t-as="course_type">
+                                    <tr>
+                                        <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;"><t t-esc="course_type.name"/></th>
+                                        <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="course_type.total_cr_hr"/> Credit Hours)</th>
+                                    </tr>
+                                    <t t-foreach="course_type.course_ids" t-as="course">
                                         <tr>
                                             <td style="width: 20%;">
                                                 <p style="text-align: justify; line-height: normal;">
-                                                    <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                        <t t-esc="course.course_id.course_code"/>
+                                                    <span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
+                                                        <t t-esc="course.course_code"/>
                                                     </span>
                                                 </p>
                                             </td>
                                             <td style="width: 40%;">
                                                 <p style="text-align: left; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.name"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: right; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.credit_hours"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </t>
-                                <tr>
-                                    <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">Core Courses</th>
-                                    <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc.total_core_cr_hr"/> Credit Hours)</th>
-                                </tr>
-                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                    <t t-if="course.course_id.course_type == 'Core'">
-                                        <tr>
-                                            <td style="width: 20%;">
-                                                <p style="text-align: justify; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.course_code"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: left; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.name"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: right; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.credit_hours"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </t>
-                                <tr>
-                                    <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">Concentration</th>
-                                    <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc.total_concentration_cr_hr"/> Credit Hours)</th>
-                                </tr>
-                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                    <t t-if="course.course_id.course_type == 'Concentration'">
-                                        <tr>
-                                            <td style="width: 20%;">
-                                                <p style="text-align: justify; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.course_code"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: left; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.name"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: right; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.credit_hours"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </t>
-                                <tr>
-                                    <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">Electives</th>
-                                    <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc.total_elective_cr_hr"/> Credit Hours)</th>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                    <p style="text-align: justify; font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                        <i>(Any TWO courses from the following list)</i><br />
-                                        The courses offered in this area are basically of non-business nature. These are offered
-                                        widen the knowledge base of students in social and development issues. A college can also
-                                        develop and offer any other non-business elective courseswith the prior approval of the
-                                        Subject Committee and the Dean.
-                                    </p>
-                                    </td>
-                                </tr>
-                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                    <t t-if="course.course_id.course_type == 'Elective'">
-                                        <tr>
-                                            <td style="width: 20%;">
-                                                <p style="text-align: justify; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.course_code"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: left; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.name"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
-                                                <p style="text-align: right; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.credit_hours"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </t>
-                                <tr>
-                                    <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">Project Work and Internship</th>
-                                    <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc.total_project_cr_hr"/> Credit Hours)</th>
-                                </tr>
-                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                    <t t-if="course.course_id.course_type == 'Project Work and Internship'">
-                                        <tr>
-                                            <td style="width: 20%;">
-                                                <p style="text-align: justify; line-height: normal;">
-                                                    <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                        <t t-esc="course.course_id.course_code"/>
+                                                    <span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
+                                                        <t t-esc="course.name"/>
                                                     </span>
                                                 </p>
                                             </td>
                                             <td style="width: 40%;">
-                                                <p style="text-align: left; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.name"/>
-                                                        </span>
-                                                </p>
-                                            </td>
-                                            <td style="width: 40%;">
                                                 <p style="text-align: right; line-height: normal;">
-                                                        <span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
-                                                            <t t-esc="course.course_id.credit_hours"/>
-                                                        </span>
+                                                    <span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
+                                                        <t t-esc="course.credit_hours"/>
+                                                    </span>
                                                 </p>
                                             </td>
                                         </tr>

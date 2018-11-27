@@ -12,7 +12,7 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
-                    <div class="page">
+                    <div style="margin-top: 1.5px; margin-right: 1px; margin-top: 1.5px; margin-bottom: 1px" class="page">
                         <t t-raw="doc.syllabus_id.content"></t>
                     </div>
                 </t>
