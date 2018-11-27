@@ -319,7 +319,7 @@
                                 <t t-foreach="doc.course_type_ids" t-as="course_type">
                                     <tr>
                                         <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;"><t t-esc="course_type.name"/></th>
-                                        <!-- <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="course_type.total_cr_hr"/> Credit Hours)</th> -->
+                                        <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc._compute_course_types_total_credit(course_type.id)"/> Credit Hours)</th>
                                     </tr>
                                     <t t-foreach="course_type.course_ids" t-as="course">
                                         <tr>

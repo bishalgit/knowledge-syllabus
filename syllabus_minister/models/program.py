@@ -342,3 +342,13 @@ class Program(models.Model):
             'limit': 80,
             'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
         }
+
+    # this computes the total credit of the certain course types under this program
+    # this method is called from the report template
+    def _compute_course_types_total_credit(self, course_type_id):
+        total_credit = 0
+        for courseline in self.courseline_ids:
+            if int(courseline.course_id.course_type.id) == int(course_type_id):
+                total_credit += int(courseline.course_id.credit_hours)
+        _logger.warning("Total Credit Hoursssssssssss " + str(total_credit))
+        return total_credit
