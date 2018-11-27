@@ -42,7 +42,6 @@ class Program(models.Model):
     dismissal_from_program = fields.Html(string='Dismissal from the program')
     degree_requirements = fields.Html(string='Degree Requirement')
     deanslist = fields.Html(string='Distinction and deans list')
-    # courses_id = fields.Many2many('syllabus_minister.course',string='Course')
     year = fields.Selection([(num, str(num)) for num in range(2000, (datetime.now().year)+5 )], 'Batch Year')
     related_course = fields.Many2one(related='courseline_ids.course_id', string="Course")
     related_syllabus = fields.Many2one(related='courseline_ids.syllabus_id', string="Syllabus")
@@ -71,22 +70,15 @@ class Program(models.Model):
     _sql_constraints = [
          ('short_form_unique', 'unique(short_form)','Short Form must be unique')]
 
-    @api.onchange('courseline_ids')
+    # this computes the course types used for this program
+    @api.depends('courseline_ids')
     def _compute_course_types(self):
         course_types = []
         for record in self:
             for courseline in record.courseline_ids:
                 if courseline.course_id:
-                    _logger.warning('courselinessssssssssssssssss ' + str(courseline.course_id.course_type))
                     course_types.append(courseline.course_id.course_type.id)
-                    _logger.warning('ssssssssssssssssss ' + str(course_types))
-                    # record.write({
-                    #     'course_type_ids': course_types
-                    # })
                     record.course_type_ids = course_types
-                    _logger.warning('coursetypeidsssssddddddddd' + str(record.course_type_ids))
-
-
 
     @api.multi
     def _compute_foundation(self):
@@ -244,12 +236,10 @@ class Program(models.Model):
                             old_version.write({
                                 'courseline_ids': [(4, courseline.id, 0)]
                             })
-
-                        course_types = []
                         for coursetype in program.course_type_ids:
-                            course_types.append(coursetype.id)
-                        old_version.course_type_ids = course_types
-                        _logger.warning('________________________________' +str(old_version.course_type_ids))
+                            old_version.write({
+                                'course_type_ids': [(4, coursetype.id, 0)]
+                            })
         program.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
         })
@@ -327,12 +317,10 @@ class Program(models.Model):
                                 'related_faculty': courseline.related_faculty.id
                             }
                             self.env["syllabus_minister.courseline"].sudo().create(vals)
-                        course_types = []
                         for coursetype in self.course_type_ids:
-                            course_types.append(coursetype.id)
-                            _logger.warning('dasdklja-dasjdklajdskjla' + str(course_types))
-                        old_version.course_type_ids = course_types
-                        _logger.warning('sadasdsdfdsfdsfdsfsfSADASAD' +str(old_version.course_type_ids))
+                            old_version.write({
+                                'course_type_ids': [(4, coursetype.id, 0)]
+                            })
         return program
     
     # button function for viewing program old versions
