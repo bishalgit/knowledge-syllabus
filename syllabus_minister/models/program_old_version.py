@@ -84,6 +84,5 @@ class ProgramOldVersion(models.Model):
         for courseline in self.courseline_ids:
             if int(courseline.course_id.course_type.id) == int(course_type_id):
                 total_credit += int(courseline.course_id.credit_hours)
-                _logger.warning("Total Old Credit Hoursssssssssss " + str(total_credit))
         return total_credit
 
