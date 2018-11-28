@@ -77,7 +77,7 @@ class Program(models.Model):
         for record in self:
             for courseline in record.courseline_ids:
                 if courseline.course_id:
-                    course_types.append(courseline.course_id.course_type.id)
+                    course_types += courseline.course_id.course_type.get_parent_course_type()
                     record.course_type_ids = course_types
 
     @api.multi
@@ -346,8 +346,8 @@ class Program(models.Model):
     # this computes the total credit of the certain course types under this program
     # this method is called from the report template
     def _compute_course_types_total_credit(self, course_type_id):
-        total_credit = 0
+        courses = []
         for courseline in self.courseline_ids:
-            if int(courseline.course_id.course_type.id) == int(course_type_id):
-                total_credit += int(courseline.course_id.credit_hours)
-        return total_credit
+            if courseline.course_id:
+                courses.append(courseline.course_id.id)
+        return self.env["syllabus_minister.course_type"].sudo().browse(course_type_id).calculate_total_credit(courses)
