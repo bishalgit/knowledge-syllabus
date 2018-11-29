@@ -13,7 +13,7 @@ class Unit(models.Model):
     study_hours = fields.Float(string='Study hours')
     description = fields.Html(string='Description')
     course_id = fields.Many2one('syllabus_minister.course',string='Course')
-    sequence = fields.Integer(string='sequence',default=1)
+    sequence = fields.Integer(string='Sequence')
     display_name = fields.Char(string='Display Name', compute='_display_name')
 
     @api.depends('name','course_id')
