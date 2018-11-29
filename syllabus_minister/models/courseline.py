@@ -15,7 +15,7 @@ class Courseline(models.Model):
     _order =  'sequence, id'
 
     name = fields.Char(string='Name')
-    semester = fields.Integer(string='Semester', default=1)
+    semester = fields.Many2one('syllabus_minister.semester',string='Semester')
     course_id = fields.Many2one('syllabus_minister.course', string='Course')
     sequence = fields.Integer(string='sequence',default=1)
     program_id = fields.Many2one('syllabus_minister.program',string="Program")

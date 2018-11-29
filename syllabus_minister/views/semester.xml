@@ -1,0 +1,70 @@
+<odoo>
+
+    <record id="semester_view_form" model="ir.ui.view">
+        <field name="name">semester.form</field>
+        <field name="model">syllabus_minister.semester</field>
+        <field name="arch" type="xml">
+            <form string="Semester Form">
+                <group>
+                    <field name="name"/>
+                </group>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="semester_view_tree" model="ir.ui.view">
+        <field name="name">semester.tree</field>
+        <field name="model">syllabus_minister.semester</field>
+        <field name="arch" type="xml">
+            <tree string="Semester">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="semester_view_kanban" model="ir.ui.view">
+        <field name="name">semester.kanban</field>
+        <field name="model">syllabus_minister.semester</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- window action -->
+     <!--**
+         The following tag is an action definition for a "window action",
+         that is an action opening a view or a set of views
+     -->
+    <record id="semester_list_action" model="ir.actions.act_window">
+        <field name="name">Semester</field>
+        <field name="res_model">syllabus_minister.semester</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Semester
+            </p>
+        </field>
+    </record>
+
+     <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="semester_menu" name="Semester" parent="syllabus_minister_submenu"
+              action="semester_list_action"/>
+</odoo>

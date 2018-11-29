@@ -48,20 +48,8 @@ class Program(models.Model):
     total_credit = fields.Integer(string='Total Credit')
     faculty_id = fields.Many2one('syllabus_minister.faculty',string='Faculty')
     courseline_ids = fields.One2many('syllabus_minister.courseline','program_id',string="Courseline")
-    total_foundation_cr_hr = fields.Integer(compute='_compute_foundation')
-    total_core_cr_hr = fields.Integer(compute='_compute_core')
-    total_concentration_cr_hr = fields.Integer(compute='_compute_concentration')
-    total_elective_cr_hr = fields.Integer(compute='_compute_elective')
-    total_project_cr_hr = fields.Integer(compute='_compute_project')
-    total_sem1_cr_hr = fields.Integer(compute='_compute_sem1')
-    total_sem2_cr_hr = fields.Integer(compute='_compute_sem2')
-    total_sem3_cr_hr = fields.Integer(compute='_compute_sem3')
-    total_sem4_cr_hr = fields.Integer(compute='_compute_sem4')
-    total_sem5_cr_hr = fields.Integer(compute='_compute_sem5')
-    total_sem6_cr_hr = fields.Integer(compute='_compute_sem6')
-    total_sem7_cr_hr = fields.Integer(compute='_compute_sem7')
-    total_sem8_cr_hr = fields.Integer(compute='_compute_sem8')
     course_type_ids = fields.Many2many('syllabus_minister.course_type',string="Course Type", compute="_compute_course_types", store=True)
+    semester_id = fields.Many2many('syllabus_minister.semester',string="Semester", compute="_compute_semester", store=True)
 
     # Groups Involved in Program
     group_ids = fields.Many2many('res.groups', string="Related Groups")
@@ -80,96 +68,16 @@ class Program(models.Model):
                     course_types.append(courseline.course_id.course_type.id)
                     record.course_type_ids = course_types
 
-    @api.multi
-    def _compute_foundation(self):
+    @api.depends('courseline_ids')
+    def _compute_semester(self):
+        semester = []
         for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type.name == "Foundation":
-                    record.total_foundation_cr_hr += r.course_id.credit_hours
+            for courseline in record.courseline_ids:
+                if courseline.semester:
+                    semester.append(courseline.semester.id)
+                    record.semester_id = semester
 
-    @api.multi
-    def _compute_core(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type.name == "Core":
-                    record.total_core_cr_hr += r.course_id.credit_hours  
-
-    @api.multi
-    def _compute_concentration(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type.name == "Concentration":
-                    record.total_concentration_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_elective(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type.name == "Elective":
-                    record.total_elective_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_project(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.course_id.course_type.name == "Project Work and Internship":
-                    record.total_project_cr_hr += r.course_id.credit_hours
-
-
-    @api.multi
-    def _compute_sem1(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 1:
-                    record.total_sem1_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem2(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 2:
-                    record.total_sem2_cr_hr += r.course_id.credit_hours  
-
-    @api.multi
-    def _compute_sem3(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 3:
-                    record.total_sem3_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem4(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 4:
-                    record.total_sem4_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem5(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 5:
-                    record.total_sem5_cr_hr += r.course_id.credit_hours
-
-    @api.multi
-    def _compute_sem6(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 6:
-                    record.total_sem6_cr_hr += r.course_id.credit_hours  
-
-    @api.multi
-    def _compute_sem7(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 7:
-                    record.total_sem7_cr_hr += r.course_id.credit_hours
-    @api.multi
-    def _compute_sem8(self):
-        for record in self:
-            for r in record.courseline_ids:
-                if r.semester == 8:
-                    record.total_sem8_cr_hr += r.course_id.credit_hours
+    
 
     # override create and write method to create old batch version of the program
     @api.model
@@ -215,19 +123,6 @@ class Program(models.Model):
                     'related_syllabus': program.related_syllabus,
                     'total_credit': program.total_credit,
                     'faculty_id': program.faculty_id.id,
-                    'total_foundation_cr_hr': program.total_foundation_cr_hr,
-                    'total_core_cr_hr': program.total_core_cr_hr,
-                    'total_concentration_cr_hr': program.total_concentration_cr_hr,
-                    'total_elective_cr_hr': program.total_elective_cr_hr,
-                    'total_project_cr_hr': program.total_project_cr_hr,
-                    'total_sem1_cr_hr': program.total_sem1_cr_hr,
-                    'total_sem2_cr_hr': program.total_sem2_cr_hr,
-                    'total_sem3_cr_hr': program.total_sem3_cr_hr,
-                    'total_sem4_cr_hr': program.total_sem4_cr_hr,
-                    'total_sem5_cr_hr': program.total_sem5_cr_hr,
-                    'total_sem6_cr_hr': program.total_sem6_cr_hr,
-                    'total_sem7_cr_hr': program.total_sem7_cr_hr,
-                    'total_sem8_cr_hr': program.total_sem8_cr_hr,
                     'program_id': program.id
                 })
                 if old_version:
@@ -239,6 +134,10 @@ class Program(models.Model):
                         for coursetype in program.course_type_ids:
                             old_version.write({
                                 'course_type_ids': [(4, coursetype.id, 0)]
+                            })
+                        for semester in program.semester_id:
+                            old_version.write({
+                                'semester_id': [(4, semester.id, 0)]
                             })
         program.write({
             'group_ids': [(4, self.env.ref('syllabus_minister.syllabus_minister_group_administrator').id)]
@@ -288,19 +187,6 @@ class Program(models.Model):
                     'related_syllabus': self.related_syllabus,
                     'total_credit': self.total_credit,
                     'faculty_id': self.faculty_id.id,
-                    'total_foundation_cr_hr': self.total_foundation_cr_hr,
-                    'total_core_cr_hr': self.total_core_cr_hr,
-                    'total_concentration_cr_hr': self.total_concentration_cr_hr,
-                    'total_elective_cr_hr': self.total_elective_cr_hr,
-                    'total_project_cr_hr': self.total_project_cr_hr,
-                    'total_sem1_cr_hr': self.total_sem1_cr_hr,
-                    'total_sem2_cr_hr': self.total_sem2_cr_hr,
-                    'total_sem3_cr_hr': self.total_sem3_cr_hr,
-                    'total_sem4_cr_hr': self.total_sem4_cr_hr,
-                    'total_sem5_cr_hr': self.total_sem5_cr_hr,
-                    'total_sem6_cr_hr': self.total_sem6_cr_hr,
-                    'total_sem7_cr_hr': self.total_sem7_cr_hr,
-                    'total_sem8_cr_hr': self.total_sem8_cr_hr,
                     'program_id': self.id
                 })
                 if old_version:
@@ -310,7 +196,6 @@ class Program(models.Model):
                                 'old_program_id': old_version.id,
                                 'name': courseline.name,
                                 'course_id': courseline.course_id.id,
-                                'semester': courseline.semester,
                                 'syllabus_id': courseline.syllabus_id.id,
                                 'issued_year': courseline.issued_year,
                                 'sequence': courseline.sequence,
@@ -320,6 +205,10 @@ class Program(models.Model):
                         for coursetype in self.course_type_ids:
                             old_version.write({
                                 'course_type_ids': [(4, coursetype.id, 0)]
+                            })
+                        for semester in self.semester_id:
+                            old_version.write({
+                                'semester_id': [(4, semester.id, 0)]
                             })
         return program
     
@@ -351,3 +240,15 @@ class Program(models.Model):
             if int(courseline.course_id.course_type.id) == int(course_type_id):
                 total_credit += int(courseline.course_id.credit_hours)
         return total_credit
+
+    # this computes the total credit of the certain course types under this program
+    # this method is called from the report template
+    def _compute_semester_total_credit(self, sem_id):
+        total_credit = 0
+        for courseline in self.courseline_ids:
+            if int(courseline.semester.id) == int(sem_id):
+                total_credit += int(courseline.course_id.credit_hours)
+        return total_credit
+
+
+    

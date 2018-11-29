@@ -15,3 +15,4 @@ from . import courseline
 from . import dashmodel
 from . import program_old_version
 from . import course_type
+from . import semester

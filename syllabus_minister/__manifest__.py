@@ -59,6 +59,7 @@
         'views/curriculum_report_views.xml',
         'views/assets.xml',
         'views/syllabus_dashboard.xml',
+        'views/semester.xml',
         'data/base_user_role.xml',
         # 'report/syllabus_report.xml',
         # 'report/program_syllabus_report.xml',

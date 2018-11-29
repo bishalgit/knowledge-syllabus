@@ -95,6 +95,6 @@
      <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
              action course_list_action -->
-    <!-- <menuitem id="Courseline_menu" name="CourseLine" parent="syllabus_minister_submenu" -->
-              <!-- action="courseline_list_action"/> -->
+    <!-- <menuitem id="Courseline_menu" name="CourseLine" parent="syllabus_minister_submenu"
+               action="courseline_list_action"/> -->
 </odoo>
