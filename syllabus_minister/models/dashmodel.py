@@ -5,8 +5,6 @@ import random
 
 _logger = logging.getLogger(__name__)
 
-# _logger = logging.getLogger(__name__)
-
 class SyllabusDashboard(models.Model):
     _name = 'syllabus_minister.dashboard'
     _description = 'Dashboard'
@@ -29,9 +27,7 @@ class SyllabusDashboard(models.Model):
         no_faculty = self.env['syllabus_minister.faculty'].sudo().search_count([])
         no_syllabus = self.env['document.page'].sudo().search_count([])
         no_users = self.env['res.users'].sudo().search_count([])
-    
-        _logger.warning(no_syllabus)
-         
+             
         faculty_list = []
         program_list = []
         syllabus_list = []
@@ -45,14 +41,6 @@ class SyllabusDashboard(models.Model):
             program_list.append(program_count)
             syllabus_list.append(syllabus_count)
 
-
-        # program_index = []
-        # program_old_version_list = []
-        # for p in program:
-        #     program_old_version_count = self.env['syllabus_minister.program_old_version'].sudo().search_count([('program_id','=', p.id)])
-        #     program_index.append(p.short_form)
-        #     program_old_version_list.append(program_old_version_count)
-
         if program:
             data = {
                 'no_program': no_program,
@@ -64,8 +52,6 @@ class SyllabusDashboard(models.Model):
                 'program_list': program_list,
                 'syllabus_list': syllabus_list,
                 'random_color_list': random_color_list,
-                # 'program_index': program_index,
-                # 'program_old_version_list': program_old_version_list,
             }
             _logger.warning(data)
             return data
