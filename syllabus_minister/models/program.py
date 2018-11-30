@@ -65,8 +65,9 @@ class Program(models.Model):
         for record in self:
             for courseline in record.courseline_ids:
                 if courseline.course_id:
-                    course_types += courseline.course_id.course_type.get_parent_course_type()
-                    record.course_type_ids = course_types
+                    if courseline.course_id.course_type:
+                        course_types += courseline.course_id.course_type.get_parent_course_type()
+                        record.course_type_ids = course_types
 
     @api.depends('courseline_ids')
     def _compute_semester(self):

@@ -44,6 +44,6 @@
         </field>
     </record>
 
-    <menuitem name="Course Types" id="syllabus_minister_course_type_menu" parent="syllabus_minister.syllabus_minister_configuration_menu" 
+    <menuitem name="Course Types" id="syllabus_minister_course_type_menu" parent="syllabus_minister.syllabus_minister_submenu" 
     action="course_type_list_action"/>
 </odoo>

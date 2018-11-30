@@ -15,12 +15,12 @@
                     </group>
                     <group colspan="2">
                         <group>
-                            <field name="study_hours"/>
-                            <field name="sequence"/>
+                            <field name="study_hours" placeholder="e.g 2.3"/>
+                            <field name="sequence" placeholder="e.g 1"/>
                         </group>
                         <group>
                             <field name="course_id"/>
-                            <field name="display_name"/>
+                            <field name="display_name" attrs="{'invisible' : ['&amp;', ('name', '=', False), ('course_id', '=', False)]}"/>
                         </group>
                     </group>
                     <notebook>
