@@ -249,7 +249,3 @@ class Program(models.Model):
             if int(courseline.semester.id) == int(sem_id):
                 total_credit += int(courseline.course_id.credit_hours)
         return total_credit
-
-
-    
-           
