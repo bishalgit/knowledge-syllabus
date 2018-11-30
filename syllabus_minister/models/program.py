@@ -242,7 +242,7 @@ class Program(models.Model):
                 courses.append(courseline.course_id.id)
         return self.env["syllabus_minister.course_type"].sudo().browse(course_type_id).calculate_total_credit(courses)
 
-    # this computes the total credit of the certain course types under this program
+    # this computes the total credit of the certain semester under this program
     # this method is called from the report template
     def _compute_semester_total_credit(self, sem_id):
         total_credit = 0

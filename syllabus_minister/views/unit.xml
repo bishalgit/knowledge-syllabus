@@ -15,7 +15,7 @@
                     </group>
                     <group colspan="2">
                         <group>
-                            <field name="study_hours" placeholder="e.g 2.3"/>
+                            <field name="study_hours" placeholder="Study Hours"/>
                             <field name="sequence" placeholder="e.g 1"/>
                         </group>
                         <group>
@@ -52,7 +52,7 @@
                     </group>
                     <group colspan="2">
                         <group>
-                            <field name="study_hours"/>
+                            <field name="study_hours" placeholder="Study Hours"/>
                             <field name="sequence"/>
                         </group>
                         <group>

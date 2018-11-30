@@ -74,3 +74,11 @@ class ProgramOldVersion(models.Model):
                 total_credit += int(courseline.course_id.credit_hours)
         return total_credit
 
+    # this computes the total credit of the certain semester under this program
+    # this method is called from the report template
+    def _compute_semester_total_credit(self, sem_id):
+        total_credit = 0
+        for courseline in self.courseline_ids:
+            if int(courseline.semester.id) == int(sem_id):
+                total_credit += int(courseline.course_id.credit_hours)
+        return total_credit

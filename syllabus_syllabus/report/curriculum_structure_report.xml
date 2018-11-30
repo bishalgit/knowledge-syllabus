@@ -56,11 +56,15 @@
                         </table>
                     </div>
                 </t>
+            </t>
+        </t>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <div style="margin-top: 1.5px; margin-right: 1px; margin-top: 1.5px; margin-bottom: 1px" class="page">
                         <p style="text-align: center;">
                             <strong>
-                                <span style="font-size: 16.0pt; line-height: normal; font-family: 'Times New Roman',serif;">
+                                <span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
                                     Pokhara University <br />
                                     <t t-esc="doc.short_form"/> Program <br />
                                     CURRICULAR STRUCTURE AND COURSE CYCLES
@@ -70,371 +74,105 @@
                         </p>
                         <table style="border: none; border-collapse: collapse; border: none; width: 100%">
                             <tbody>
-                                <tr>
-                                    <td style="border: 20px;">
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester I</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 1">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align:center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align:center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem1_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td style="border: 20px;">
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester II</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 2">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align:center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem2_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester III</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 3">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem3_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester IV</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 4">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem4_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester V</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 5">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem5_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester VI</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 6">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem6_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester VII</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 7">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem7_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
-                                            <tbody>
-                                                <tr style="border-top: 1px solid #ddd;">
-                                                    <th colspan="3" style="text-align: center;">Semester VIII</th>
-                                                </tr>
-                                                <tr style="border-bottom: 1px solid #ddd;">
-                                                    <th style="font-family: 'Times New Roman',serif;">Course Code</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:center;">Course Description</th>
-                                                    <th style="font-family: 'Times New Roman',serif; text-align:right;">Credit Hours</th>
-                                                </tr>
-                                                <t t-foreach="doc.courseline_ids" t-as="course">
-                                                    <tr>
-                                                        <t t-if="course.semester == 8">
-                                                            <td>
-                                                                <p style="text-align: justify; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.course_code"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style="font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.name"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <p style="text-align: center; line-height: normal;">
-                                                                    <span style=" font-family: 'Times New Roman',serif;">
-                                                                        <t t-esc="course.course_id.credit_hours"/>
-                                                                    </span>
-                                                                </p>
-                                                            </td>
-                                                        </t>
-                                                    </tr>
-                                                </t>
-                                                <tr>
-                                                    <th colspan="3"  style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: right;"><t t-esc="doc.total_sem8_cr_hr"/></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
+                                <t t-set="leftValue">
+                                    <p></p>
+                                </t>
+                                <t t-set="rightValue">
+                                    <p></p>
+                                </t>
+                                <t t-foreach="doc.semester_id" t-as="semester">
+                                    <!-- Check and assign corresponding column values -->
+                                    <t t-if="semester_even">
+                                        <t t-set="leftValue">
+                                            <t t-call="syllabus_syllabus.report_curricular_structure_section"/>
+                                        </t>
+                                    </t>
+
+                                    <t t-if="semester_odd">
+                                        <t t-set="rightValue">
+                                            <t t-call="syllabus_syllabus.report_curricular_structure_section"/>
+                                        </t>
+                                    </t>
+
+                                    <t t-if="semester_odd or semester_last">
+                                        <tr>
+                                            <!-- Render columns -->
+                                            <t t-raw="leftValue"/>
+                                            <t t-raw="rightValue"/>
+                                            
+                                            <!-- Reset left and right column values -->
+                                            <t t-set="leftValue">
+                                                <p></p>
+                                            </t>
+                                            <t t-set="rightValue">
+                                                <p></p>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </t>
                             </tbody>
                         </table>
                     </div>
                 </t>
             </t>
         </t>
+    </template>
+    <template id="report_curricular_structure_section">
+        <td width="50%" valign="top">
+            <table style="border: none; border-collapse: collapse; border: none; width:100%;">
+                <tbody>
+                    <tr style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                        <th colspan="3" style="padding: 5px 0px; text-align: center;">Semester <t t-esc="semester.name"/></th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <th width="25%" style="font-family: 'Times New Roman',serif; text-align:left;">Course Code</th>
+                        <th width="50%" style="font-family: 'Times New Roman',serif; text-align:left;">Course Description</th>
+                        <th width="25%" style="font-family: 'Times New Roman',serif; text-align:left;">Credit Hours</th>
+                    </tr>
+                    <t t-foreach="doc.courseline_ids" t-as="course">
+                        <t t-if="course.semester == semester">
+                            <tr>
+                                <td>
+                                    <p style="text-align:left; line-height: normal;">
+                                        <span style="font-family: 'Times New Roman',serif;">
+                                            <t t-esc="course.course_id.course_code"/>
+                                        </span>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p style="text-align:left; line-height: normal;">
+                                        <span style="font-family: 'Times New Roman',serif;">
+                                            <t t-esc="course.course_id.name"/>
+                                        </span>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p style="text-align:left; line-height: normal;">
+                                        <span style=" font-family: 'Times New Roman',serif;">
+                                            <t t-esc="course.course_id.credit_hours"/>
+                                            <t t-esc="i"/>
+                                        </span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                    <!-- 
+                        Check if the current semester index has left or right neighbor.
+                        Return content for the extra rows if necessary.
+                     -->
+                    <t t-if="not semester_last">
+                        <t t-raw="get_next_neighbor_size(doc, semester_index)"/>
+                    </t>
+                    <tr>
+                        <th style="border-top: 1px solid #ddd;"></th>
+                        <th style="border-top: 1px solid #ddd;"></th>
+                        <th style="border-top: 1px solid #ddd; text-align: left;">
+                            <t t-esc="doc._compute_semester_total_credit(semester.id)"/>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
     </template>
 </odoo>
