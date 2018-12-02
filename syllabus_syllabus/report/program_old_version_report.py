@@ -5,7 +5,7 @@ from odoo import api, models
 
 
 class CurricularStructureParser(models.AbstractModel):
-    _name = 'report.syllabus_syllabus.report_program_old_version_view'
+    _name = 'report.syllabus_syllabus.report_old_version_syllabus_view'
 
     def get_next_neighbor_size(self, obj, semester_index):
         if ((semester_index % 2) == 0):
@@ -45,11 +45,11 @@ class CurricularStructureParser(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
-        programs = self.env['syllabus_minister.program'].browse(docids)
+        old_programs = self.env['syllabus_minister.program_old_version'].browse(docids)
         return {
             'doc_ids': docids,
-            'doc_model': 'syllabus_minister.program',
+            'doc_model': 'syllabus_minister.program_old_version',
             'data': data,
-            'docs': programs,
+            'docs': old_programs,
             'get_next_neighbor_size': self.get_next_neighbor_size,
         }

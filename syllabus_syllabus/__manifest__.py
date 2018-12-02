@@ -36,7 +36,6 @@
         'report/report.xml',
         'report/curriculum_structure_report.xml',
         'report/program_old_version_report.xml',
-        'report/demo_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

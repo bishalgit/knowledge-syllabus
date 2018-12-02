@@ -19,6 +19,28 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="description"/>
+                        <field name="parent_type" />
+                        <field name="child_types" readonly="1" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="program_courseline_course_type_view_form" model="ir.ui.view">
+        <field name="name">course_type.form</field>
+        <field name="model">syllabus_minister.course_type</field>
+        <field name="arch" type="xml">
+            <form string="Course Type Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
                         <field name="parent_type" />
                         <field name="child_types" readonly="1" />
                     </group>
