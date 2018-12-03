@@ -1,16 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    
     <report
-        id="report_program_syllabus_demo"
+        id="report_program_curriculum"
         model="syllabus_minister.program"
-        string="Syllabus Demo Program Report"
-        name="syllabus_syllabus.report_program_syllabus_demo_view"
-        file="syllabus_syllabus.report_program_syllabus_demo_view"
-        report_type="qweb-html" />
-
-    <template id="report_program_syllabus_demo_view">
+        string="Curriculum Program Report"
+        name="syllabus_syllabus.report_program_curriculum_view"
+        file="syllabus_syllabus.report_program_curriculum"
+        report_type="qweb-pdf" />
+    
+    <template id="report_program_curriculum_view">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div style="margin-top: 1.5px; margin-right: 1px; margin-top: 1.5px; margin-bottom: 1px" class="page">
+                        <p>
+                            <strong>
+                                <span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif; text-transform: uppercase">CURRICULUM STRUCTURE OF <t t-esc="doc.name"/></span>
+                            </strong>
+					    </p>
+                        <table style="border: none; border-collapse: collapse; border: none; width: 100%">
+                            <tbody>
+                                <t t-foreach="doc.course_type_ids" t-as="course_type">
+                                    <tr>
+                                        <th colspan="2" style="font-size: 14.0pt; font-family: 'Times New Roman',serif;"><t t-esc="course_type.name"/></th>
+                                        <th style="text-align: right; font-size: 14.0pt; font-family: 'Times New Roman',serif;">(<t t-esc="doc._compute_course_types_total_credit(course_type.id)"/> Credit Hours)</th>
+                                    </tr>
+                                    <t t-foreach="doc.courseline_ids" t-as="courseline">
+                                        <t t-if="courseline.course_id.course_type == course_type">
+                                            <tr>
+                                                <td style="width: 20%;">
+                                                    <p style="text-align: justify; line-height: normal;">
+                                                        <span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
+                                                            <t t-esc="courseline.course_id.course_code"/>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                                <td style="width: 40%;">
+                                                    <p style="text-align: left; line-height: normal;">
+                                                        <span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
+                                                            <t t-esc="courseline.course_id.name"/>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                                <td style="width: 40%;">
+                                                    <p style="text-align: right; line-height: normal;">
+                                                        <span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
+                                                            <t t-esc="courseline.course_id.credit_hours"/>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
                 <t t-call="web.external_layout">
                     <div style="margin-top: 1.5px; margin-right: 1px; margin-top: 1.5px; margin-bottom: 1px" class="page">
                         <p style="text-align: center;">
@@ -127,4 +173,5 @@
             </table>
         </td>
     </template>
+
 </odoo>
