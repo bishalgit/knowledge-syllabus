@@ -21,7 +21,7 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
         'click .course': 'total_course',
         'click .faculty': 'total_faculty',
         'click .syllabus': 'total_syllabus',
-        'click .users': 'total_users',
+        // 'click .users': 'total_users',
 ////        'click .timesheets_to_approve': 'action_timesheets',
 ////        'click .job_applications': 'action_job_applications',
 ////        'click .leave_allocations': 'action_leave_allocations',
@@ -159,29 +159,29 @@ var SyllabusDashboard = Widget.extend(ControlPanelMixin, {
             target: 'current'
         },{on_reverse_breadcrumb: function(){ return self.reload();}})
     },
-    total_users: function(event) {
-        var self = this;
-        event.stopPropagation();
-        event.preventDefault();
-        return this.do_action({
-            name: _t("Users"),
-            type: 'ir.actions.act_window',
-            res_model: 'res.users',
-            // src_model: 'hr.employee',
-            view_mode: 'tree',
-            view_type: 'tree',
-            views: [[false, 'list']],
-            // context: {'search_default_employee_id': [self.employee_data.id],
-            //         'default_employee_id': self.employee_data.id,
-            //         'search_default_group_type': true,
-            //         'search_default_year': true
-            //         },
-            // domain: [['holiday_type','=','employee'], ['holiday_status_id.limit', '=', false], ['state','!=', 'refuse']],
-            // search_view_id: self.employee_data.leave_search_view_id,
-            target: 'current'
-        },{on_reverse_breadcrumb: function(){ return self.reload();}})
-//    // Function which gives random color for charts.
-    },
+//     total_users: function(event) {
+//         var self = this;
+//         event.stopPropagation();
+//         event.preventDefault();
+//         return this.do_action({
+//             name: _t("Users"),
+//             type: 'ir.actions.act_window',
+//             res_model: 'res.users',
+//             // src_model: 'hr.employee',
+//             view_mode: 'tree',
+//             view_type: 'tree',
+//             views: [[false, 'list']],
+//             // context: {'search_default_employee_id': [self.employee_data.id],
+//             //         'default_employee_id': self.employee_data.id,
+//             //         'search_default_group_type': true,
+//             //         'search_default_year': true
+//             //         },
+//             // domain: [['holiday_type','=','employee'], ['holiday_status_id.limit', '=', false], ['state','!=', 'refuse']],
+//             // search_view_id: self.employee_data.leave_search_view_id,
+//             target: 'current'
+//         },{on_reverse_breadcrumb: function(){ return self.reload();}})
+// //    // Function which gives random color for charts.
+//     },
     // getRandomColor: function () {
     //     var letters = '3456789ABC'.split('');
     //     var color = '#';

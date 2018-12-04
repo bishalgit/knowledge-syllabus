@@ -20,8 +20,8 @@ class SyllabusDashboard(models.Model):
         uid = request.session.uid
         cr = self.env.cr
 
+        users = self.env['res.users'].sudo().search([])
         faculties = self.env['syllabus_minister.faculty'].sudo().search([])
-        program = self.env['syllabus_minister.program'].sudo().search([])
         no_program = self.env['syllabus_minister.program'].sudo().search_count([])
         no_course = self.env['syllabus_minister.course'].sudo().search_count([])
         no_faculty = self.env['syllabus_minister.faculty'].sudo().search_count([])
@@ -41,13 +41,13 @@ class SyllabusDashboard(models.Model):
             program_list.append(program_count)
             syllabus_list.append(syllabus_count)
 
-        if program:
+        if users:
             data = {
                 'no_program': no_program,
                 'no_course': no_course,
                 'no_faculty': no_faculty,
                 'no_syllabus': no_syllabus,
-                'no_users': no_users,
+                # 'no_users': no_users,
                 'faculty_list': faculty_list,
                 'program_list': program_list,
                 'syllabus_list': syllabus_list,

@@ -13,7 +13,7 @@ class Course(models.Model):
     course_type = fields.Many2one('syllabus_minister.course_type',string='Course Type')
     course_description = fields.Html(string='Course Description')
     course_objectives = fields.Html(string='Course Objectives')
-    credit_hours = fields.Integer(string='Credit Hours')
+    credit_hours = fields.Float(string='Credit Hours')
     general_course_objectives = fields.Html(string='General Course Objectives')
     specific_course_objectives = fields.Html(string='Specific Course Objectives')
     course_content_areas = fields.Html(string='Course Content Areas')

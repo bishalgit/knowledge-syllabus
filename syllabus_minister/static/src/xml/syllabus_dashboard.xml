@@ -55,18 +55,6 @@
                   <i class="fa fa-chevron-right fa-2x more"></i>
                 </a><!--/dashboard-block1-->
               </div>
-              <div class="col-md-3 col-sm-6">
-                <a href="javascript:;" class="dashboard-block users">
-                  <div class="rotate">
-                    <i class="fa fa-fw fa-users"/>
-                  </div>
-                  <div class="details">
-                    <span class="title">Total No. of Users</span> <br/>
-                    <span class="sub"><t t-esc="widget.syllabus_data.no_users"/> </span>
-                  </div><!--/details-->
-                  <i class="fa fa-chevron-right fa-2x more"></i>
-                </a><!--/dashboard-block1-->
-              </div>
             </div>
           </div>
         </div>

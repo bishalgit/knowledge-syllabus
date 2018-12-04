@@ -23,7 +23,7 @@
 						</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.course_objectives"/>
 							</span>
 						</p>
@@ -35,7 +35,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.course_description"/>
 							</span>
 						</p>
@@ -47,7 +47,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.general_course_objectives"/>
 							</span>
 						</p>
@@ -59,7 +59,7 @@
 						</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.specific_course_objectives"/>
 							</span>
 						</p>
@@ -71,7 +71,7 @@
 						</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.course_outcomes"/>
 							</span>
 						</p>
@@ -83,7 +83,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.course_content_areas"/>
 							</span>
 						</p>
@@ -101,7 +101,7 @@
 										<td style="width: 80%;">
 											<p style="text-align: justify; line-height: normal;">
 												<strong>
-													<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
+													<span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
 														<t t-esc="unit.name"/>
 													</span>
 												</strong>
@@ -110,7 +110,7 @@
 										<td style="width: 20%;">
 											<p style="text-align: center; line-height: normal;">
 												<strong>
-													<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif;">
+													<span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">
 														<t t-esc="unit.study_hours"/> hours
 													</span>
 												</strong>
@@ -133,7 +133,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.course_content_nonunits"/>
 							</span>
 						</p>
@@ -145,7 +145,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.teaching_method"/>
 							</span>
 						</p>
@@ -157,7 +157,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.basic_text"/>
 							</span>
 						</p>
@@ -169,7 +169,7 @@
 							</strong>
 						</p>
 						<p style="text-align: justify;">
-							<span style="font-size: 14.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
+							<span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
 								<t t-raw="object.course_id.references"/>
 							</span>
 						</p>
