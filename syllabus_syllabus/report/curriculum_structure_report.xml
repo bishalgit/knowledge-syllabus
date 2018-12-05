@@ -163,9 +163,9 @@
                         <t t-raw="get_next_neighbor_size(doc, semester_index)"/>
                     </t>
                     <tr>
-                        <th style="border-top: 1px solid #ddd;"></th>
-                        <th style="border-top: 1px solid #ddd;"></th>
-                        <th style="border-top: 1px solid #ddd; text-align: left;">
+                        <th style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;"></th>
+                        <th style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;"></th>
+                        <th style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; border-bottom: 1px solid #ddd; text-align: left;">
                             <t t-esc="doc._compute_semester_total_credit(semester.id)"/>
                         </th>
                     </tr>

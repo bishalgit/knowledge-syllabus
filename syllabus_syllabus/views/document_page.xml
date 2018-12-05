@@ -15,6 +15,14 @@
                     <field string="Documents" name="doc_count" widget="statinfo"/>
                 </button>
             </div>
+            <field name="parent_id" postion="attributes">
+                <attribute name="options">
+                    {"no_create": True}
+                </attribute>
+                <attribute name="context">
+                    {'create': False, 'edit': False, 'delete': False}
+                </attribute>
+            </field>
             <field name="parent_id" position="after">
                 <field name="course_id"/>
                 <field name="faculty_id"/>
