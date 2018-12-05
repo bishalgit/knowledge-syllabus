@@ -181,4 +181,41 @@
             <page name="documents" position="replace"/>
         </field>
     </record>
+
+    <!-- wiki category tree view -->
+    <record id="view_category_tree_inherit" model="ir.ui.view">
+        <field name="name">document.page.category.tree</field>
+        <field name="model">document.page</field>
+        <field name="arch" type="xml">
+            <tree string="Syllabus Categories">
+                <field name="name"/>
+                <field name="approval_required"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Category action -->
+    <record id="category_action" model="ir.actions.act_window">
+        <field name="name">Syllabus Categories</field>
+        <field name="res_model">document.page</field>
+        <field name="domain">[('parent_id', '=', False), ('course_id', '=', False)]</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="document_page.view_category_form"/>
+    </record>
+
+    <record id="action_category_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_category_tree_inherit"/>
+        <field name="act_window_id" ref="category_action"/>
+    </record>
+
+    <record id="action_category_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_category_form_inherit"/>
+        <field name="act_window_id" ref="category_action"/>
+    </record>
+
 </odoo>

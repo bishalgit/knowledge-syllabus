@@ -11,6 +11,9 @@
         action="document_page_approval.action_change_requests"
         sequence="25"/>
 
+    <menuitem name="Syllabus Category" id="syllabus_category" parent="syllabus_minister.syllabus_minister_configuration_menu" action="category_action"/>
+
+
     <record model="ir.ui.menu" id="knowledge.menu_document_root">
       <field name="groups_id" eval="[(6, 0, [ref('syllabus_minister.syllabus_minister_group_administrator')])]"/>
     </record>
