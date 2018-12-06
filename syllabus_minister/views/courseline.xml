@@ -51,7 +51,7 @@
             <tree string="Courseline" editable="top">
                 <field name="sequence" widget="handle"/>
                 <field name="course_id"/>
-                <field name="semester"/>
+                <field name="semester" options='{"no_create": True}' context="{'create': False, 'edit': False, 'delete': False}"/>
                 <field name="issued_year"/>
                 <field name="syllabus_id" options='{"no_create": True}' context="{'create': False, 'edit': False, 'delete': False}"/>
             </tree>
