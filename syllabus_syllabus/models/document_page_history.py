@@ -16,11 +16,11 @@ class DocumentPageHistory(models.Model):
     # Groups Involved in Syllabus History
     group_ids = fields.Many2many('res.groups', string="Related Groups")
     
-    course_id = fields.Many2one('syllabus_minister.course', compute="_compute_course_id", string='Course', store=True)
+    course_id = fields.Many2one('syllabus_minister.course', string='Course', store=True)
 
-    def _compute_course_id(self):
-        for record in self:
-            record.course_id = record.page_id.course_id.id
+    # def _compute_course_id(self):
+    #     for record in self:
+    #         record.course_id = record.page_id.course_id.id
 
     @api.model
     def create(self, vals):

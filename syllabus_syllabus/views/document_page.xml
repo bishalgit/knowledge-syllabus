@@ -199,7 +199,7 @@
     <record id="category_action" model="ir.actions.act_window">
         <field name="name">Syllabus Categories</field>
         <field name="res_model">document.page</field>
-        <field name="domain">[('parent_id', '=', False), ('course_id', '=', False)]</field>
+        <field name="domain">[('type', '=', 'category')]</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="document_page.view_category_form"/>

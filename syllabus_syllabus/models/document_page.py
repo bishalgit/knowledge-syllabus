@@ -104,6 +104,7 @@ class DocumentPage(models.Model):
                     'syllabus_version': rec.latest_version,
                     'final_draft': rec.major_change,
                     'major_version': rec.major_version,
+                    'course_id': rec.course_id.id,
                 })
 
     # providing sql contraint for unqiue name of the syllabus objects
