@@ -12,7 +12,7 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
-                    <div style="margin-top: 0.98in; margin-right: 0.98in; margin-left: 0.98in; margin-bottom: 0.79in" class="page">
+                    <div style="margin-top: 0.6in; margin-right: 0.6in; margin-left: 0.6in; margin-bottom: 0.3in" class="page">
                         <p>
                             <strong>
                                 <span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif; text-transform: uppercase">CURRICULUM STRUCTURE OF <t t-esc="doc.name"/></span>
@@ -58,7 +58,7 @@
                     </div>
                 </t>
                 <t t-call="web.external_layout">
-                    <div style="margin-top: 0.98in; margin-right: 0.98in; margin-left: 0.98in; margin-bottom: 0.79in" class="page">
+                    <div style="margin-top: 0.6in; margin-right: 0.6in; margin-left: 0.6in; margin-bottom: 0.3in" class="page">
                         <p style="text-align: center;">
                             <strong>
                                 <span style="font-size: 16.0pt; line-height: 107%; font-family: 'Times New Roman',serif;">
