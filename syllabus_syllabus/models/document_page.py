@@ -121,19 +121,18 @@ class DocumentPage(models.Model):
     # check if the syllabus required watermark logo of the university
     require_watermark = fields.Boolean("Require Watermark of the University?", default=False)
 
-    @api.onchange('require_watermark')
-    def _toggle_watermark_bool(self):
+    @api.multi
+    def write(self, vals):
+        syllabus = super(DocumentPage, self).write(vals)
         universities = self.env['res.company'].search([])
-
-        for university in universities:
-            if self.require_watermark:
+        if "require_watermark" in vals:
+            for university in universities:
                 university.write({
-                    'require_watermark': True
+                    'require_watermark': vals['require_watermark']
                 })
-            else:
+        else:
+            for university in universities:
                 university.write({
-                    'require_watermark': False
+                    'require_watermark': self.require_watermark
                 })
-
-
-    
+        return syllabus
