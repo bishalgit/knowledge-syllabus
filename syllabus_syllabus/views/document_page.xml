@@ -99,6 +99,7 @@
                         <field name="final_draft" readonly="1" />
                         <field name="major_version" readonly="1" />
                         <field name="syllabus_version" invisible="1" />
+                        <field name="course_id"/>
                     </group>
                 </group>
             </field>

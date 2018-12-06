@@ -42,7 +42,7 @@ class Courseline(models.Model):
     @api.onchange('course_id')
     def _campus_onchange(self):
         res = {}
-        res['domain']={'syllabus_id':[('final_draft', '=', True)]}
+        res['domain']={'syllabus_id':[('final_draft', '=', True), ('course_id', '=', self.course_id.id)]}
         return res
 
     # @api.onchange('create_date')
