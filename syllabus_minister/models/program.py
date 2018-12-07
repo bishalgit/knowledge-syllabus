@@ -200,16 +200,17 @@ class Program(models.Model):
                                 'syllabus_id': courseline.syllabus_id.id,
                                 'issued_year': courseline.issued_year,
                                 'sequence': courseline.sequence,
-                                'related_faculty': courseline.related_faculty.id
+                                'related_faculty': courseline.related_faculty.id,
+                                'semester': courseline.semester.id,
                             }
                             self.env["syllabus_minister.courseline"].sudo().create(vals)
                         for coursetype in self.course_type_ids:
                             old_version.write({
                                 'course_type_ids': [(4, coursetype.id, 0)]
                             })
-                        for semester in self.semester_id:
+                        for sem in self.semester_id:
                             old_version.write({
-                                'semester_id': [(4, semester.id, 0)]
+                                'semester_id': [(4, sem.id, 0)]
                             })
         return program
     

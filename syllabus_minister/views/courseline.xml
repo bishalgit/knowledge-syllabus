@@ -58,7 +58,7 @@
         </field>
     </record>
 
-    <record id="courseline_view_kanban" model="ir.ui.view">
+    <!-- <record id="courseline_view_kanban" model="ir.ui.view">
         <field name="name">courseline.kanban</field>
         <field name="model">syllabus_minister.courseline</field>
         <field name="arch" type="xml">
@@ -74,7 +74,7 @@
                 </templates>
             </kanban>
         </field>
-    </record>
+    </record> -->
      <!-- window action -->
      <!--**
          The following tag is an action definition for a "window action",
@@ -84,7 +84,7 @@
         <field name="name">Courseline</field>
         <field name="res_model">syllabus_minister.courseline</field>
         <field name="view_type">form</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create Courseline

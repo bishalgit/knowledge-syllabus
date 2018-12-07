@@ -35,7 +35,7 @@ i.fa.fa-2x.fa-file-pdf-o {
     /*-webkit-font-smoothing:antialiased;*/
 }
 /*Dashboard head blocks*/
-.dashboard-block, .dashboard-block:hover, .dashboard-block:active, .dashboard-block:focus {
+.dashboard-block, .dashboard-block:active, .dashboard-block:focus {
     color: #606060;
     text-decoration: none;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);

@@ -26,7 +26,7 @@ class SyllabusDashboard(models.Model):
         no_course = self.env['syllabus_minister.course'].sudo().search_count([])
         no_faculty = self.env['syllabus_minister.faculty'].sudo().search_count([])
         no_syllabus = self.env['document.page'].sudo().search_count([])
-        no_users = self.env['res.users'].sudo().search_count([])
+        # no_users = self.env['res.users'].sudo().search_count([])
              
         faculty_list = []
         program_list = []
